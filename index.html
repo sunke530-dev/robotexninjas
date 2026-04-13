@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotex Ninjas · Team 276C · VEX IQ</title>
+<meta name="description" content="Robotex Ninjas — VEX IQ Team 276C from Frisco, TX. Back-to-back Region 5 Skills and Teamwork Champions.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --lb:#3AAFCF;--lb2:#2190B0;--lb3:#145F7A;
+    --lbfaint:#EAF7FC;--lbborder:#AADFF0;
+    --gold:#C49A28;--goldfaint:#FDF6E3;
+    --bg:#ffffff;--bg2:#f7f9fa;--bg3:#f0f4f6;
+    --text:#1a1a1a;--text2:#555;--text3:#888;
+    --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.18)
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg:#111518;--bg2:#181e22;--bg3:#1e262c;
+      --text:#f0f0f0;--text2:#aaa;--text3:#666;
+      --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.18);
+      --lbfaint:#0d2a35;--lbborder:#1a5a6e
+    }
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+
+  /* NAV */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:15px 40px;border-bottom:0.5px solid var(--border);
+    background:var(--bg);position:sticky;top:0;z-index:200
+  }
+  .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .nav-emblem{
+    width:36px;height:36px;border-radius:8px;
+    background:var(--lb3);display:flex;align-items:center;justify-content:center;flex-shrink:0
+  }
+  .nav-emblem svg{width:18px;height:18px;fill:white}
+  .nav-name{font-size:14px;font-weight:600;color:var(--text)}
+  .nav-num{font-size:11px;color:var(--lb2);font-weight:500;letter-spacing:0.06em}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .15s}
+  .nav-links a:hover{color:var(--lb2)}
+  .nav-cta{display:flex;gap:8px}
+  .btn-outline{font-size:12px;padding:6px 14px;border-radius:20px;border:0.5px solid var(--lbborder);color:var(--lb2);background:transparent;cursor:pointer;text-decoration:none}
+  .btn-outline:hover{background:var(--lbfaint)}
+  .btn-solid{font-size:12px;padding:6px 14px;border-radius:20px;border:none;color:white;background:var(--lb2);cursor:pointer;text-decoration:none;display:inline-block}
+  .btn-solid:hover{background:var(--lb3)}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+  .nav-toggle span{width:22px;height:2px;background:var(--text);border-radius:2px;display:block;transition:all .2s}
+  .mobile-menu{display:none;flex-direction:column;gap:0;border-top:0.5px solid var(--border);background:var(--bg)}
+  .mobile-menu a{padding:14px 40px;font-size:14px;color:var(--text2);text-decoration:none;border-bottom:0.5px solid var(--border)}
+  .mobile-menu a:hover{background:var(--bg2);color:var(--lb2)}
+  .mobile-menu.open{display:flex}
+
+  /* HERO */
+  .hero{
+    padding:90px 40px 72px;
+    background:var(--bg);
+    border-bottom:0.5px solid var(--border);
+    position:relative;overflow:hidden
+  }
+  .hero-geo{position:absolute;top:0;right:0;width:420px;height:100%;opacity:0.06;pointer-events:none}
+  .hero-inner{position:relative;z-index:1;max-width:660px}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:600;letter-spacing:0.1em;
+    color:var(--lb3);background:var(--lbfaint);
+    border:0.5px solid var(--lbborder);
+    padding:5px 14px;border-radius:20px;margin-bottom:24px;
+    text-transform:uppercase
+  }
+  .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--lb);display:inline-block}
+  h1.display{font-size:54px;font-weight:700;line-height:1.1;margin-bottom:18px;letter-spacing:-0.02em}
+  h1.display em{font-style:normal;color:var(--lb2)}
+  .hero-desc{font-size:17px;color:var(--text2);line-height:1.7;max-width:520px;margin-bottom:36px}
+  .hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .cta-primary{
+    padding:13px 30px;background:var(--lb2);color:white;
+    border:none;border-radius:8px;font-size:15px;font-weight:600;
+    cursor:pointer;text-decoration:none;display:inline-block
+  }
+  .cta-primary:hover{background:var(--lb3)}
+  .cta-secondary{
+    padding:13px 26px;background:transparent;color:var(--lb2);
+    border:0.5px solid var(--lbborder);border-radius:8px;
+    font-size:15px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block
+  }
+  .cta-secondary:hover{background:var(--lbfaint)}
+
+  /* STATS */
+  .stats-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-bottom:0.5px solid var(--border);
+    background:var(--bg2)
+  }
+  .stat-item{
+    padding:32px 24px;border-right:0.5px solid var(--border);text-align:center
+  }
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-size:40px;font-weight:700;color:var(--lb2);line-height:1;margin-bottom:6px}
+  .stat-label{font-size:12px;color:var(--text2);letter-spacing:0.04em}
+
+  /* SECTIONS */
+  .section{padding:80px 40px;border-bottom:0.5px solid var(--border)}
+  .section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:44px}
+  .section-label{
+    font-size:11px;font-weight:600;letter-spacing:0.1em;
+    color:var(--lb2);text-transform:uppercase;
+    border-left:2px solid var(--lb);padding-left:10px
+  }
+  .section-title{font-size:32px;font-weight:700}
+
+  /* TROPHIES */
+  .trophies-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1px;background:var(--border);
+    border:0.5px solid var(--border);border-radius:12px;overflow:hidden
+  }
+  .trophy-card{background:var(--bg);padding:28px 26px;position:relative}
+  .trophy-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--lb)
+  }
+  .trophy-year{
+    font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--lb2);font-weight:600;margin-bottom:12px
+  }
+  .trophy-icon-wrap{
+    width:44px;height:44px;border-radius:10px;
+    background:var(--goldfaint);display:flex;align-items:center;
+    justify-content:center;margin-bottom:16px;font-size:22px
+  }
+  .trophy-name{font-size:17px;font-weight:600;margin-bottom:8px}
+  .trophy-detail{font-size:13px;color:var(--text2);line-height:1.6}
+  .trophy-season{
+    display:inline-block;margin-top:14px;font-size:11px;
+    padding:3px 10px;background:var(--lbfaint);color:var(--lb3);
+    border-radius:20px;border:0.5px solid var(--lbborder)
+  }
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .member{
+    background:var(--bg);border:0.5px solid var(--border);
+    border-radius:12px;padding:26px;position:relative;overflow:hidden
+  }
+  .member-bar{width:100%;height:4px;background:var(--lb);border-radius:2px;margin-bottom:22px}
+  .member-init{
+    width:58px;height:58px;border-radius:50%;background:var(--lb3);color:white;
+    font-size:22px;font-weight:600;display:flex;align-items:center;
+    justify-content:center;margin-bottom:16px
+  }
+  .member-name{font-size:19px;font-weight:600;margin-bottom:6px}
+  .member-role{
+    display:inline-block;font-size:11px;padding:3px 10px;
+    background:var(--lbfaint);color:var(--lb3);
+    border-radius:20px;border:0.5px solid var(--lbborder);margin-bottom:14px
+  }
+  .member-bio{font-size:13px;color:var(--text2);line-height:1.6}
+  .member-placeholder{
+    border-style:dashed;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;min-height:210px
+  }
+  .member-placeholder-plus{font-size:30px;color:var(--lb2);margin-bottom:10px}
+  .member-placeholder-text{font-size:14px;font-weight:500;margin-bottom:6px}
+  .member-placeholder-sub{font-size:13px;color:var(--text2)}
+
+  /* MEDIA */
+  .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .media-card{background:var(--bg);border:0.5px solid var(--border);border-radius:12px;overflow:hidden}
+  .media-banner{
+    height:164px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:10px;position:relative
+  }
+  .media-banner-yt{background:#145F7A}
+  .media-banner-ig{background:#1a3a5c}
+  .media-platform-badge{
+    position:absolute;top:12px;left:12px;font-size:10px;
+    letter-spacing:0.08em;text-transform:uppercase;
+    color:white;background:rgba(0,0,0,0.35);padding:4px 10px;border-radius:20px
+  }
+  .media-play{
+    width:50px;height:50px;border-radius:50%;background:white;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;border:none;text-decoration:none
+  }
+  .media-play-tri{
+    width:0;height:0;border-top:9px solid transparent;
+    border-bottom:9px solid transparent;border-left:16px solid var(--lb2);margin-left:4px
+  }
+  .media-label{font-size:12px;color:rgba(255,255,255,0.7)}
+  .media-body{padding:20px 22px}
+  .media-channel{font-size:11px;color:var(--lb2);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px}
+  .media-title{font-size:16px;font-weight:600;margin-bottom:8px}
+  .media-desc{font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:16px}
+  .media-link{
+    display:inline-flex;align-items:center;gap:6px;font-size:13px;
+    color:var(--lb2);text-decoration:none;border-bottom:1px solid var(--lbborder)
+  }
+  .media-link:hover{color:var(--lb3)}
+
+  /* BLOG */
+  .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .post{background:var(--bg);border:0.5px solid var(--border);border-radius:12px;padding:26px}
+  .post-meta{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .post-tag{
+    font-size:10px;padding:3px 10px;border-radius:20px;
+    background:var(--lbfaint);color:var(--lb3);
+    border:0.5px solid var(--lbborder);font-weight:600;
+    letter-spacing:0.06em;text-transform:uppercase
+  }
+  .post-date{font-size:12px;color:var(--text2)}
+  .post-title{font-size:17px;font-weight:600;margin-bottom:10px;line-height:1.3}
+  .post-body{font-size:13px;color:var(--text2);line-height:1.6}
+  .post-soon{
+    border-style:dashed;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;min-height:160px;text-align:center
+  }
+  .post-soon p{font-size:14px;color:var(--text2)}
+  .post-soon span{font-size:12px;color:var(--text3);margin-top:6px;display:block}
+
+  /* CONTACT */
+  .contact-layout{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start}
+  .contact-info-title{font-size:22px;font-weight:600;margin-bottom:12px}
+  .contact-info-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:24px}
+  .contact-links{display:flex;flex-direction:column;gap:10px}
+  .contact-link{
+    display:flex;align-items:center;gap:12px;padding:13px 16px;
+    border-radius:8px;border:0.5px solid var(--border);
+    text-decoration:none;color:var(--text);transition:background .15s
+  }
+  .contact-link:hover{background:var(--lbfaint)}
+  .contact-link-icon{
+    width:30px;height:30px;border-radius:6px;background:var(--lb2);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0
+  }
+  .contact-link-icon svg{width:14px;height:14px;fill:white}
+  .contact-link-text{font-size:13px;font-weight:600}
+  .contact-link-sub{font-size:11px;color:var(--text2)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .form-row{margin-bottom:14px}
+  .form-label{
+    font-size:11px;font-weight:600;color:var(--text2);
+    display:block;margin-bottom:6px;letter-spacing:0.06em;text-transform:uppercase
+  }
+  input,textarea{
+    width:100%;padding:10px 14px;font-size:14px;
+    border:0.5px solid var(--border2);border-radius:8px;
+    background:var(--bg2);color:var(--text);
+    font-family:inherit;transition:border-color .15s
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--lb);box-shadow:0 0 0 3px rgba(58,175,207,0.12)}
+  textarea{height:120px;resize:vertical}
+  .submit-btn{
+    width:100%;padding:13px;background:var(--lb2);color:white;
+    border:none;border-radius:8px;font-size:15px;font-weight:600;
+    cursor:pointer;font-family:inherit;transition:background .15s
+  }
+  .submit-btn:hover{background:var(--lb3)}
+  .form-success{
+    display:none;margin-top:12px;padding:13px 16px;
+    background:var(--lbfaint);border:0.5px solid var(--lbborder);
+    border-radius:8px;font-size:14px;color:var(--lb3)
+  }
+
+  /* FOOTER */
+  .footer{
+    padding:40px;display:flex;justify-content:space-between;
+    align-items:center;flex-wrap:wrap;gap:16px;
+    background:var(--bg2);border-top:0.5px solid var(--border)
+  }
+  .footer-brand{font-size:15px;font-weight:600}
+  .footer-sub{font-size:12px;color:var(--text2);margin-top:3px}
+  .footer-links{display:flex;gap:24px}
+  .footer-links a{font-size:13px;color:var(--lb2);text-decoration:none}
+  .footer-links a:hover{text-decoration:underline}
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .nav-links,.nav-cta{display:none}
+    .nav-toggle{display:flex}
+    h1.display{font-size:36px}
+    .stats-strip{grid-template-columns:repeat(2,1fr)}
+    .contact-layout{grid-template-columns:1fr}
+    .form-grid{grid-template-columns:1fr}
+    .section{padding:56px 24px}
+    .hero{padding:60px 24px 52px}
+    .nav{padding:14px 24px}
+    .footer{padding:28px 24px}
+  }
+  @media(max-width:480px){
+    h1.display{font-size:30px}
+    .stat-num{font-size:30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-brand" href="#">
+    <div class="nav-emblem">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7v5c0 5.25 4.3 10.15 10 11.35C17.7 22.15 22 17.25 22 12V7L12 2zm0 2.2l8 4.27V12c0 4.34-3.54 8.45-8 9.6-4.46-1.15-8-5.26-8-9.6V8.47L12 4.2z"/></svg>
+    </div>
+    <div>
+      <div class="nav-name">Robotex Ninjas</div>
+      <div class="nav-num">VEX IQ · 276C</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#achievements">achievements</a>
+    <a href="#team">team</a>
+    <a href="#media">media</a>
+    <a href="#updates">updates</a>
+    <a href="#contact">contact</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn-outline" href="https://www.instagram.com/robotexninjas" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn-solid" href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener">YouTube</a>
+  </div>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#achievements" onclick="closeMenu()">achievements</a>
+  <a href="#team" onclick="closeMenu()">team</a>
+  <a href="#media" onclick="closeMenu()">media</a>
+  <a href="#updates" onclick="closeMenu()">updates</a>
+  <a href="#contact" onclick="closeMenu()">contact</a>
+  <a href="https://www.instagram.com/robotexninjas" target="_blank" rel="noopener">Instagram ↗</a>
+  <a href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener">YouTube ↗</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-geo" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="320" cy="80" r="180" stroke="#3AAFCF" stroke-width="1"/>
+    <circle cx="320" cy="80" r="130" stroke="#3AAFCF" stroke-width="1"/>
+    <circle cx="320" cy="80" r="80" stroke="#3AAFCF" stroke-width="1"/>
+    <line x1="140" y1="80" x2="500" y2="80" stroke="#3AAFCF" stroke-width="0.5"/>
+    <line x1="320" y1="-100" x2="320" y2="260" stroke="#3AAFCF" stroke-width="0.5"/>
+    <line x1="193" y1="-27" x2="447" y2="187" stroke="#3AAFCF" stroke-width="0.5"/>
+    <line x1="193" y1="187" x2="447" y2="-27" stroke="#3AAFCF" stroke-width="0.5"/>
+    <polygon points="320,280 380,380 260,380" stroke="#3AAFCF" stroke-width="0.8" fill="none"/>
+    <polygon points="320,300 370,390 270,390" stroke="#3AAFCF" stroke-width="0.5" fill="none"/>
+    <rect x="60" y="320" width="60" height="60" stroke="#3AAFCF" stroke-width="0.5" fill="none" transform="rotate(15 90 350)"/>
+    <rect x="68" y="328" width="44" height="44" stroke="#3AAFCF" stroke-width="0.5" fill="none" transform="rotate(15 90 350)"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="hero-dot"></span>Team 276C &middot; Frisco, Texas &middot; Region 5</div>
+    <h1 class="display">We are the<br><em>Robotex Ninjas</em></h1>
+    <p class="hero-desc">Middle school robotics competitors from Frisco, TX &mdash; back-to-back Region 5 champions in Skills and Teamwork, two seasons running.</p>
+    <div class="hero-actions">
+      <a class="cta-primary" href="#achievements">Our achievements</a>
+      <a class="cta-secondary" href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener">Watch us compete &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><div class="stat-num" id="s1">0</div><div class="stat-label">Seasons competing</div></div>
+  <div class="stat-item"><div class="stat-num" id="s2">0</div><div class="stat-label">Regional championships</div></div>
+  <div class="stat-item"><div class="stat-num" id="s3">0</div><div class="stat-label">Skills titles</div></div>
+  <div class="stat-item"><div class="stat-num" id="s4">0</div><div class="stat-label">Teamwork titles</div></div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<section class="section" id="achievements">
+  <div class="section-header">
+    <span class="section-label">honors</span>
+    <h2 class="section-title">Achievements</h2>
+  </div>
+  <div class="trophies-grid">
+    <div class="trophy-card">
+      <div class="trophy-year">2024&ndash;2025 &middot; Rapid Relay</div>
+      <div class="trophy-icon-wrap">&#127942;</div>
+      <div class="trophy-name">Region 5 Skills Champion</div>
+      <p class="trophy-detail">Top skills score across all teams in VEX IQ Region 5 &mdash; robot and programming challenge combined.</p>
+      <span class="trophy-season">Season 1</span>
+    </div>
+    <div class="trophy-card">
+      <div class="trophy-year">2024&ndash;2025 &middot; Rapid Relay</div>
+      <div class="trophy-icon-wrap">&#129351;</div>
+      <div class="trophy-name">Region 5 Teamwork Champion</div>
+      <p class="trophy-detail">Highest teamwork match score in Region 5, competing in alliance with partner teams.</p>
+      <span class="trophy-season">Season 1</span>
+    </div>
+    <div class="trophy-card">
+      <div class="trophy-year">2025&ndash;2026 &middot; Mix &amp; Match</div>
+      <div class="trophy-icon-wrap">&#127942;</div>
+      <div class="trophy-name">Region 5 Skills Champion</div>
+      <p class="trophy-detail">Defended the title &mdash; Region 5 Skills Champions for the second consecutive season.</p>
+      <span class="trophy-season">Season 2</span>
+    </div>
+    <div class="trophy-card">
+      <div class="trophy-year">2025&ndash;2026 &middot; Mix &amp; Match</div>
+      <div class="trophy-icon-wrap">&#129351;</div>
+      <div class="trophy-name">Region 5 Teamwork Champion</div>
+      <p class="trophy-detail">Back-to-back Teamwork Champions, proving consistent excellence across two full seasons.</p>
+      <span class="trophy-season">Season 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" id="team">
+  <div class="section-header">
+    <span class="section-label">the crew</span>
+    <h2 class="section-title">Meet the team</h2>
+  </div>
+  <div class="team-grid">
+    <div class="member">
+      <div class="member-bar"></div>
+      <div class="member-init">C</div>
+      <div class="member-name">Charlie</div>
+      <span class="member-role">Builder</span>
+      <p class="member-bio">6th grade &middot; Cobb Middle School. Loves building VEX, rock climbing, and tennis. In his second year with the Ninjas.</p>
+    </div>
+    <div class="member">
+      <div class="member-bar"></div>
+      <div class="member-init">P</div>
+      <div class="member-name">Preston</div>
+      <span class="member-role">Team member</span>
+      <p class="member-bio">6th grade &middot; Vandeventer Middle School. Passionate about robotics, Lego, soccer, and puzzles.</p>
+    </div>
+    <div class="member">
+      <div class="member-bar"></div>
+      <div class="member-init">L</div>
+      <div class="member-name">Luke</div>
+      <span class="member-role">Team member</span>
+      <p class="member-bio">6th grade &middot; Robinson Middle School. Hobbies include VEX, tennis, and playing guitar.</p>
+    </div>
+    <div class="member member-placeholder">
+      <div class="member-placeholder-plus">+</div>
+      <div class="member-placeholder-text">Your name here</div>
+      <div class="member-placeholder-sub">Send us your bio and role to be added to the roster.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section class="section" id="media">
+  <div class="section-header">
+    <span class="section-label">robot &amp; media</span>
+    <h2 class="section-title">See us in action</h2>
+  </div>
+  <div class="media-grid">
+    <div class="media-card">
+      <div class="media-banner media-banner-yt">
+        <div class="media-platform-badge">YouTube</div>
+        <a class="media-play" href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+          <div class="media-play-tri"></div>
+        </a>
+        <div class="media-label">@robotex_ninjas</div>
+      </div>
+      <div class="media-body">
+        <div class="media-channel">YouTube</div>
+        <div class="media-title">Robot reveals &amp; competition footage</div>
+        <p class="media-desc">Watch our robot builds, match footage, and competition highlights from both seasons.</p>
+        <a class="media-link" href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener">youtube.com/@robotex_ninjas &#8599;</a>
+      </div>
+    </div>
+    <div class="media-card">
+      <div class="media-banner media-banner-ig">
+        <div class="media-platform-badge">Instagram</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="width:50px;height:50px;border-radius:12px;border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="media-label">@robotexninjas</div>
+        </div>
+      </div>
+      <div class="media-body">
+        <div class="media-channel">Instagram</div>
+        <div class="media-title">Behind the scenes &amp; event days</div>
+        <p class="media-desc">Build progress, competition photos, team moments, and season updates &mdash; follow along.</p>
+        <a class="media-link" href="https://www.instagram.com/robotexninjas" target="_blank" rel="noopener">instagram.com/robotexninjas &#8599;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section class="section" id="updates">
+  <div class="section-header">
+    <span class="section-label">news</span>
+    <h2 class="section-title">Team updates</h2>
+  </div>
+  <div class="blog-grid">
+    <div class="post">
+      <div class="post-meta">
+        <span class="post-tag">Achievement</span>
+        <span class="post-date">2025&ndash;2026 season</span>
+      </div>
+      <div class="post-title">Back-to-back Region 5 champions</div>
+      <p class="post-body">Team 276C defended both titles in the Mix &amp; Match season &mdash; Region 5 Skills and Teamwork Champions for the second year in a row. An incredible run of consistency.</p>
+    </div>
+    <div class="post">
+      <div class="post-meta">
+        <span class="post-tag">Achievement</span>
+        <span class="post-date">2024&ndash;2025 season</span>
+      </div>
+      <div class="post-title">First title &mdash; double champions in Rapid Relay</div>
+      <p class="post-body">A landmark season. The Robotex Ninjas claimed both the Skills and Teamwork championship at Region 5, setting the foundation for what would become a dynasty.</p>
+    </div>
+    <div class="post post-soon">
+      <p>More posts coming soon</p>
+      <span>Follow our Instagram &amp; YouTube for real-time updates</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-header">
+    <span class="section-label">reach out</span>
+    <h2 class="section-title">Contact us</h2>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="contact-info-title">Get in touch</div>
+      <p class="contact-info-desc">Questions about the team, sponsorship inquiries, or just want to connect? We&rsquo;d love to hear from you.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="https://www.instagram.com/robotexninjas" target="_blank" rel="noopener">
+          <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+          <div><div class="contact-link-text">Instagram</div><div class="contact-link-sub">@robotexninjas</div></div>
+        </a>
+        <a class="contact-link" href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener">
+          <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></div>
+          <div><div class="contact-link-text">YouTube</div><div class="contact-link-sub">@robotex_ninjas</div></div>
+        </a>
+        <a class="contact-link" href="https://www.robotevents.com/teams/VIQRC/276C" target="_blank" rel="noopener">
+          <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+          <div><div class="contact-link-text">RobotEvents</div><div class="contact-link-sub">Team 276C official profile</div></div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="form-grid">
+        <div><label class="form-label">Name</label><input type="text" placeholder="Your name" id="fn"/></div>
+        <div><label class="form-label">Email</label><input type="email" placeholder="you@example.com" id="fe"/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Subject</label><input type="text" placeholder="e.g. Sponsorship inquiry" id="fs"/></div>
+      <div class="form-row"><label class="form-label">Message</label><textarea id="fm" placeholder="Tell us what's on your mind&hellip;"></textarea></div>
+      <button class="submit-btn" onclick="sendForm()">Send message</button>
+      <div class="form-success" id="fsuccess">&#10003; Message sent! We&rsquo;ll get back to you soon.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="footer-brand">Robotex Ninjas &middot; Team 276C</div>
+    <div class="footer-sub">Frisco, Texas &middot; VEX IQ Region 5 &middot; 2024&ndash;2026</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/robotexninjas" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@robotex_ninjas" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.robotevents.com/teams/VIQRC/276C" target="_blank" rel="noopener">RobotEvents</a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+function animCount(id,target,dur){
+  var el=document.getElementById(id);
+  var start=null;
+  function step(ts){
+    if(!start)start=ts;
+    var p=Math.min((ts-start)/dur,1);
+    el.textContent=Math.round(p*target);
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=target;
+  }
+  requestAnimationFrame(step);
+}
+
+function sendForm(){
+  var fn=document.getElementById('fn').value.trim();
+  var fe=document.getElementById('fe').value.trim();
+  var fm=document.getElementById('fm').value.trim();
+  if(!fn||!fe||!fm){alert('Please fill in your name, email, and message.');return;}
+  document.getElementById('fsuccess').style.display='block';
+  ['fn','fe','fs','fm'].forEach(function(id){document.getElementById(id).value='';});
+}
+
+function onVisible(id,cb){
+  var el=document.getElementById(id);
+  if(!el)return;
+  var obs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){cb();obs.disconnect();}
+  },{threshold:0.3});
+  obs.observe(el);
+}
+
+onVisible('s1',function(){
+  animCount('s1',2,800);
+  animCount('s2',4,900);
+  animCount('s3',2,800);
+  animCount('s4',2,800);
+});
+</script>
+</body>
+</html>
