@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Get Involved — Ninjas STEM Foundation</title>
+<meta name="description" content="Ninjas STEM Foundation (NSF) — Empowering the next generation through robotics, AI, and STEM education. Frisco, TX.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="logo.png" alt="Ninjas STEM Foundation"></a>
+  <div class="nav-links">
+    <a href="ninjasstemfoundation.html">Home</a>
+    <a href="foundation-about.html">About</a>
+    <a href="foundation-programs.html">Programs</a>
+    <a href="foundation-impact.html">Impact</a>
+    <a href="foundation-get-involved.html" class="active">Get Involved</a>
+    <a href="foundation-governance.html">Governance</a>
+    <a href="foundation-contact.html">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn-outline" href="foundation-get-involved.html">Join Us</a>
+    <a class="btn-fill" href="foundation-contact.html">Partner With Us</a>
+  </div>
+  <button class="hamburger" id="hbg" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-controls="mm" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mm">
+  <a href="ninjasstemfoundation.html" onclick="closeMenu()">Home</a>
+  <a href="foundation-about.html" onclick="closeMenu()">About</a>
+  <a href="foundation-programs.html" onclick="closeMenu()">Programs</a>
+  <a href="foundation-impact.html" onclick="closeMenu()">Impact</a>
+  <a href="foundation-get-involved.html" class="active" onclick="closeMenu()">Get Involved</a>
+  <a href="foundation-governance.html" onclick="closeMenu()">Governance</a>
+  <a href="foundation-contact.html" onclick="closeMenu()">Contact</a>
+</div>
+<div class="sec-full" id="involve">
+  <div class="sec" style="padding-top:0;padding-bottom:0;">
+    <div class="sec-hd">
+      <div class="sec-eyebrow red">Join the Foundation</div>
+      <h2 class="sec-title">Get <span>Involved</span></h2>
+      <p class="sec-desc">There is a place for everyone in the Ninjas STEM Foundation &mdash; whether you are a student, a parent, an educator, or a business.</p>
+    </div>
+    <div class="involve-tabs">
+      <button class="involve-tab-btn active" id="involve-tab-ways" onclick="showInvolveTab('ways')">Ways to Get Involved</button>
+      <button class="involve-tab-btn" id="involve-tab-openings" onclick="showInvolveTab('openings')">Current Participation Opportunities</button>
+    </div>
+    <div id="involve-panel-ways">
+    <div class="involve-grid">
+      <div class="involve-card">
+        <div class="involve-icon">&#10084;&#65039;</div>
+        <div class="involve-title">Donate</div>
+        <p class="involve-desc">Make a tax-deductible gift that directly funds robotics equipment, competition fees, learning materials, and community STEM programs. As a registered 501(c)(3), your contribution is tax-deductible to the extent allowed by law &mdash; one-time or monthly.</p>
+        <a class="involve-btn red" href="https://givebutter.com/YOUR-CAMPAIGN" target="_blank" rel="noopener">Donate via Givebutter &rarr;</a>
+      </div>
+      <div class="involve-card">
+        <div class="involve-icon">&#129302;</div>
+        <div class="involve-title">Join a Team</div>
+        <p class="involve-desc">Students in Grades 5&ndash;8 looking to compete, build, code, or contribute to a championship robotics team. Multiple roles available beyond driving.</p>
+        <a class="involve-btn red" href="index.html#who">Meet the Team &rarr;</a>
+      </div>
+      <div class="involve-card">
+        <div class="involve-icon">&#128106;</div>
+        <div class="involve-title">Volunteer</div>
+        <p class="involve-desc">Parents, mentors, and educators who want to support events, coach, chaperone competitions, or help run outreach programs in the community.</p>
+        <a class="involve-btn navy" href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Volunteering%20%28non-mentoring%29#contact">Get in Touch &rarr;</a>
+      </div>
+      <div class="involve-card">
+        <div class="involve-icon">&#127981;</div>
+        <div class="involve-title">Partner</div>
+        <p class="involve-desc">Schools, organizations, and community groups interested in hosting workshops, co-running STEM events, or building a long-term STEM partnership.</p>
+        <a class="involve-btn blue" href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=School%20%2F%20organization%20partnership#contact">Start a Conversation &rarr;</a>
+      </div>
+      <div class="involve-card">
+        <div class="involve-icon">&#128176;</div>
+        <div class="involve-title">Sponsor</div>
+        <p class="involve-desc">Companies and individuals who want to invest in the next generation of engineers, coders, and innovators. Sponsors help support shared educational equipment, learning materials, mentoring, and community programs. Contact us to discuss current needs and available recognition arrangements.</p>
+        <a class="involve-btn outline" href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Sponsorship#contact">Sponsorship Inquiry &rarr;</a>
+      </div>
+    </div>
+    </div>
+    <div id="involve-panel-openings" style="display:none;">
+      <div class="impact-event-card" style="max-width:760px;margin:0 auto;">
+        <div class="impact-event-top">
+          <div class="impact-event-title">Competitive Program: V5RC Team 91276C</div>
+          <div class="impact-event-meta">Recruitment Status: Accepting Inquiries for Identified Roles</div>
+        </div>
+        <div class="impact-event-body">
+          <div class="impact-field"><div class="impact-field-label">Eligibility and Preparation</div><div class="impact-field-text">Grades 5&ndash;8, consistent with our current roster. Prior robotics or VEX experience is helpful but not required. Specific roles carry their own expectations &mdash; for example, driving positions call for demonstrated practice time and reliable attendance, while build, CAD, and coding roles call for relevant hands-on or software interest and follow-through.</div></div>
+          <div class="impact-field"><div class="impact-field-label">Commitment</div><div class="impact-field-text">Weekly team practices during the season, with additional practice time in the weeks ahead of competitions. Once a role is confirmed, members are expected to attend consistently and communicate ahead of any planned absence.</div></div>
+          <div class="impact-field"><div class="impact-field-label">Review Process</div><div class="impact-field-text">Inquiries are reviewed by the coach and current team leadership on a rolling basis. A resume or activity summary (CV) is welcome but not required. Candidates who look like a possible fit are invited to a tryout, and we follow up directly by email either way.</div></div>
+          <div class="impact-field"><div class="impact-field-label">Program Costs</div><div class="impact-field-text">A tryout is encouraged before costs are discussed. Based on tryout performance and fit, the coach will make a recommendation on team placement and any associated costs.</div></div>
+        </div>
+      </div>
+      <div class="opp-updated">Last updated: September 21, 2026</div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Ninjas <span>STEM</span> Foundation</div>
+      <div class="footer-brand-sub">NSF &bull; Est. 2026 &bull; Frisco, Texas</div>
+      <div style="margin-top:10px;font-family:var(--cond);font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.4);">501(c)(3) Public Charity &bull; EIN 42-2658141</div>
+      <div style="margin-top:6px;font-size:11px;line-height:1.5;color:rgba(255,255,255,.32);max-width:280px;">Ninjas STEM Foundation is a registered 501(c)(3) nonprofit organization. Contributions are tax-deductible to the extent allowed by law.</div>
+      <div style="margin-top:12px;font-family:var(--cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);">From Curiosity to Creation</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Foundation</div>
+      <div class="footer-links">
+        <a href="foundation-about.html#mission">Our Mission</a>
+        <a href="foundation-programs.html#programs">Programs</a>
+        
+        <a href="foundation-impact.html#outreach">Impact</a>
+        <a href="foundation-impact.html#community-impact">Community Impact</a>
+        <a href="foundation-governance.html#governance">Governance &amp; Transparency</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Get Involved</div>
+      <div class="footer-links">
+        <a href="https://givebutter.com/YOUR-CAMPAIGN" target="_blank" rel="noopener">Donate</a>
+        <a href="#involve">Join a Team</a>
+        <a href="#involve">Volunteer</a>
+        <a href="#involve">Partner</a>
+        <a href="#involve">Sponsor</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Teams</div>
+      <div class="footer-links">
+        <a href="https://sunke530-dev.github.io/robotexninjas/">Robotex Ninjas 276C</a>
+        <a href="https://sunke530-dev.github.io/robotexninjas/">V5RC Team 91276C</a>
+        <a href="index.html#outreach">Outreach Programs</a>
+        <a href="mailto:robotexninjas@gmail.com">robotexninjas@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Ninjas STEM Foundation. All rights reserved.</div>
+    <div class="footer-tagline">Curiosity &bull; Learn &bull; Build &bull; <span>Inspire</span></div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
