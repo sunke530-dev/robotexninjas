@@ -17,7 +17,7 @@ export async function renderPackage(p){
       if(bytes.subarray(0,5).toString()!=='%PDF-') throw Error('Not a PDF: '+d.file);
       links='<a href="'+esc(d.file)+'" target="_blank" rel="noopener" aria-label="View '+esc(d.title)+' PDF (opens in a new tab)">View PDF <span aria-hidden="true">↗</span></a><a href="'+esc(d.file)+'" download aria-label="Download '+esc(d.title)+' PDF">Download PDF <span aria-hidden="true">↓</span></a>';
     }
-    return '<li class="dp-document"><div><h5>'+esc(d.title)+'</h5><p>'+esc(d.description)+'</p>'+(metadata(d)?'<div class="dp-metadata">'+metadata(d)+'</div>':'')+'</div><div class="dp-links">'+links+'</div></li>';
+    return '<li class="dp-document"'+(d.entryId && d.entryId!==p.entryId?' id="'+esc(d.entryId)+'"':'')+'><div><h5>'+esc(d.title)+'</h5><p>'+esc(d.description)+'</p><p class="dp-document-status"><strong>Adoption:</strong> '+esc(d.adoption||p.adoption||'Not verified')+'</p>'+(metadata(d)?'<div class="dp-metadata">'+metadata(d)+'</div>':'')+'</div><div class="dp-links">'+links+'</div></li>';
   }));
   if(p.action && !localPath(p.action.href)) throw Error('Invalid contact link');
   const related=(p.related||[]).map(d=>'<li>'+(d.file && d.publishedVerified===true && localPath(d.file)?'<a href="'+esc(d.file)+'">'+esc(d.title)+'</a>':esc(d.title)+' <span>— '+esc(d.publication||'Not published on this site')+'</span>')+'</li>').join('');

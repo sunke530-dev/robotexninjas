@@ -37,3 +37,5 @@
 .document-package a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 @media(max-width:800px){.dp-document{grid-template-columns:1fr;gap:12px}}
 @media(max-width:650px){.document-package>summary{padding:18px;gap:14px}.document-package h4{font-size:23px}.dp-body{padding:18px}.dp-status{flex-direction:column;gap:8px}.dp-status>div{flex-wrap:wrap}.dp-action{width:100%}.dp-related{padding:15px}.gl-package-entry{padding:18px 0}}
+
+.dp-document{scroll-margin-top:92px}.document-package .dp-document-status{font-size:13px;color:var(--navy);margin-top:9px}.dp-document-status strong{font-weight:600}.dp-summary-status{overflow-wrap:anywhere}

@@ -6,8 +6,8 @@
       "categoryId": "category-community-operations",
       "title": "Robotics Team Mentorship Program",
       "description": "NSF provides structured, student-centered mentorship to developing robotics teams. Our mentorship program helps students strengthen their engineering, programming, testing, documentation, and teamwork skills while maintaining responsibility for their own competition work.",
-      "adoption": "Not verified",
-      "note": "These documents are available for reference and planning. Board approval and an operative effective date have not been verified. Completed forms should be sent privately to NSF and must not be posted publicly.",
+      "adoption": "Under Board review — not yet adopted",
+      "note": "This package is under Board review and has not been adopted. The public PDFs are available for review and planning; publication does not make them operative. Completed forms should be sent privately to NSF and must not be posted publicly.",
       "action": {
         "title": "Request Robotics Team Mentorship",
         "href": "foundation-contact.html?topic=Mentorship#contact"
@@ -41,15 +41,110 @@
       "related": [
         {
           "title": "Youth Protection & Safety Policy",
-          "publication": "Not published on this site"
+          "file": "docs/student-safety/youth-protection-safety-policy.pdf",
+          "publishedVerified": true
         },
         {
           "title": "Code of Conduct",
-          "publication": "Not published on this site"
+          "file": "docs/student-safety/code-of-conduct.pdf",
+          "publishedVerified": true
         }
       ],
       "relatedTitle": "Related safety policies",
-      "relatedDescription": "Listed under Student Participation & Youth Safety. Document links become available once published."
+      "relatedDescription": "Related public review drafts under Student Participation & Youth Safety. These policies have not yet been adopted."
+    },
+    {
+      "id": "student-participation-youth-safety",
+      "entryId": "doc-student-participation",
+      "categoryId": "category-student-safety",
+      "title": "Student Participation & Youth Safety Policies",
+      "description": "Proposed standards for student participation, safeguarding, conduct, fair access, and optional media permissions.",
+      "adoption": "Under Board review — not yet adopted",
+      "note": "These policy drafts are under Board review and have not been adopted. Public availability is for transparency and review; no operative effective date or Board approval is asserted.",
+      "action": {
+        "title": "Ask about these policies",
+        "href": "foundation-contact.html?topic=General%20Inquiry#contact"
+      },
+      "documents": [
+        {
+          "title": "Student Recruitment, Admission & Renewal Policy",
+          "description": "Recruitment, admission, evaluation, renewal, withdrawal, and participation decisions.",
+          "entryId": "doc-student-participation",
+          "file": "docs/student-safety/student-recruitment-admission-renewal-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Youth Protection & Safety Policy",
+          "description": "Safeguarding, supervision, workshop safety, emergency response, and reporting concerns.",
+          "entryId": "doc-youth-protection",
+          "file": "docs/student-safety/youth-protection-safety-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Code of Conduct",
+          "description": "Conduct expectations for students, families, directors, coaches, mentors, and volunteers.",
+          "entryId": "doc-conduct",
+          "file": "docs/student-safety/code-of-conduct.pdf",
+          "public": true
+        },
+        {
+          "title": "Non-Discrimination & Equal Opportunity Statement",
+          "description": "Fair access, educational eligibility, accessibility, and equal opportunity.",
+          "entryId": "doc-nondiscrimination",
+          "file": "docs/student-safety/nondiscrimination-equal-opportunity.pdf",
+          "public": true
+        },
+        {
+          "title": "Photo & Video Consent Policy",
+          "description": "Separate optional media permissions, authorized uses, withdrawal, and student privacy.",
+          "entryId": "doc-media-consent",
+          "file": "docs/student-safety/photo-video-consent-policy.pdf",
+          "public": true
+        }
+      ]
+    },
+    {
+      "id": "ethics-accountability-privacy",
+      "entryId": "doc-conflicts",
+      "categoryId": "category-ethics-privacy",
+      "title": "Ethics, Accountability & Privacy Policies",
+      "description": "Proposed standards for impartial decisions, raising concerns, preserving records, and protecting personal information.",
+      "adoption": "Under Board review — not yet adopted",
+      "note": "These policy drafts are under Board review and have not been adopted. Public availability is for transparency and review; no operative effective date or Board approval is asserted.",
+      "action": {
+        "title": "Ask about these policies",
+        "href": "foundation-contact.html?topic=General%20Inquiry#contact"
+      },
+      "documents": [
+        {
+          "title": "Conflict of Interest Policy",
+          "description": "Identifying and disclosing conflicts, impartial review, recusal, and decision records.",
+          "entryId": "doc-conflicts",
+          "file": "docs/ethics-privacy/conflict-of-interest-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Concerns Reporting, Whistleblower Protection & Non-Retaliation Policy",
+          "description": "Accessible reporting, independent review, confidentiality, and protection from retaliation.",
+          "entryId": "doc-concerns",
+          "file": "docs/ethics-privacy/concerns-reporting-non-retaliation-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Records Management, Retention & Access Policy",
+          "description": "Record classification, retention, lawful access, preservation, and safe disposal.",
+          "entryId": "doc-records",
+          "file": "docs/ethics-privacy/records-retention-access-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Privacy Statement",
+          "description": "Information collection, uses, disclosures, child privacy, retention, and inquiries.",
+          "entryId": "doc-privacy",
+          "file": "docs/ethics-privacy/privacy-statement.pdf",
+          "public": true
+        }
+      ]
     }
   ]
 }
