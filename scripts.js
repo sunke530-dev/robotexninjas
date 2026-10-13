@@ -1,5 +1,5 @@
 function toggleMenu(){var mm=document.getElementById('mm');var hbg=document.getElementById('hbg');mm.classList.toggle('open');hbg.classList.toggle('open');hbg.setAttribute('aria-expanded', hbg.classList.contains('open') ? 'true' : 'false');}
-function closeMenu(){document.getElementById('mm').classList.remove('open');document.getElementById('hbg').classList.remove('open');}
+function closeMenu(){document.getElementById('mm').classList.remove('open');document.getElementById('hbg').classList.remove('open');document.getElementById('hbg').setAttribute('aria-expanded','false');}
 function showInvolveTab(tab){
   var ways = document.getElementById('involve-panel-ways');
   var openings = document.getElementById('involve-panel-openings');
@@ -25,6 +25,7 @@ var TOPIC_SUBTOPICS = {
     'Other mentorship question'
   ],
   'Workshop / Demo Request': [
+    'Host an NSF Robotics Discovery Program',
     'School classroom visit or demonstration',
     'Library or community event',
     'After-school program session',
@@ -131,7 +132,8 @@ function sendForm(){
   }).then(function(res){
     if(!res.ok) throw new Error('FormSubmit response not OK');
     return res.json();
-  }).then(function(){
+  }).then(function(result){
+    if(result.success === false || result.success === 'false') throw new Error('Message was not accepted');
     ok.textContent = '\u2713   Message sent \u2014 thanks! We\u2019ll get back to you soon.';
     ok.style.display = 'block';
     ['fn','fe','fm'].forEach(function(id){document.getElementById(id).value='';});
@@ -166,7 +168,7 @@ function copyFormDetails(){
     alert(text);
   }
 }
-if('IntersectionObserver' in window){
+if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){e.target.style.animation='fadeIn .5s ease both';io.unobserve(e.target);}
@@ -180,6 +182,7 @@ if('IntersectionObserver' in window){
   function easeOutQuart(t){ return 1 - Math.pow(1-t, 4); }
 
   function animateGroup(els){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var duration = 3000;
     var start = null;
     var targets = Array.from(els).map(function(el){
@@ -219,3 +222,4 @@ if('IntersectionObserver' in window){
   watchSection('nsf-stats-bar');
   watchSection('nsf-impact-grid');
 })();
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});

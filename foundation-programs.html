@@ -10,12 +10,13 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
-  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="logo.png" alt="Ninjas STEM Foundation"></a>
-  <div class="nav-links">
+  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="nsf-logo-hd.webp" alt="Ninjas STEM Foundation"></a>
+  <div class="nav-links" aria-label="Primary navigation">
     <a href="ninjasstemfoundation.html">Home</a>
     <a href="foundation-about.html">About</a>
-    <a href="foundation-programs.html" class="active">Programs</a>
+    <a href="foundation-programs.html" class="active" aria-current="page">Programs</a>
     <a href="foundation-impact.html">Impact</a>
     <a href="foundation-get-involved.html">Get Involved</a>
     <a href="foundation-governance.html">Governance</a>
@@ -30,17 +31,18 @@
 <div class="mob-menu" id="mm">
   <a href="ninjasstemfoundation.html" onclick="closeMenu()">Home</a>
   <a href="foundation-about.html" onclick="closeMenu()">About</a>
-  <a href="foundation-programs.html" class="active" onclick="closeMenu()">Programs</a>
+  <a href="foundation-programs.html" class="active" aria-current="page" onclick="closeMenu()">Programs</a>
   <a href="foundation-impact.html" onclick="closeMenu()">Impact</a>
   <a href="foundation-get-involved.html" onclick="closeMenu()">Get Involved</a>
   <a href="foundation-governance.html" onclick="closeMenu()">Governance</a>
   <a href="foundation-contact.html" onclick="closeMenu()">Contact</a>
 </div>
+<main id="main-content">
 <div class="sec-full" id="programs">
   <div class="sec" style="padding-top:0;padding-bottom:0;">
     <div class="sec-hd">
       <div class="sec-eyebrow red">What We Do</div>
-      <h2 class="sec-title">Our <span>Programs</span></h2>
+      <h1 class="sec-title">Our <span>Programs</span></h1>
       <p class="sec-desc">The foundation supports a growing portfolio of STEM programs &mdash; from competitive robotics to community outreach.</p>
     </div>
     <div class="programs-grid">
@@ -79,13 +81,28 @@
 
       <div class="program-card">
         <div class="program-card-top">
-          <span class="program-badge active">&#128994; Active &amp; Growing</span>
-          <div class="program-icon">&#128218;</div>
-          <h3 class="program-title">STEM Academy</h3>
-          <div class="program-sub">Community Workshops &amp; Demonstrations &bull; After-School Program (In Development)</div>
+          <span class="program-badge active">&#128994; Active &amp; Expanding</span>
+          <div class="program-icon">&#128640;</div>
+          <h3 class="program-title">NSF Robotics Discovery</h3>
+          <div class="program-sub">Free Community Robotics Programs &bull; Schools &bull; Libraries &bull; Family Events</div>
         </div>
         <div class="program-card-body">
-          <p class="program-desc">Our community learning activities introduce students to robotics, coding, and engineering through hands-on projects and demonstrations. Activities are designed for the age group, setting, and equipment available at each event.</p>
+          <p class="program-desc">NSF Robotics Discovery brings hands-on robotics and engineering experiences directly to schools, libraries, youth organizations, and community events. Programs can include robot demonstrations, building, coding, driving, engineering challenges, and student-led presentations.</p>
+          <p class="program-desc">Each program is adapted to the age group, group size, available time, venue, and learning goals of the host organization.</p>
+          <a class="program-link red" href="#robotics-discovery">Explore Program Formats &rarr;</a>
+          <a class="program-link" style="margin-left:18px;" href="foundation-contact.html?topic=Workshop%20%2F%20Demo%20Request&amp;subtopic=Host%20an%20NSF%20Robotics%20Discovery%20Program#contact">Become a Host &rarr;</a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-card-top">
+          <span class="program-badge active">In Development</span>
+          <div class="program-icon">&#128218;</div>
+          <h3 class="program-title">STEM Academy</h3>
+          <div class="program-sub">Structured STEM Classes &bull; After-School Programs &bull; In Development</div>
+        </div>
+        <div class="program-card-body">
+          <p class="program-desc">NSF STEM Academy is being developed as a structured instructional program offering deeper, multi-session learning in robotics, coding, engineering design, and AI literacy.</p>
           <p class="program-desc">Workshops, camps, and other scheduled opportunities are announced individually with their dates, intended ages, registration requirements, and any participation costs.</p>
           <p class="program-desc" style="font-size:13px;color:var(--blue);font-weight:600;">In development: a structured after-school STEM program for Grades 5&ndash;8 covering robotics basics, coding, the engineering design process, and AI literacy.</p>
           <a class="program-link" href="foundation-contact.html?topic=Workshop%20%2F%20Demo%20Request#contact">Request a Workshop &rarr;</a>
@@ -113,6 +130,56 @@
     </div>
   </div>
 </div>
+<!-- ROBOTICS DISCOVERY -->
+<div class="sec-full light-bg" id="robotics-discovery">
+  <div class="sec" style="padding-top:0;padding-bottom:0;">
+    <div class="sec-hd">
+      <div class="sec-eyebrow red">Bring Robotics to Your Community</div>
+      <h2 class="sec-title">NSF Robotics <span>Discovery</span></h2>
+      <p class="sec-desc">Flexible, hands-on robotics experiences for schools, libraries, PTAs, youth organizations, camps, and community events across North Texas.</p>
+    </div>
+
+    <div class="discovery-sub-title" style="margin-top:0;">Program Formats</div>
+    <div class="discovery-formats">
+      <div class="discovery-format">
+        <h4>Robotics Discovery Demo</h4>
+        <div class="df-dur">30&ndash;45 min</div>
+        <p>A fast-paced introduction to robotics with live robot demonstrations, student presenters, and opportunities for audience questions.</p>
+        <div class="df-best"><b>Best for:</b> assemblies, classrooms, science nights, library programs, community events</div>
+      </div>
+      <div class="discovery-format">
+        <h4>Build, Code &amp; Drive Workshop</h4>
+        <div class="df-dur">60&ndash;90 min</div>
+        <p>Participants rotate through hands-on activities involving mechanical building, basic coding, robot operation, and engineering problem-solving.</p>
+        <div class="df-best"><b>Best for:</b> libraries, classrooms, gifted programs, youth organizations</div>
+      </div>
+      <div class="discovery-format">
+        <h4>Family Robotics Night</h4>
+        <div class="df-dur">90&ndash;120 min</div>
+        <p>A station-based format designed for larger groups of children and families. Stations may include robot driving, building challenges, coding demonstrations, engineering design, and conversations with student mentors.</p>
+        <div class="df-best"><b>Best for:</b> PTAs, schools, libraries, recreation centers</div>
+      </div>
+      <div class="discovery-format">
+        <h4>STEM Showcase / Festival Experience</h4>
+        <div class="df-dur">Flexible</div>
+        <p>An interactive booth or demonstration area where visitors can see competition robots, try driving activities, meet student mentors, and learn how to get started in robotics.</p>
+        <div class="df-best"><b>Best for:</b> city festivals, STEAM showcases, fairs, corporate family events</div>
+      </div>
+    </div>
+
+    <div class="discovery-cta">
+      <h3>Bring NSF Robotics Discovery to Your Community</h3>
+      <p>Schools, libraries, PTAs, camps, youth organizations, community groups, and companies may request a program. Tell us about your audience, age range, group size, location, preferred date, and what you would like students to experience. We will recommend a format based on available volunteers, equipment, and scheduling.</p>
+      <div class="cta-row">
+        <a class="cta-red" href="foundation-contact.html?topic=Workshop%20%2F%20Demo%20Request&amp;subtopic=Host%20an%20NSF%20Robotics%20Discovery%20Program#contact">Become a Host &rarr;</a>
+        <a class="discovery-cta-alt" href="foundation-impact.html#community-impact">See Past Programs</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -136,7 +203,7 @@
     <div>
       <div class="footer-col-title">Get Involved</div>
       <div class="footer-links">
-        <a href="https://givebutter.com/YOUR-CAMPAIGN" target="_blank" rel="noopener">Donate</a>
+        <a href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Sponsorship#contact" target="_blank" rel="noopener">Discuss support</a>
         <a href="foundation-get-involved.html#involve">Join a Team</a>
         <a href="foundation-get-involved.html#involve">Volunteer</a>
         <a href="foundation-get-involved.html#involve">Partner</a>
@@ -148,7 +215,7 @@
       <div class="footer-links">
         <a href="https://sunke530-dev.github.io/robotexninjas/">Robotex Ninjas 276C</a>
         <a href="https://sunke530-dev.github.io/robotexninjas/">V5RC Team 91276C</a>
-        <a href="index.html#outreach">Outreach Programs</a>
+        <a href="foundation-impact.html#community-impact">Outreach Programs</a>
         <a href="mailto:robotexninjas@gmail.com">robotexninjas@gmail.com</a>
       </div>
     </div>

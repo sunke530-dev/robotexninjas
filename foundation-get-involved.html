@@ -10,14 +10,15 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
-  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="logo.png" alt="Ninjas STEM Foundation"></a>
-  <div class="nav-links">
+  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="nsf-logo-hd.webp" alt="Ninjas STEM Foundation"></a>
+  <div class="nav-links" aria-label="Primary navigation">
     <a href="ninjasstemfoundation.html">Home</a>
     <a href="foundation-about.html">About</a>
     <a href="foundation-programs.html">Programs</a>
     <a href="foundation-impact.html">Impact</a>
-    <a href="foundation-get-involved.html" class="active">Get Involved</a>
+    <a href="foundation-get-involved.html" class="active" aria-current="page">Get Involved</a>
     <a href="foundation-governance.html">Governance</a>
     <a href="foundation-contact.html">Contact</a>
   </div>
@@ -32,15 +33,16 @@
   <a href="foundation-about.html" onclick="closeMenu()">About</a>
   <a href="foundation-programs.html" onclick="closeMenu()">Programs</a>
   <a href="foundation-impact.html" onclick="closeMenu()">Impact</a>
-  <a href="foundation-get-involved.html" class="active" onclick="closeMenu()">Get Involved</a>
+  <a href="foundation-get-involved.html" class="active" aria-current="page" onclick="closeMenu()">Get Involved</a>
   <a href="foundation-governance.html" onclick="closeMenu()">Governance</a>
   <a href="foundation-contact.html" onclick="closeMenu()">Contact</a>
 </div>
+<main id="main-content">
 <div class="sec-full" id="involve">
   <div class="sec" style="padding-top:0;padding-bottom:0;">
     <div class="sec-hd">
       <div class="sec-eyebrow red">Join the Foundation</div>
-      <h2 class="sec-title">Get <span>Involved</span></h2>
+      <h1 class="sec-title">Get <span>Involved</span></h1>
       <p class="sec-desc">There is a place for everyone in the Ninjas STEM Foundation &mdash; whether you are a student, a parent, an educator, or a business.</p>
     </div>
     <div class="involve-tabs">
@@ -52,14 +54,14 @@
       <div class="involve-card">
         <div class="involve-icon">&#10084;&#65039;</div>
         <div class="involve-title">Donate</div>
-        <p class="involve-desc">Make a tax-deductible gift that directly funds robotics equipment, competition fees, learning materials, and community STEM programs. As a registered 501(c)(3), your contribution is tax-deductible to the extent allowed by law &mdash; one-time or monthly.</p>
-        <a class="involve-btn red" href="https://givebutter.com/YOUR-CAMPAIGN" target="_blank" rel="noopener">Donate via Givebutter &rarr;</a>
+        <p class="involve-desc">Make a tax-deductible gift that directly funds robotics equipment, competition fees, learning materials, and community STEM programs. As a registered 501(c)(3), your contribution is tax-deductible to the extent allowed by law .</p>
+        <a class="involve-btn red" href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Sponsorship#contact" target="_blank" rel="noopener">Discuss a contribution &rarr;</a>
       </div>
       <div class="involve-card">
         <div class="involve-icon">&#129302;</div>
         <div class="involve-title">Join a Team</div>
         <p class="involve-desc">Students in Grades 5&ndash;8 looking to compete, build, code, or contribute to a championship robotics team. Multiple roles available beyond driving.</p>
-        <a class="involve-btn red" href="index.html#who">Meet the Team &rarr;</a>
+        <a class="involve-btn red" href="https://sunke530-dev.github.io/robotexninjas/#who">Meet the Team &rarr;</a>
       </div>
       <div class="involve-card">
         <div class="involve-icon">&#128106;</div>
@@ -98,6 +100,7 @@
     </div>
   </div>
 </div>
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -121,7 +124,7 @@
     <div>
       <div class="footer-col-title">Get Involved</div>
       <div class="footer-links">
-        <a href="https://givebutter.com/YOUR-CAMPAIGN" target="_blank" rel="noopener">Donate</a>
+        <a href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Sponsorship#contact" target="_blank" rel="noopener">Discuss support</a>
         <a href="#involve">Join a Team</a>
         <a href="#involve">Volunteer</a>
         <a href="#involve">Partner</a>
@@ -133,7 +136,7 @@
       <div class="footer-links">
         <a href="https://sunke530-dev.github.io/robotexninjas/">Robotex Ninjas 276C</a>
         <a href="https://sunke530-dev.github.io/robotexninjas/">V5RC Team 91276C</a>
-        <a href="index.html#outreach">Outreach Programs</a>
+        <a href="foundation-impact.html#community-impact">Outreach Programs</a>
         <a href="mailto:robotexninjas@gmail.com">robotexninjas@gmail.com</a>
       </div>
     </div>

@@ -10,16 +10,17 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
-  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="logo.png" alt="Ninjas STEM Foundation"></a>
-  <div class="nav-links">
+  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="nsf-logo-hd.webp" alt="Ninjas STEM Foundation"></a>
+  <div class="nav-links" aria-label="Primary navigation">
     <a href="ninjasstemfoundation.html">Home</a>
     <a href="foundation-about.html">About</a>
     <a href="foundation-programs.html">Programs</a>
     <a href="foundation-impact.html">Impact</a>
     <a href="foundation-get-involved.html">Get Involved</a>
     <a href="foundation-governance.html">Governance</a>
-    <a href="foundation-contact.html" class="active">Contact</a>
+    <a href="foundation-contact.html" class="active" aria-current="page">Contact</a>
   </div>
   <div class="nav-cta">
     <a class="btn-outline" href="foundation-get-involved.html">Join Us</a>
@@ -34,13 +35,14 @@
   <a href="foundation-impact.html" onclick="closeMenu()">Impact</a>
   <a href="foundation-get-involved.html" onclick="closeMenu()">Get Involved</a>
   <a href="foundation-governance.html" onclick="closeMenu()">Governance</a>
-  <a href="foundation-contact.html" class="active" onclick="closeMenu()">Contact</a>
+  <a href="foundation-contact.html" class="active" aria-current="page" onclick="closeMenu()">Contact</a>
 </div>
+<main id="main-content">
 <div class="sec-full light-bg" id="contact">
   <div class="sec" style="padding-top:0;padding-bottom:0;">
     <div class="sec-hd">
       <div class="sec-eyebrow">Reach Out</div>
-      <h2 class="sec-title">Contact <span>NSF</span></h2>
+      <h1 class="sec-title">Contact <span>NSF</span></h1>
       <p class="sec-desc">Questions, partnerships, sponsorships, or just want to say hi &mdash; we&rsquo;d love to hear from you.</p>
     </div>
     <div class="contact-grid">
@@ -90,11 +92,12 @@
           <button class="fsub" id="f-submit-btn" onclick="sendForm()">Send Message &rarr;</button>
           <button class="fsub" type="button" onclick="copyFormDetails()" style="background:transparent;color:var(--navy);border:1.5px solid var(--navy);">Copy Details</button>
         </div>
-        <div class="fok" id="fok">&#10003; &nbsp; Message sent &mdash; thanks! We&rsquo;ll get back to you soon.</div>
+        <div class="fok" id="fok" role="status" aria-live="polite">&#10003; &nbsp; Message sent &mdash; thanks! We&rsquo;ll get back to you soon.</div>
       </div>
     </div>
   </div>
 </div>
+</main>
 <footer>
   <div class="footer-top">
     <div>
@@ -118,7 +121,7 @@
     <div>
       <div class="footer-col-title">Get Involved</div>
       <div class="footer-links">
-        <a href="https://givebutter.com/YOUR-CAMPAIGN" target="_blank" rel="noopener">Donate</a>
+        <a href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Sponsorship#contact" target="_blank" rel="noopener">Discuss support</a>
         <a href="foundation-get-involved.html#involve">Join a Team</a>
         <a href="foundation-get-involved.html#involve">Volunteer</a>
         <a href="foundation-get-involved.html#involve">Partner</a>
@@ -130,7 +133,7 @@
       <div class="footer-links">
         <a href="https://sunke530-dev.github.io/robotexninjas/">Robotex Ninjas 276C</a>
         <a href="https://sunke530-dev.github.io/robotexninjas/">V5RC Team 91276C</a>
-        <a href="index.html#outreach">Outreach Programs</a>
+        <a href="foundation-impact.html#community-impact">Outreach Programs</a>
         <a href="mailto:robotexninjas@gmail.com">robotexninjas@gmail.com</a>
       </div>
     </div>
