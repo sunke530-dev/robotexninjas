@@ -1,0 +1,53 @@
+{
+  "packages": [
+    {
+      "id": "robotics-team-mentorship",
+      "entryId": "doc-team-mentorship",
+      "categoryId": "category-community-operations",
+      "title": "Robotics Team Mentorship Program",
+      "description": "NSF provides structured, student-centered mentorship to developing robotics teams. Our mentorship program helps students strengthen their engineering, programming, testing, documentation, and teamwork skills while maintaining responsibility for their own competition work.",
+      "adoption": "Not verified",
+      "note": "These documents are available for reference and planning. Board approval and an operative effective date have not been verified. Completed forms should be sent privately to NSF and must not be posted publicly.",
+      "action": {
+        "title": "Request Robotics Team Mentorship",
+        "href": "foundation-contact.html?topic=Mentorship#contact"
+      },
+      "documents": [
+        {
+          "title": "Mentorship Program Policy & Overview",
+          "description": "Program objectives, eligibility, responsibilities, and mentorship principles.",
+          "file": "docs/mentorship/mentorship-program-policy-overview.pdf",
+          "public": true
+        },
+        {
+          "title": "Team Mentorship Intake Form",
+          "description": "Blank application for robotics teams seeking mentorship.",
+          "file": "docs/mentorship/team-mentorship-intake-form.pdf",
+          "public": true
+        },
+        {
+          "title": "Initial Mentorship Plan Template",
+          "description": "Learning goals, meeting arrangements, responsibilities, and review schedules.",
+          "file": "docs/mentorship/initial-mentorship-plan-template.pdf",
+          "public": true
+        },
+        {
+          "title": "Optional Student Photo & Video Permission",
+          "description": "Separate parental permission for public use of student photographs and recordings.",
+          "file": "docs/mentorship/optional-student-photo-video-permission.pdf",
+          "public": true
+        }
+      ],
+      "related": [
+        {
+          "title": "Youth Protection & Safety Policy",
+          "publication": "Not published on this site"
+        },
+        {
+          "title": "Code of Conduct",
+          "publication": "Not published on this site"
+        }
+      ]
+    }
+  ]
+}

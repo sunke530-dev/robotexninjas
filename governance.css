@@ -23,18 +23,18 @@
 .gl-status-guide p:last-child{margin-bottom:0}
 .gl-status-guide strong{color:var(--navy);font-weight:600}
 .gl-category{border:1px solid var(--border2);border-radius:8px;background:var(--white);margin:0 0 12px;overflow:visible}
-.gl-category summary{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;list-style:none;min-height:72px;border-radius:8px}
-.gl-category summary::-webkit-details-marker{display:none}
-.gl-category summary:hover{background:var(--light)}
-.gl-category summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.gl-category[open] summary{background:var(--light);border-bottom:1px solid var(--border);border-radius:8px 8px 0 0}
+.gl-category > summary{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;list-style:none;min-height:72px;border-radius:8px}
+.gl-category > summary::-webkit-details-marker{display:none}
+.gl-category > summary:hover{background:var(--light)}
+.gl-category > summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.gl-category[open] > summary{background:var(--light);border-bottom:1px solid var(--border);border-radius:8px 8px 0 0}
 .gl-category-number{font-family:var(--cond);font-size:23px;font-weight:700;color:var(--blue);flex:0 0 30px}
 .gl-summary-text{flex:1;min-width:0}
 .gl-summary-text h3{font-size:23px;font-weight:700;margin:0 0 5px;color:var(--navy)}
 .gl-summary-desc{font-size:14px;line-height:1.5;color:var(--muted);display:block}
 .gl-count{font-size:13px;white-space:nowrap;color:var(--muted);padding:5px 9px;background:var(--light2);border-radius:4px}
 .gl-chevron{width:9px;height:9px;border-right:2px solid var(--navy);border-bottom:2px solid var(--navy);transform:rotate(45deg);flex:0 0 9px;margin:0 3px 4px 6px}
-.gl-category[open] .gl-chevron{transform:rotate(225deg);margin-top:6px}
+.gl-category[open] > summary .gl-chevron{transform:rotate(225deg);margin-top:6px}
 .gl-document-list{list-style:none;margin:0;padding:0 22px}
 .gl-document{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);scroll-margin-top:92px}
 .gl-document:last-child{border-bottom:0}
@@ -51,5 +51,5 @@
 .gl-disclosure-links{display:flex;gap:12px 24px;flex-wrap:wrap;font-size:14px;font-weight:600}
 .governance-library a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 @media(max-width:1000px){.gl-essential-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.governance-library{padding:100px 28px 56px}.gl-document{grid-template-columns:minmax(0,1fr) 230px;gap:20px}}
-@media(max-width:650px){.governance-library{padding:96px 20px 48px}.gl-intro{margin-bottom:28px}.gl-lead{font-size:17px}.gl-essential-grid{grid-template-columns:1fr;gap:12px}.gl-essential{padding:20px}.gl-essential p{margin-bottom:12px}.gl-essential-status{margin-top:0}.gl-essential-action{margin-top:12px}.gl-status-guide{padding:20px;margin:24px 0 32px}.gl-category summary{gap:10px;padding:16px;flex-wrap:wrap}.gl-category-number{flex-basis:24px;font-size:21px}.gl-summary-text{flex-basis:calc(100% - 58px)}.gl-summary-text h3{font-size:22px}.gl-count{order:3;margin-left:34px}.gl-chevron{order:2}.gl-document-list{padding:0 18px}.gl-document{grid-template-columns:1fr;gap:14px;padding:20px 0}.gl-status>div{grid-template-columns:82px minmax(0,1fr)}.gl-disclosure{padding:22px 20px}.gl-disclosure-links{flex-direction:column;gap:14px}}
+@media(max-width:650px){.governance-library{padding:96px 20px 48px}.gl-intro{margin-bottom:28px}.gl-lead{font-size:17px}.gl-essential-grid{grid-template-columns:1fr;gap:12px}.gl-essential{padding:20px}.gl-essential p{margin-bottom:12px}.gl-essential-status{margin-top:0}.gl-essential-action{margin-top:12px}.gl-status-guide{padding:20px;margin:24px 0 32px}.gl-category > summary{gap:10px;padding:16px;flex-wrap:wrap}.gl-category-number{flex-basis:24px;font-size:21px}.gl-summary-text{flex-basis:calc(100% - 58px)}.gl-summary-text h3{font-size:22px}.gl-count{order:3;margin-left:34px}.gl-chevron{order:2}.gl-document-list{padding:0 18px}.gl-document{grid-template-columns:1fr;gap:14px;padding:20px 0}.gl-status>div{grid-template-columns:82px minmax(0,1fr)}.gl-disclosure{padding:22px 20px}.gl-disclosure-links{flex-direction:column;gap:14px}}
 @media(prefers-reduced-motion:reduce){.gl-essential{transition:none}}
