@@ -101,7 +101,8 @@
           "file": "docs/student-safety/photo-video-consent-policy.pdf",
           "public": true
         }
-      ]
+      ],
+      "display": "inline"
     },
     {
       "id": "ethics-accountability-privacy",

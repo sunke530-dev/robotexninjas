@@ -17,8 +17,14 @@ export async function renderPackage(p){
       if(bytes.subarray(0,5).toString()!=='%PDF-') throw Error('Not a PDF: '+d.file);
       links='<a href="'+esc(d.file)+'" target="_blank" rel="noopener" aria-label="View '+esc(d.title)+' PDF (opens in a new tab)">View PDF <span aria-hidden="true">↗</span></a><a href="'+esc(d.file)+'" download aria-label="Download '+esc(d.title)+' PDF">Download PDF <span aria-hidden="true">↓</span></a>';
     }
+    if(p.display==='inline'){
+      if(!d.entryId || !/^doc-[a-z0-9-]+$/.test(d.entryId)) throw Error('Inline documents need stable policy anchors');
+      const alias=d.entryId===p.entryId?'<span id="package-'+esc(p.id)+'" style="display:block;scroll-margin-top:92px" aria-hidden="true"></span>':'';
+      return '<li class="gl-document" id="'+esc(d.entryId)+'"><div class="gl-document-copy">'+alias+'<h4>'+esc(d.title)+'</h4><p>'+esc(d.description)+'</p>'+(metadata(d)?'<div class="dp-metadata">'+metadata(d)+'</div>':'')+'</div><div><dl class="gl-status"><div><dt>Adoption</dt><dd>'+esc(d.adoption||p.adoption||'Not verified')+'</dd></div><div><dt>Publication</dt><dd>'+(d.file?'PDF available':'Not published on this site')+'</dd></div></dl><div class="dp-links" style="margin-top:12px">'+links+'</div></div></li>';
+    }
     return '<li class="dp-document"'+(d.entryId && d.entryId!==p.entryId?' id="'+esc(d.entryId)+'"':'')+'><div><h5>'+esc(d.title)+'</h5><p>'+esc(d.description)+'</p><p class="dp-document-status"><strong>Adoption:</strong> '+esc(d.adoption||p.adoption||'Not verified')+'</p>'+(metadata(d)?'<div class="dp-metadata">'+metadata(d)+'</div>':'')+'</div><div class="dp-links">'+links+'</div></li>';
   }));
+  if(p.display==='inline') return docs.join('\n');
   if(p.action && !localPath(p.action.href)) throw Error('Invalid contact link');
   const related=(p.related||[]).map(d=>'<li>'+(d.file && d.publishedVerified===true && localPath(d.file)?'<a href="'+esc(d.file)+'">'+esc(d.title)+'</a>':esc(d.title)+' <span>— '+esc(d.publication||'Not published on this site')+'</span>')+'</li>').join('');
   const available=p.documents.filter(d=>d.file).length;
