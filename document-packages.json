@@ -147,6 +147,45 @@
         }
       ],
       "display": "inline"
+    },
+    {
+      "id": "financial-stewardship-fundraising",
+      "entryId": "doc-financial-management",
+      "categoryId": "category-financial-stewardship",
+      "title": "Financial Stewardship & Fundraising Policies",
+      "description": "Proposed policies for financial management, gift acceptance, fundraising, and program budgeting.",
+      "adoption": "Under Board review — not yet adopted",
+      "display": "inline",
+      "documents": [
+        {
+          "title": "Financial Management & Reimbursement Policy",
+          "description": "Financial authorization, purchasing, reimbursement review, accounting, and protection of Foundation resources.",
+          "entryId": "doc-financial-management",
+          "file": "docs/financial-stewardship/financial-management-reimbursement-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Donation & Gift Acceptance Policy",
+          "description": "Gift acceptance, donor restrictions, acknowledgments, and accurate classification of support.",
+          "entryId": "doc-gift-acceptance",
+          "file": "docs/financial-stewardship/donation-gift-acceptance-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Sponsorship & Fundraising Guidelines",
+          "description": "Fundraising authority, sponsorship arrangements, public communications, and charitable benefit.",
+          "entryId": "doc-fundraising",
+          "file": "docs/financial-stewardship/sponsorship-fundraising-guidelines.pdf",
+          "public": true
+        },
+        {
+          "title": "Program Budgeting & Fund Allocation Policy",
+          "description": "Program budgets, resource allocation, restricted funds, expense classification, and budget review.",
+          "entryId": "doc-budgeting",
+          "file": "docs/financial-stewardship/program-budgeting-fund-allocation-policy.pdf",
+          "public": true
+        }
+      ]
     }
   ]
 }
