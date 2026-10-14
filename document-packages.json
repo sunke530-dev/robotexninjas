@@ -145,7 +145,8 @@
           "file": "docs/ethics-privacy/privacy-statement.pdf",
           "public": true
         }
-      ]
+      ],
+      "display": "inline"
     }
   ]
 }
