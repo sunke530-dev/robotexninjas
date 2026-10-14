@@ -225,6 +225,38 @@
           "public": true
         }
       ]
+    },
+    {
+      "id": "corporate-governance-leadership",
+      "entryId": "doc-board-officers",
+      "categoryId": "category-corporate",
+      "title": "Corporate Governance & Leadership Policies",
+      "description": "Proposed responsibilities, committee authority, and Board decision procedures.",
+      "adoption": "Under Board review — not yet adopted",
+      "display": "inline",
+      "documents": [
+        {
+          "title": "Board and Officer Responsibilities",
+          "description": "Roles, delegated authority, oversight, and accountability for directors and officers.",
+          "entryId": "doc-board-officers",
+          "file": "docs/corporate-governance/board-officer-responsibilities.pdf",
+          "public": true
+        },
+        {
+          "title": "Outreach Committee Charter",
+          "description": "The committee’s purpose, scope, membership, authority, and reporting responsibilities.",
+          "entryId": "doc-outreach-charter",
+          "file": "docs/corporate-governance/outreach-committee-charter.pdf",
+          "public": true
+        },
+        {
+          "title": "Board Meeting and Voting Procedures",
+          "description": "Meeting notices, agendas, quorum, voting, minutes, and records of decisions.",
+          "entryId": "doc-board-procedures",
+          "file": "docs/corporate-governance/board-meeting-voting-procedures.pdf",
+          "public": true
+        }
+      ]
     }
   ]
 }
