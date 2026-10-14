@@ -14,9 +14,9 @@
       },
       "documents": [
         {
-          "title": "Mentorship Program Policy & Overview",
-          "description": "Program objectives, eligibility, responsibilities, and mentorship principles.",
-          "file": "docs/mentorship/mentorship-program-policy-overview.pdf",
+          "title": "Robotics Team Mentorship Policy",
+          "description": "Consolidated review draft covering independent-team support, student-centered responsibilities, intake, and program boundaries.",
+          "file": "docs/community-operations/robotics-team-mentorship-policy.pdf",
           "public": true
         },
         {
@@ -183,6 +183,45 @@
           "description": "Program budgets, resource allocation, restricted funds, expense classification, and budget review.",
           "entryId": "doc-budgeting",
           "file": "docs/financial-stewardship/program-budgeting-fund-allocation-policy.pdf",
+          "public": true
+        }
+      ]
+    },
+    {
+      "id": "community-programs-volunteer-operations",
+      "entryId": "doc-outreach-operations",
+      "categoryId": "category-community-operations",
+      "title": "Community Programs & Volunteer Operations Policies",
+      "description": "Proposed policies for outreach, volunteer and mentor roles, community hosts, and program delivery.",
+      "adoption": "Under Board review — not yet adopted",
+      "display": "inline",
+      "documents": [
+        {
+          "title": "Outreach Committee & Event Operations Policy",
+          "description": "Committee responsibilities, Board oversight, authorized communications, partnerships, and event coordination.",
+          "entryId": "doc-outreach-operations",
+          "file": "docs/community-operations/outreach-committee-event-operations-policy.pdf",
+          "public": true
+        },
+        {
+          "title": "Volunteer & Mentor Guidelines",
+          "description": "Role assignment, onboarding, student safety, educational integrity, and volunteer records.",
+          "entryId": "doc-volunteer-guidelines",
+          "file": "docs/community-operations/volunteer-mentor-guidelines.pdf",
+          "public": true
+        },
+        {
+          "title": "Community Event Hosting Guidelines",
+          "description": "Program formats, host responsibilities, venue arrangements, safety, and event requests.",
+          "entryId": "doc-hosting-guidelines",
+          "file": "docs/community-operations/community-event-hosting-guidelines.pdf",
+          "public": true
+        },
+        {
+          "title": "Community Program Operating Procedures",
+          "description": "Operational roles and workflows for planning, education, outreach, event delivery, and records.",
+          "entryId": "doc-program-sops",
+          "file": "docs/community-operations/community-program-operating-procedures.pdf",
           "public": true
         }
       ]
