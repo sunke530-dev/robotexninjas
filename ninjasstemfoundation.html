@@ -8,7 +8,7 @@
 <meta name="description" content="Ninjas STEM Foundation (NSF) — Empowering the next generation through robotics, AI, and STEM education. Frisco, TX.">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="foundation-home.css?v=20261018-no-workbench">
+<link rel="stylesheet" href="foundation-home.css?v=20261018-community">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -41,10 +41,10 @@
 <main id="main-content" class="foundation-home-page">
 <div id="makers-notebook-stories">
 
-<div class="mk-site" aria-label="Interactive Maker's Notebook homepage">
+<div class="mk-site" aria-label="Ninjas STEM Foundation homepage">
 
 <section class="mk-hero"><div class="mk-intro"><img class="mk-logo" data-mk-logo src="nsf-logo-hd.webp" width="82" height="82" alt="Ninjas STEM Foundation"><div class="mk-eyebrow">From curiosity to creation</div><h1>A question today.<br><span>A creation tomorrow.</span></h1><p>Student robotics, shared discoveries, and hands-on STEM learning for our North Texas community.</p></div>
-<div class="mk-tools"><a href="#makers-notebook">Explore the maker’s notebook ↓</a><button class="mk-motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
+<div class="mk-tools"><a href="foundation-programs.html#programs">Explore our programs →</a><button class="mk-motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
 <div class="mk-cards">
 <article class="mk-card is-active" data-path="learn"><button class="mk-select" type="button" aria-pressed="true" aria-controls="mk-path-preview"><span class="mk-graphic" aria-hidden="true"><span class="mk-trail"></span><span class="mk-robot"><i data-lucide="bot"></i></span><span class="mk-wheel left"></span><span class="mk-wheel right"></span></span><span><strong>Learn & build.</strong><small>Robotics, coding, documentation, and teamwork.</small></span></button><a class="mk-direct" href="foundation-programs.html#programs">Explore robotics programs ↗</a></article>
 <article class="mk-card" data-path="host"><button class="mk-select" type="button" aria-pressed="false" aria-controls="mk-path-preview"><span class="mk-graphic" aria-hidden="true"><span class="mk-halo"></span><span class="mk-bulb"><i data-lucide="lightbulb"></i></span><span class="mk-spark"></span><span class="mk-spark s2"></span><span class="mk-spark s3"></span></span><span><strong>Host discovery.</strong><small>Hands-on experiences for schools and libraries.</small></span></button><a class="mk-direct" href="foundation-programs.html#robotics-discovery">Explore community workshops ↗</a></article>
@@ -52,37 +52,9 @@
 </div>
 <div class="mk-preview" id="mk-path-preview" aria-live="polite"><div class="mk-eyebrow" data-preview-label>For students & families</div><div><h2 data-preview-title>Find your place on a team.</h2><p data-preview-copy>Build, code, test, document the engineering process, or lead outreach. Every contribution helps the team learn.</p></div><a class="mk-link" data-preview-link href="foundation-programs.html#programs">See programs →</a></div>
 </section>
-<section class="mk-process nb-section" id="makers-notebook" aria-labelledby="mk-process-title">
- <div class="nb-heading"><div><div class="mk-eyebrow">Inside a maker’s notebook · Robotex Ninjas</div><h2 id="mk-process-title">Big ideas.<br>Small discoveries.</h2></div><p>Real sketches. Real prototypes. Follow the questions, surprises, and small changes behind three of our robot designs.</p></div>
- <div class="nb-cases" aria-label="Choose an engineering notebook story">
-  <button type="button" class="cursor-interaction" id="notebook-revolver" data-nb-case="revolver" aria-pressed="false" aria-controls="nb-case"><span>2025–2026 · Revolver</span><strong>A smoother spin</strong><small>Find and fix the point of friction.</small></button>
-  <button type="button" class="cursor-interaction" id="notebook-pin-catcher" data-nb-case="pin" aria-pressed="true" aria-controls="nb-case"><span>2025–2026 · Pin catcher</span><strong>Catch the pin</strong><small>Belts, compressed air, and timing.</small></button>
-  <button type="button" class="cursor-interaction" id="notebook-power-sharing" data-nb-case="pto" aria-pressed="false" aria-controls="nb-case"><span>2024–2025 · Cannon &amp; PTO</span><strong>Share the power</strong><small>Give the same motors different jobs.</small></button>
- </div>
- <div id="nb-case">
-  <div class="nb-case-intro"><h3 data-nb-case-title>Catch the pin</h3><p data-nb-intro>From bending belts and tilted pins to a pneumatic catcher that holds a pin long enough for the conveyor to take it in.</p></div>
-  <div class="nb-stages" aria-label="Explore the design sequence">
-   <button type="button" class="cursor-interaction" data-nb-step="0" aria-pressed="true" aria-controls="nb-story"><span>01</span><b>Find the belt problem</b></button>
-   <button type="button" class="cursor-interaction" data-nb-step="1" aria-pressed="false" aria-controls="nb-story"><span>02</span><b>Guide it upright</b></button>
-   <button type="button" class="cursor-interaction" data-nb-step="2" aria-pressed="false" aria-controls="nb-story"><span>03</span><b>Synchronize the belts</b></button>
-   <button type="button" class="cursor-interaction" data-nb-step="3" aria-pressed="false" aria-controls="nb-story"><span>04</span><b>Try it while driving</b></button>
-   <button type="button" class="cursor-interaction" data-nb-step="4" aria-pressed="false" aria-controls="nb-story"><span>05</span><b>Build the air-powered trap</b></button>
-   <button type="button" class="cursor-interaction" data-nb-step="5" aria-pressed="false" aria-controls="nb-story"><span>06</span><b>Sense, catch, reset</b></button>
-   <button type="button" class="cursor-interaction" data-nb-step="6" aria-pressed="false" aria-controls="nb-story"><span>07</span><b>Refine the approach</b></button>
-  </div>
-  <div class="nb-spread" id="nb-story">
-   <figure class="nb-evidence"><div class="nb-tape" aria-hidden="true"></div><div class="nb-image-window"><img data-nb-image src="assets/notebook/pin-23.webp" loading="lazy" decoding="async" alt="Team comparison of a straight conveyor holding an upright pin and a deformed conveyor allowing the pin to tilt."></div><figcaption><span data-nb-caption>Original team diagram · Intake, notebook page 4</span><button type="button" class="nb-expand cursor-interaction" aria-expanded="false" aria-controls="nb-story">Enlarge detail +</button></figcaption></figure>
-   <div class="nb-story-copy" aria-live="polite" aria-atomic="true"><div class="nb-date" data-nb-tag>Observe</div><h3 data-nb-title>A tilted pin misses its slot.</h3><p data-nb-copy>Pins sometimes jammed or flew out instead of entering the revolver. The team noticed that the conveyor belts bent around a pin, letting it lean away from the narrow opening.</p><div class="nb-learning"><span>What the team learned</span><p data-nb-lesson>The problem began inside the conveyor, before the pin reached the revolver.</p></div><a class="nb-source" data-nb-source href="assets/notebook/pin-23.webp" target="_blank" rel="noopener">Open notebook image ↗</a></div>
-  </div>
-  <div class="nb-power" data-nb-power hidden>
-   <div class="nb-power-heading"><strong>Where does the shared motor pair go?</strong><span>Version 7 · simplified power routing</span></div>
-   <div class="nb-power-controls" aria-label="Choose a PTO operating mode"><button type="button" class="cursor-interaction" data-nb-mode="drive" aria-pressed="true" aria-controls="nb-power-result">Drive</button><button type="button" class="cursor-interaction" data-nb-mode="charge" aria-pressed="false" aria-controls="nb-power-result">Charge cannon</button><button type="button" class="cursor-interaction" data-nb-mode="intake" aria-pressed="false" aria-controls="nb-power-result">Collect balls</button></div>
-   <div id="nb-power-result" aria-live="polite"><div class="nb-power-route"><span>Shared pair · 2 motors</span><span class="nb-power-line" aria-hidden="true">→</span><strong data-nb-destination>Wheels</strong></div><p data-nb-power-copy>Four motors drive the robot. The dedicated intake pair keeps the conveyor available.</p></div>
-  </div>
-  <div class="nb-pagination"><span data-nb-page>01 / 07</span><div><button class="cursor-interaction" type="button" data-nb-prev disabled>← Previous</button><button class="cursor-interaction" type="button" data-nb-next>Next experiment →</button></div></div>
- </div>
- <details class="nb-extra" data-nb-extra hidden><summary class="cursor-interaction">Another small change: two holes made room for the doors <span aria-hidden="true">＋</span></summary><div class="nb-extra-body"><figure><img data-nb-extra-image src="assets/notebook/slide-66.webp" loading="lazy" decoding="async" alt="Original notebook comparison of the shortened chassis and a photograph of the changed drivetrain."><figcaption>Revolver, notebook page 27 · October 2025</figcaption></figure><div><h3>Give the door room to move.</h3><p>The team first shifted the revolver rearward, then found that the drivetrain still blocked the doors. Changing the base from <strong>20 × 20 holes to 20 × 18 holes</strong> allowed the doors to swing fully down.</p><p>A small dimension change solved a specific mechanical interference.</p></div></div></details>
- <div class="nb-footer"><span data-nb-season>Robotex Ninjas · 2025–2026 · Mix &amp; Match</span><a href="foundation-programs.html#programs">Find your place to learn →</a></div>
+<section class="mk-community" id="community" aria-labelledby="community-title">
+ <figure class="mk-community-photo"><img src="assets/community/little-elm-robotics-workshop.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Robotex Ninjas students sharing a hands-on building activity with visitors at Little Elm Public Library."><figcaption>Little Elm Public Library · September 12, 2026</figcaption></figure>
+ <div class="mk-community-copy"><div class="mk-eyebrow">Learning goes further when it’s shared</div><h2 id="community-title">Good ideas grow<br>when we share them.</h2><p>Our students bring robotics into North Texas libraries, schools, and community spaces. Through demonstrations, hands-on activities, and mentorship, they help others discover what they can create.</p><a class="mk-link" href="foundation-impact.html">See our community impact →</a></div>
 </section>
 
 
@@ -109,7 +81,7 @@
       <div class="footer-links">
         <a href="foundation-about.html#mission">Our Mission</a>
         <a href="foundation-programs.html#programs">Programs</a>
-        
+
         <a href="foundation-impact.html#outreach">Impact</a>
         <a href="foundation-impact.html#community-impact">Community Impact</a>
         <a href="foundation-governance.html#governance">Governance &amp; Transparency</a>
@@ -143,6 +115,6 @@
 
 <script src="scripts.js"></script>
 <script src="assets/vendor/lucide.min.js" defer></script>
-<script src="foundation-home.js?v=20261018-no-workbench" defer></script>
+<script src="foundation-home.js?v=20261018-community" defer></script>
 </body>
 </html>

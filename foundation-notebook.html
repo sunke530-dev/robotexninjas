@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Engineering Notebook — Ninjas STEM Foundation</title>
+<meta name="description" content="Explore Robotex Ninjas engineering notebook stories: revolver design, pneumatic pin catching, and cannon power sharing. Real sketches, tests, and student discoveries.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="foundation-notebook.css?v=20261018">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav>
+  <a class="nav-brand" href="ninjasstemfoundation.html"><img src="nsf-logo-hd.webp" alt="Ninjas STEM Foundation"></a>
+  <div class="nav-links" aria-label="Primary navigation">
+    <a href="ninjasstemfoundation.html">Home</a>
+    <a href="foundation-about.html">About</a>
+    <a href="foundation-programs.html" class="active">Programs</a>
+    <a href="foundation-impact.html">Impact</a>
+    <a href="foundation-get-involved.html">Get Involved</a>
+    <a href="foundation-governance.html">Governance</a>
+    <a href="foundation-contact.html">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn-outline" href="foundation-get-involved.html">Join Us</a>
+    <a class="btn-fill" href="foundation-contact.html">Partner With Us</a>
+  </div>
+  <button class="hamburger" id="hbg" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-controls="mm" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mm">
+  <a href="ninjasstemfoundation.html" onclick="closeMenu()">Home</a>
+  <a href="foundation-about.html" onclick="closeMenu()">About</a>
+  <a href="foundation-programs.html" class="active" onclick="closeMenu()">Programs</a>
+  <a href="foundation-impact.html" onclick="closeMenu()">Impact</a>
+  <a href="foundation-get-involved.html" onclick="closeMenu()">Get Involved</a>
+  <a href="foundation-governance.html" onclick="closeMenu()">Governance</a>
+  <a href="foundation-contact.html" onclick="closeMenu()">Contact</a>
+</div>
+<main id="main-content" class="foundation-notebook-page"><div id="makers-notebook-stories"><div class="mk-site"><section class="mk-process nb-section" id="makers-notebook" aria-labelledby="mk-process-title">
+ <div class="nb-page-tools"><a href="foundation-programs.html#competitive-robotics">← Competitive Robotics</a><button class="nb-motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
+ <div class="nb-heading"><div><div class="mk-eyebrow">Competitive Robotics · Robotex Ninjas</div><h1 id="mk-process-title">Big ideas.<br><span>Small discoveries.</span></h1></div><p>Inside our engineering notebook: follow the sketches, tests, and design changes behind three student-built robots from our 2024–2025 and 2025–2026 seasons.</p></div>
+ <div class="nb-cases" aria-label="Choose an engineering notebook story">
+  <button type="button" class="cursor-interaction" id="notebook-revolver" data-nb-case="revolver" aria-pressed="false" aria-controls="nb-case"><span>2025–2026 · Revolver</span><strong>A smoother spin</strong><small>Find and fix the point of friction.</small></button>
+  <button type="button" class="cursor-interaction" id="notebook-pin-catcher" data-nb-case="pin" aria-pressed="true" aria-controls="nb-case"><span>2025–2026 · Pin catcher</span><strong>Catch the pin</strong><small>Belts, compressed air, and timing.</small></button>
+  <button type="button" class="cursor-interaction" id="notebook-power-sharing" data-nb-case="pto" aria-pressed="false" aria-controls="nb-case"><span>2024–2025 · Cannon &amp; PTO</span><strong>Share the power</strong><small>Give the same motors different jobs.</small></button>
+ </div>
+ <div id="nb-case">
+  <div class="nb-case-intro"><h3 data-nb-case-title>Catch the pin</h3><p data-nb-intro>From bending belts and tilted pins to a pneumatic catcher that holds a pin long enough for the conveyor to take it in.</p></div>
+  <div class="nb-stages" aria-label="Explore the design sequence">
+   <button type="button" class="cursor-interaction" data-nb-step="0" aria-pressed="true" aria-controls="nb-story"><span>01</span><b>Find the belt problem</b></button>
+   <button type="button" class="cursor-interaction" data-nb-step="1" aria-pressed="false" aria-controls="nb-story"><span>02</span><b>Guide it upright</b></button>
+   <button type="button" class="cursor-interaction" data-nb-step="2" aria-pressed="false" aria-controls="nb-story"><span>03</span><b>Synchronize the belts</b></button>
+   <button type="button" class="cursor-interaction" data-nb-step="3" aria-pressed="false" aria-controls="nb-story"><span>04</span><b>Try it while driving</b></button>
+   <button type="button" class="cursor-interaction" data-nb-step="4" aria-pressed="false" aria-controls="nb-story"><span>05</span><b>Build the air-powered trap</b></button>
+   <button type="button" class="cursor-interaction" data-nb-step="5" aria-pressed="false" aria-controls="nb-story"><span>06</span><b>Sense, catch, reset</b></button>
+   <button type="button" class="cursor-interaction" data-nb-step="6" aria-pressed="false" aria-controls="nb-story"><span>07</span><b>Refine the approach</b></button>
+  </div>
+  <div class="nb-spread" id="nb-story">
+   <figure class="nb-evidence"><div class="nb-tape" aria-hidden="true"></div><div class="nb-image-window"><img data-nb-image src="assets/notebook/pin-23.webp" loading="lazy" decoding="async" alt="Team comparison of a straight conveyor holding an upright pin and a deformed conveyor allowing the pin to tilt."></div><figcaption><span data-nb-caption>Original team diagram · Intake, notebook page 4</span><button type="button" class="nb-expand cursor-interaction" aria-expanded="false" aria-controls="nb-story">Enlarge detail +</button></figcaption></figure>
+   <div class="nb-story-copy" aria-live="polite" aria-atomic="true"><div class="nb-date" data-nb-tag>Observe</div><h3 data-nb-title>A tilted pin misses its slot.</h3><p data-nb-copy>Pins sometimes jammed or flew out instead of entering the revolver. The team noticed that the conveyor belts bent around a pin, letting it lean away from the narrow opening.</p><div class="nb-learning"><span>What the team learned</span><p data-nb-lesson>The problem began inside the conveyor, before the pin reached the revolver.</p></div><a class="nb-source" data-nb-source href="assets/notebook/pin-23.webp" target="_blank" rel="noopener">Open notebook image ↗</a></div>
+  </div>
+  <div class="nb-power" data-nb-power hidden>
+   <div class="nb-power-heading"><strong>Where does the shared motor pair go?</strong><span>Version 7 · simplified power routing</span></div>
+   <div class="nb-power-controls" aria-label="Choose a PTO operating mode"><button type="button" class="cursor-interaction" data-nb-mode="drive" aria-pressed="true" aria-controls="nb-power-result">Drive</button><button type="button" class="cursor-interaction" data-nb-mode="charge" aria-pressed="false" aria-controls="nb-power-result">Charge cannon</button><button type="button" class="cursor-interaction" data-nb-mode="intake" aria-pressed="false" aria-controls="nb-power-result">Collect balls</button></div>
+   <div id="nb-power-result" aria-live="polite"><div class="nb-power-route"><span>Shared pair · 2 motors</span><span class="nb-power-line" aria-hidden="true">→</span><strong data-nb-destination>Wheels</strong></div><p data-nb-power-copy>Four motors drive the robot. The dedicated intake pair keeps the conveyor available.</p></div>
+  </div>
+  <div class="nb-pagination"><span data-nb-page>01 / 07</span><div><button class="cursor-interaction" type="button" data-nb-prev disabled>← Previous</button><button class="cursor-interaction" type="button" data-nb-next>Next experiment →</button></div></div>
+ </div>
+ <details class="nb-extra" data-nb-extra hidden><summary class="cursor-interaction">Another small change: two holes made room for the doors <span aria-hidden="true">＋</span></summary><div class="nb-extra-body"><figure><img data-nb-extra-image src="assets/notebook/slide-66.webp" loading="lazy" decoding="async" alt="Original notebook comparison of the shortened chassis and a photograph of the changed drivetrain."><figcaption>Revolver, notebook page 27 · October 2025</figcaption></figure><div><h3>Give the door room to move.</h3><p>The team first shifted the revolver rearward, then found that the drivetrain still blocked the doors. Changing the base from <strong>20 × 20 holes to 20 × 18 holes</strong> allowed the doors to swing fully down.</p><p>A small dimension change solved a specific mechanical interference.</p></div></div></details>
+ <div class="nb-footer"><span data-nb-season>Robotex Ninjas · 2025–2026 · Mix &amp; Match</span><a href="foundation-contact.html?topic=Join%20an%20Existing%20Robotic%20Team#contact">Interested in joining the team? →</a></div>
+</section></div></div></main>
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Ninjas <span>STEM</span> Foundation</div>
+      <div class="footer-brand-sub">NSF &bull; Est. 2026 &bull; Frisco, Texas</div>
+      <div style="margin-top:10px;font-family:var(--cond);font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.4);">501(c)(3) Public Charity &bull; EIN 42-2658141</div>
+      <div style="margin-top:6px;font-size:11px;line-height:1.5;color:rgba(255,255,255,.32);max-width:280px;">Ninjas STEM Foundation is a registered 501(c)(3) nonprofit organization. Contributions are tax-deductible to the extent allowed by law.</div>
+      <div style="margin-top:12px;font-family:var(--cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);">From Curiosity to Creation</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Foundation</div>
+      <div class="footer-links">
+        <a href="foundation-about.html#mission">Our Mission</a>
+        <a href="foundation-programs.html#programs">Programs</a>
+
+        <a href="foundation-impact.html#outreach">Impact</a>
+        <a href="foundation-impact.html#community-impact">Community Impact</a>
+        <a href="foundation-governance.html#governance">Governance &amp; Transparency</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Get Involved</div>
+      <div class="footer-links">
+        <a href="foundation-contact.html?topic=General%20Inquiry&amp;subtopic=Sponsorship#contact" target="_blank" rel="noopener">Discuss support</a>
+        <a href="foundation-get-involved.html#involve">Join a Team</a>
+        <a href="foundation-get-involved.html#involve">Volunteer</a>
+        <a href="foundation-get-involved.html#involve">Partner</a>
+        <a href="foundation-get-involved.html#involve">Sponsor</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Teams</div>
+      <div class="footer-links">
+        <a href="https://sunke530-dev.github.io/robotexninjas/">Robotex Ninjas 276C</a>
+        <a href="https://sunke530-dev.github.io/robotexninjas/">V5RC Team 91276C</a>
+        <a href="foundation-impact.html#community-impact">Outreach Programs</a>
+        <a href="mailto:robotexninjas@gmail.com">robotexninjas@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Ninjas STEM Foundation. All rights reserved.</div>
+    <div class="footer-tagline">Curiosity &bull; Learn &bull; Build &bull; <span>Inspire</span></div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script src="foundation-notebook.js?v=20261018" defer></script>
+</body>
+</html>

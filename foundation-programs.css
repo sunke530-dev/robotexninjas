@@ -1,0 +1,8 @@
+.program-notebook-preview{display:grid;grid-template-columns:132px minmax(0,1fr);align-items:center;gap:18px;margin:22px 0;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.program-notebook-preview img{display:block;width:100%;height:auto;aspect-ratio:1.25;object-fit:contain;background:#fff;border:1px solid var(--border);border-radius:4px;transform:rotate(-2deg)}
+.program-notebook-preview h4{font:700 24px/1.12 var(--cond);color:var(--navy);margin:0 0 8px}
+.program-notebook-preview p{font-size:14px;line-height:1.6;color:var(--muted);margin:0 0 8px}
+.program-notebook-preview .program-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;line-height:1.5}
+.program-notebook-preview a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+#competitive-robotics{scroll-margin-top:88px}
+@media(max-width:430px){.program-notebook-preview{grid-template-columns:84px minmax(0,1fr);gap:14px}.program-notebook-preview h4{font-size:21px}.program-notebook-preview p{font-size:13px}.program-notebook-preview .program-link{font-size:12px}}

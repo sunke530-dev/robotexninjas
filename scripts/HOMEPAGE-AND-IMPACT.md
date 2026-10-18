@@ -1,15 +1,21 @@
-# Homepage and Impact page
+# Homepage, Engineering Notebook, and Impact
 
-The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These two pages retain the shared `styles.css`, `scripts.js`, navigation, logo, and footer.
+The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These pages retain the shared `styles.css`, `scripts.js`, navigation, logo, and footer.
 
 ## Homepage
 
-- `ninjasstemfoundation.html`: semantic page content and the initial visible notebook story.
+- `ninjasstemfoundation.html`: animated pathways and a community feature using an existing Little Elm Library gallery photograph.
 - `foundation-home.css`: scoped homepage presentation and responsive rules.
-- `foundation-home.js`: pathway cards, three notebook stories, and PTO mode controls. The `stories` object holds the narrative; the `assets` object maps its images to local WebP files.
+- `foundation-home.js`: pathway cards, motion controls, and redirects for previous homepage notebook anchors.
+- `assets/community/little-elm-robotics-workshop.jpg`: the ninth image from the existing `LITTLEELM_PHOTOS` gallery array, copied unchanged with existing face coverings retained.
+
+## Engineering Notebook
+
+- `foundation-notebook.html`, `foundation-notebook.css`, and `foundation-notebook.js`: the dedicated three-story notebook, all 18 steps, image controls, and PTO modes. The script's `stories` object holds the narrative and `assets` maps its images.
+- `foundation-programs.html` and `foundation-programs.css`: the compact visual preview inside Competitive Robotics (`#competitive-robotics`).
 - `assets/notebook/`: selected diagrams, notes, and robot photos cropped from the team’s 2025–2026 and 2024–2025 engineering notebooks. Complete notebook decks are not uploaded.
 
-Preserve these deep links: `#makers-notebook`, `#notebook-revolver`, `#notebook-pin-catcher`, and `#notebook-power-sharing`.
+Preserve these deep links on the notebook page and the redirects from the old homepage URLs: `#makers-notebook`, `#notebook-revolver`, `#notebook-pin-catcher`, and `#notebook-power-sharing`.
 
 The pin-catcher trial result describes seven serious errors in 150 recorded intake trials, not a guaranteed success rate. The PTO before/after runs include hardware, code, and strategy changes; do not attribute the full improvement solely to the PTO. The six-motor intake experiment is explicitly rejected. The 20 × 20 to 20 × 18-hole chassis detail remains with the revolver story.
 
@@ -31,4 +37,4 @@ Update event dates, stories, and venue records together when a new program is co
 
 ## Validation
 
-Check both pages at 320, 390, 768, 1024, and 1440px widths. Exercise all three stories and 18 steps, image enlargement, PTO mode selection, motion preference, mobile navigation, story anchors, map venue selection, grouped church events, pan, zoom, reset, and touch scrolling. Check local asset and anchor links and browser console errors before publication.
+Check the homepage, Programs, and notebook at 320, 390, 768, 1024, and 1440px widths. Exercise all three stories and 18 steps, image enlargement, PTO mode selection, motion preference, mobile navigation, story anchors, the Competitive Robotics entry point, old homepage anchor redirects, and touch scrolling. When changing Impact, also check map venue selection, grouped church events, pan, zoom, and reset. Check local asset and anchor links and browser console errors before publication.
