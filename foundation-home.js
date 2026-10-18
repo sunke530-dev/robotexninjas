@@ -53,45 +53,14 @@
 
  const q=s=>r.querySelector(s),qa=s=>Array.from(r.querySelectorAll(s));
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- let current='learn',sequence;
  const active=()=>!reduced.matches&&!q('.mk-site').classList.contains('mk-calm');
  const animate=(el,frames,options)=>{if(active()&&el.animate)el.animate(frames,options)};
- const scenes={learn:['Robotics lab','Make an idea move.','Every robot begins with a question. Bring the parts together, then give your idea a test run.','Sketch it','Code it','Record it','bot'],host:['Discovery workshop','Turn a room into a lab.','A question, a shared experiment, and a moment of discovery. Bring the pieces of a community workshop together.','Ask why','Try it','Discover','lightbulb'],share:['Mentorship studio','Make a connection count.','Connect experience with curiosity. Help students develop their own ideas, confidence, and teamwork.','Listen','Guide','Encourage','users']};
- function change(key){
-  if(current===key)return;current=key;const s=scenes[key];
-  ['[data-lab-label]','[data-lab-title]','[data-lab-copy]','[data-part-one]','[data-part-two]','[data-part-three]'].forEach((sel,i)=>q(sel).textContent=s[i]);
-  q('.lab-machine').innerHTML='<i data-lucide="'+s[6]+'" aria-hidden="true"></i>';
-  if(globalThis.lucide)lucide.createIcons();
-  q('.lab-status').textContent='Ready for your next experiment.';
-  animate(q('.lab-info'),[{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400});
-  assemble();
- }
- function assemble(){
-  if(sequence)sequence.kill();
-  q('.lab-status').textContent=current==='learn'?'Design + code + documentation. Ready to test.':current==='host'?'Questions + experiments + discovery. Ready to share.':'Listening + guidance + encouragement. Connected.';
-  if(!active())return;
-  const parts=qa('.lab-part'),machine=q('.lab-machine');
-  if(globalThis.gsap){
-   sequence=gsap.timeline({defaults:{duration:.65,ease:'power3.out'}});
-   sequence.fromTo(parts,{x:i=>i%2?70:-70,y:i=>i===2?40:-25,opacity:.15,scale:.75},{x:0,y:0,opacity:1,scale:1,stagger:.12,overwrite:'auto'},0)
-    .fromTo(machine,{scale:.45,rotation:-20},{scale:1,rotation:0,ease:'back.out(1.7)'},.25)
-    .fromTo(q('.lab-orbit'),{rotation:0,scale:.65},{rotation:180,scale:1,duration:1.2},0);
-  }else{parts.forEach((p,i)=>animate(p,[{transform:'translateY(-30px) scale(.7)',opacity:.2},{transform:'none',opacity:1}],{duration:650,delay:i*90}));animate(machine,[{transform:'scale(.5) rotate(-20deg)'},{transform:'none'}],{duration:700});}
- }
- q('[data-lab-assemble]').addEventListener('click',assemble);
- q('[data-lab-test]').addEventListener('click',()=>{
-  q('.lab-status').textContent=current==='learn'?'Test complete. What would you improve next?':current==='host'?'A new discovery is ready to share.':'A connection is the beginning of another idea.';
-  const frames=current==='learn'?[{transform:'translateX(0) rotate(0)'},{transform:'translateX(65px) rotate(9deg)',offset:.35},{transform:'translateX(-45px) rotate(-6deg)',offset:.75},{transform:'none'}]:[{transform:'scale(1)'},{transform:'scale(1.35) rotate(12deg)'},{transform:'scale(1)'}];
-  animate(q('.lab-machine'),frames,{duration:1300,easing:'ease-in-out'});
-  animate(q('.lab-orbit'),[{transform:'scale(.7)',opacity:.7},{transform:'scale(1.35)',opacity:0},{transform:'scale(1)',opacity:.35}],{duration:1300});
- });
- qa('.mk-card').forEach(c=>{const go=()=>change(c.dataset.path);c.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')go()});c.querySelector('button').addEventListener('click',go);c.querySelector('button').addEventListener('focus',go)});
  q('.mk-hero').addEventListener('pointermove',e=>{if(!active()||e.pointerType==='touch')return;const b=q('.mk-hero').getBoundingClientRect();q('.mk-hero').style.setProperty('--spot-x',((e.clientX-b.left)/b.width*100)+'%');q('.mk-hero').style.setProperty('--spot-y',((e.clientY-b.top)/b.height*100)+'%')});
  if(globalThis.IntersectionObserver){const ob=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){animate(e.target,[{transform:'translateY(35px) rotate(-1deg)',opacity:.5},{transform:'none',opacity:1}],{duration:850,easing:'ease-out'});ob.unobserve(e.target)}}),{threshold:.12});qa('.mk-process,.mk-support').forEach(el=>ob.observe(el));}
  if(globalThis.lucide)lucide.createIcons();
- r.addEventListener('nsf:motionchange',()=>{if(!active()){if(sequence)sequence.kill();if(globalThis.gsap)gsap.set(qa('.lab-part,.lab-machine,.lab-orbit'),{clearProps:'all'});r.getAnimations({subtree:true}).forEach(animation=>animation.cancel());}});
- reduced.addEventListener('change',()=>{if(reduced.matches){if(sequence)sequence.kill();if(globalThis.gsap)gsap.set(qa('.lab-part,.lab-machine,.lab-orbit'),{clearProps:'all'});r.getAnimations({subtree:true}).forEach(animation=>animation.cancel());}});
- assemble();
+ const stopAnimations=()=>r.getAnimations({subtree:true}).forEach(animation=>animation.cancel());
+ r.addEventListener('nsf:motionchange',()=>{if(!active())stopAnimations();});
+ reduced.addEventListener('change',()=>{if(reduced.matches)stopAnimations();});
 })();
 
 

@@ -6,7 +6,7 @@ The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These tw
 
 - `ninjasstemfoundation.html`: semantic page content and the initial visible notebook story.
 - `foundation-home.css`: scoped homepage presentation and responsive rules.
-- `foundation-home.js`: pathway cards, workbench animation, three notebook stories, and PTO mode controls. The `stories` object holds the narrative; the `assets` object maps its images to local WebP files.
+- `foundation-home.js`: pathway cards, three notebook stories, and PTO mode controls. The `stories` object holds the narrative; the `assets` object maps its images to local WebP files.
 - `assets/notebook/`: selected diagrams, notes, and robot photos cropped from the team’s 2025–2026 and 2024–2025 engineering notebooks. Complete notebook decks are not uploaded.
 
 Preserve these deep links: `#makers-notebook`, `#notebook-revolver`, `#notebook-pin-catcher`, and `#notebook-power-sharing`.
@@ -31,4 +31,4 @@ Update event dates, stories, and venue records together when a new program is co
 
 ## Validation
 
-Check both pages at 320, 390, 768, 1024, and 1440px widths. Exercise all three stories and 18 steps, image enlargement, PTO mode selection, workbench controls, motion preference, mobile navigation, story anchors, map venue selection, grouped church events, pan, zoom, reset, and touch scrolling. Check local asset and anchor links and browser console errors before publication.
+Check both pages at 320, 390, 768, 1024, and 1440px widths. Exercise all three stories and 18 steps, image enlargement, PTO mode selection, motion preference, mobile navigation, story anchors, map venue selection, grouped church events, pan, zoom, reset, and touch scrolling. Check local asset and anchor links and browser console errors before publication.

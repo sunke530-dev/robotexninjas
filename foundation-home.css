@@ -100,7 +100,6 @@
 @media(max-width:650px){#makers-notebook-stories .mk-nav{padding:18px 22px}#makers-notebook-stories .mk-nav-links{display:none}#makers-notebook-stories .mk-hero{padding:28px 22px}#makers-notebook-stories .mk-cards{grid-template-columns:1fr;padding:12px 7px 24px;gap:24px}#makers-notebook-stories .mk-select{display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:center;padding:18px}#makers-notebook-stories .mk-select strong{margin-top:0;font-size:26px}#makers-notebook-stories .mk-select small{min-height:0}#makers-notebook-stories .mk-graphic{height:82px}#makers-notebook-stories .mk-direct{margin:0 18px 8px}#makers-notebook-stories .mk-preview{grid-template-columns:1fr;gap:12px}#makers-notebook-stories .mk-process,#makers-notebook-stories .mk-community{padding:30px 22px}#makers-notebook-stories .mk-process-head{grid-template-columns:1fr;gap:12px}#makers-notebook-stories .mk-sheet{grid-template-columns:1fr;padding:24px 20px 24px 44px;gap:18px}#makers-notebook-stories .mk-sheet-title{display:flex;gap:14px;align-items:center}#makers-notebook-stories .mk-sheet-title i,#makers-notebook-stories .mk-sheet-title svg{margin:0;width:32px;height:32px}#makers-notebook-stories .mk-support{padding:30px 22px;align-items:flex-start;flex-direction:column}#makers-notebook-stories .mk-steps{display:grid;grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){#makers-notebook-stories *,#makers-notebook-stories *::before{animation:none!important;transition:none!important}#makers-notebook-stories .mk-card{transform:rotateZ(var(--mk-rest))!important}}
 
-
 #makers-notebook-stories .mk-hero{background-image:radial-gradient(circle at var(--spot-x,50%) var(--spot-y,35%),color-mix(in srgb,var(--mk-accent) 15%,transparent),transparent 48%),radial-gradient(var(--mk-line) 1px,transparent 1px);background-size:auto,22px 22px}
 #makers-notebook-stories h1{font-size:clamp(48px,8vw,94px);max-width:850px;margin-inline:auto}
 #makers-notebook-stories .mk-intro h1 span{display:inline-block}
@@ -108,26 +107,7 @@
 #makers-notebook-stories .mk-card{border-radius:4px;box-shadow:6px 7px 0 var(--mk-paper),7px 8px 0 var(--mk-line),12px 15px 28px #00133324}
 #makers-notebook-stories .mk-card::before{content:'';position:absolute;top:-11px;left:calc(50% - 29px);width:58px;height:23px;background:light-dark(#e2d4adbb,#96896baa);rotate:-6deg;pointer-events:none}
 #makers-notebook-stories .mk-select strong{font-size:32px}
-#makers-notebook-stories .lab{position:relative;margin:32px 0 18px;border:1px solid var(--mk-line);background:var(--mk-paper);border-radius:12px;overflow:hidden;box-shadow:0 20px 50px #00133312}
-#makers-notebook-stories .lab-top{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--mk-line);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-#makers-notebook-stories .lab-body{display:grid;grid-template-columns:1.25fr 1fr;min-height:310px}
-#makers-notebook-stories .lab-scene{position:relative;min-height:310px;overflow:hidden;perspective:800px;background:radial-gradient(ellipse,color-mix(in srgb,var(--mk-accent) 12%,transparent),transparent 70%)}
-#makers-notebook-stories .lab-floor{position:absolute;left:8%;right:8%;height:150px;bottom:0;background-image:linear-gradient(var(--mk-line) 1px,transparent 1px),linear-gradient(90deg,var(--mk-line) 1px,transparent 1px);background-size:24px 24px;transform:rotateX(60deg);border-radius:50%}
-#makers-notebook-stories .lab-machine{position:absolute;top:105px;left:calc(50% - 45px);color:var(--mk-accent);filter:drop-shadow(0 14px 9px #00133322)}
-#makers-notebook-stories .lab-machine svg{width:90px;height:90px;stroke-width:1.4}
-#makers-notebook-stories .lab-part{position:absolute;display:flex;align-items:center;gap:8px;padding:13px;background:var(--mk-paper);border:1px solid var(--mk-line);border-radius:8px;box-shadow:5px 7px 0 color-mix(in srgb,var(--mk-accent) 8%,transparent);font-size:12px}
-#makers-notebook-stories .lab-part svg{width:23px;height:23px;color:var(--mk-accent)}
-#makers-notebook-stories .lp-one{left:8%;top:28px;rotate:-8deg}
-#makers-notebook-stories .lp-two{right:5%;top:40px;rotate:8deg}
-#makers-notebook-stories .lp-three{left:12%;bottom:35px;rotate:-4deg}
-#makers-notebook-stories .lab-orbit{position:absolute;left:calc(50% - 99px);top:56px;width:198px;height:198px;border:1px dashed var(--mk-accent);border-radius:50%;opacity:.35}
-#makers-notebook-stories .lab-orbit::after{content:'';position:absolute;top:24px;left:24px;width:10px;height:10px;border-radius:50%;background:var(--mk-accent)}
-#makers-notebook-stories .lab-info{padding:34px 28px;align-self:center}
-#makers-notebook-stories .lab-info h3{font-size:34px}
-#makers-notebook-stories .lab-controls{display:flex;flex-wrap:wrap;gap:10px}
-#makers-notebook-stories .lab-controls button{border:1px solid var(--mk-line);background:var(--mk-paper);color:var(--mk-ink);min-height:44px;padding:10px 16px;border-radius:5px;font-weight:600}
-#makers-notebook-stories .lab-controls button:first-child{background:var(--mk-accent);color:white;border-color:var(--mk-accent)}
-#makers-notebook-stories .lab-status{font-size:12px;margin:15px 0 0;min-height:21px}
+
 #makers-notebook-stories .mk-process{position:relative;background-image:repeating-linear-gradient(transparent,transparent 31px,color-mix(in srgb,var(--mk-line) 40%,transparent) 32px)}
 #makers-notebook-stories .mk-sheet{transform-origin:left center;min-height:220px;border-left:6px solid var(--mk-accent);box-shadow:7px 8px 0 var(--mk-paper),8px 9px 0 var(--mk-line),15px 16px 0 var(--mk-paper),16px 17px 0 var(--mk-line)}
 #makers-notebook-stories .mk-community{padding-block:62px}
@@ -135,8 +115,7 @@
 #makers-notebook-stories .mk-support{padding-block:46px}
 #makers-notebook-stories .mk-cta{transition:box-shadow .3s;box-shadow:5px 5px 0 #ffffff33}
 #makers-notebook-stories .mk-cta:hover{box-shadow:9px 9px 0 #ffffff55}
-@media(max-width:650px){#makers-notebook-stories .lab-body{grid-template-columns:1fr}#makers-notebook-stories .lab-scene{min-height:280px}#makers-notebook-stories .lab-info{padding:20px}#makers-notebook-stories .lab-top{font-size:11px}#makers-notebook-stories .mk-select strong{font-size:27px}}
-
+@media(max-width:650px){#makers-notebook-stories .mk-select strong{font-size:27px}}
 
 #makers-notebook-stories .nb-section{padding:50px 34px}
 #makers-notebook-stories .nb-section [hidden]{display:none!important}
@@ -220,7 +199,7 @@
 #makers-notebook-stories .mk-select{min-height:44px}
 #makers-notebook-stories .mk-link{white-space:normal}
 #makers-notebook-stories .mk-support .mk-cta{color:#fff}
-#makers-notebook-stories .lab-part{line-height:1.3}
+
 #makers-notebook-stories .nb-image-window img{background:#fff}
 #makers-notebook-stories .mk-calm *,#makers-notebook-stories .mk-calm *::after{animation:none!important;transition:none!important}
-@media(max-width:430px){#makers-notebook-stories .mk-hero{padding-inline:18px}#makers-notebook-stories .mk-select{grid-template-columns:58px 1fr;padding:16px}#makers-notebook-stories .mk-select strong{font-size:26px}#makers-notebook-stories .mk-direct{font-size:12px;margin-inline:16px}#makers-notebook-stories .lab-part{font-size:11px;padding:9px;gap:5px}#makers-notebook-stories .lab-top{gap:10px;padding-inline:12px;font-size:10px}#makers-notebook-stories .lab-info h3{font-size:30px}#makers-notebook-stories .mk-support .mk-cta{white-space:normal}#makers-notebook-stories .nb-section{padding-inline:18px}}
+@media(max-width:430px){#makers-notebook-stories .mk-hero{padding-inline:18px}#makers-notebook-stories .mk-select{grid-template-columns:58px 1fr;padding:16px}#makers-notebook-stories .mk-select strong{font-size:26px}#makers-notebook-stories .mk-direct{font-size:12px;margin-inline:16px}#makers-notebook-stories .mk-support .mk-cta{white-space:normal}#makers-notebook-stories .nb-section{padding-inline:18px}}
