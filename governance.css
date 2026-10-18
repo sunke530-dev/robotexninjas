@@ -3,7 +3,6 @@
 .governance-library :is(h1,h2,h3,h4){font-family:var(--cond);line-height:1.15;letter-spacing:0}
 .governance-library h1{font-size:clamp(38px,4.5vw,60px);font-weight:800;text-transform:uppercase;margin:0 0 20px}
 .governance-library h1 span{color:var(--red)}
-.gl-eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin:0 0 16px}
 .gl-lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:790px}
 .gl-intro{margin-bottom:40px}
 .gl-section-heading{margin:0 0 20px}
