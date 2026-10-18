@@ -1,0 +1,226 @@
+
+#makers-notebook-stories{--mk-blue:#176cff;--mk-red:#e82d41;--mk-navy:#0a1d3c;--mk-paper:light-dark(#fffefa,#14263e);--mk-page:light-dark(#f3f6fc,#1b304d);--mk-ink:light-dark(#0a1d3c,#eff6ff);--mk-muted:light-dark(#55677d,#bdcee6);--mk-line:light-dark(#dce5f1,#334b6a);font-family:Barlow,sans-serif;color:var(--mk-ink)}
+#makers-notebook-stories *{box-sizing:border-box}
+#makers-notebook-stories .mk-site{background:var(--mk-paper);--mk-accent:var(--mk-blue);--mk-depth:7;--mk-strength:1;overflow:hidden}
+#makers-notebook-stories .mk-nav{padding:20px 34px;display:flex;justify-content:space-between;align-items:center;gap:20px;background:var(--mk-paper);border-bottom:1px solid var(--mk-line)}
+#makers-notebook-stories .mk-brand{display:flex;align-items:center;gap:12px;font:800 19px/1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+#makers-notebook-stories .mk-brand img{width:48px;height:48px;border-radius:50%}
+#makers-notebook-stories .mk-nav-links{display:flex;gap:18px;align-items:center;font-size:12px}
+#makers-notebook-stories .mk-nav-links a{color:var(--mk-ink);text-decoration:none;min-height:44px;display:flex;align-items:center}
+#makers-notebook-stories .mk-nav-links a:first-child{color:var(--mk-red)}
+#makers-notebook-stories button{font-family:Barlow,sans-serif;cursor:var(--cursor-interaction,default)}
+#makers-notebook-stories a{color:var(--mk-accent);text-underline-offset:4px}
+#makers-notebook-stories button:focus-visible,#makers-notebook-stories a:focus-visible,#makers-notebook-stories summary:focus-visible{outline:3px solid var(--mk-accent);outline-offset:5px}
+#makers-notebook-stories .mk-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:9px;margin:0 0 18px}
+#makers-notebook-stories .mk-eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+#makers-notebook-stories h1{font:900 clamp(44px,6.4vw,76px)/.99 "Barlow Condensed",sans-serif;letter-spacing:-.025em;margin:0 0 22px}
+#makers-notebook-stories h2{font:800 clamp(28px,3.7vw,42px)/1.08 "Barlow Condensed",sans-serif;margin:0 0 16px}
+#makers-notebook-stories h3{font:700 26px/1.1 "Barlow Condensed",sans-serif;margin:0 0 12px}
+#makers-notebook-stories p{font-size:15px;line-height:1.75;color:var(--mk-muted);margin:0 0 20px}
+#makers-notebook-stories .mk-hero{position:relative;padding:38px 34px 34px;background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--mk-accent) 12%,var(--mk-paper)),var(--mk-paper) 70%);transition:background .5s}
+#makers-notebook-stories .mk-intro{text-align:center;max-width:720px;margin:auto}
+#makers-notebook-stories .mk-intro .mk-eyebrow{justify-content:center;color:var(--mk-red)}
+#makers-notebook-stories .mk-intro h1 span{color:var(--mk-accent);transition:color .4s}
+#makers-notebook-stories .mk-intro p{max-width:570px;margin:0 auto 28px}
+#makers-notebook-stories .mk-logo{width:82px;height:82px;border-radius:50%;margin:0 auto 22px;display:block}
+#makers-notebook-stories .mk-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:20px 8px 26px;perspective:900px}
+#makers-notebook-stories .mk-card{position:relative;min-width:0;border-radius:12px 26px 12px 26px;background:var(--mk-blue);color:#fff;box-shadow:7px 9px 0 color-mix(in srgb,var(--mk-navy) 13%,transparent);transform:perspective(800px) rotateX(var(--mk-rx,0deg)) rotateY(var(--mk-ry,0deg)) rotateZ(var(--mk-rest,-3deg));transition:transform .25s,box-shadow .25s}
+#makers-notebook-stories .mk-card:nth-child(2){background:var(--mk-red);--mk-rest:3deg}
+#makers-notebook-stories .mk-card:nth-child(3){background:var(--mk-navy);--mk-rest:-2deg}
+#makers-notebook-stories .mk-card.is-active{--mk-rest:0deg;box-shadow:9px 15px 0 color-mix(in srgb,var(--mk-navy) 17%,transparent)}
+#makers-notebook-stories .mk-select{display:block;width:100%;border:0;background:transparent;color:inherit;text-align:left;padding:22px 22px 12px;border-radius:inherit}
+#makers-notebook-stories .mk-select strong{display:block;font:800 27px/1.03 "Barlow Condensed",sans-serif;margin-top:18px}
+#makers-notebook-stories .mk-select small{font-size:12px;line-height:1.55;display:block;margin-top:10px;min-height:38px;color:#e1ecff}
+#makers-notebook-stories .mk-direct{display:flex;align-items:center;gap:8px;color:#fff!important;font-size:13px;min-height:48px;margin:0 22px 14px;border-top:1px solid #ffffff55;font-weight:600;text-decoration:none}
+#makers-notebook-stories .mk-graphic{height:84px;position:relative;display:flex;align-items:center;justify-content:center}
+#makers-notebook-stories .mk-robot{position:relative;z-index:2}
+#makers-notebook-stories .mk-robot i,#makers-notebook-stories .mk-robot svg{width:46px;height:46px}
+#makers-notebook-stories .mk-wheel{position:absolute;bottom:3px;width:22px;height:22px;border:3px dashed #ffffffc0;border-radius:50%}
+#makers-notebook-stories .mk-wheel.left{left:calc(50% - 34px)}
+#makers-notebook-stories .mk-wheel.right{right:calc(50% - 34px)}
+#makers-notebook-stories .mk-trail{height:2px;width:55%;position:absolute;bottom:0;left:12%;background:linear-gradient(90deg,transparent,#ffffffa0);transform-origin:left}
+#makers-notebook-stories .mk-bulb i,#makers-notebook-stories .mk-bulb svg{width:48px;height:48px;position:relative;z-index:2}
+#makers-notebook-stories .mk-halo{position:absolute;left:calc(50% - 31px);top:10px;width:62px;height:62px;border-radius:50%;border:2px dashed #ffffff90}
+#makers-notebook-stories .mk-spark{position:absolute;width:8px;height:8px;background:#fff;border-radius:2px;top:27%;left:25%;transform:rotate(20deg)}
+#makers-notebook-stories .mk-spark.s2{top:62%;left:73%;width:6px;height:6px}
+#makers-notebook-stories .mk-spark.s3{top:10%;left:67%;width:5px;height:5px}
+#makers-notebook-stories .mk-person{position:absolute;top:28px;left:calc(50% - 15px)}
+#makers-notebook-stories .mk-person i,#makers-notebook-stories .mk-person svg{width:30px;height:30px}
+#makers-notebook-stories .mk-person.p1{left:15%;top:35px}
+#makers-notebook-stories .mk-person.p3{left:auto;right:15%;top:35px}
+#makers-notebook-stories .mk-heart{position:absolute;top:0;left:calc(50% - 11px);color:#ff8a9a}
+#makers-notebook-stories .mk-heart i,#makers-notebook-stories .mk-heart svg{width:22px;height:22px}
+#makers-notebook-stories .mk-connection{position:absolute;height:2px;width:60%;background:#7aafff;left:20%;top:55px;transform-origin:center}
+#makers-notebook-stories .mk-card.is-playing .mk-robot{animation:mk-drive 1.15s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-wheel{animation:mk-wheel 1.15s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-trail{animation:mk-trace 1.15s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-halo{animation:mk-discover 1.2s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-spark{animation:mk-spark 1.2s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-spark.s2{animation-delay:.1s}
+#makers-notebook-stories .mk-card.is-playing .mk-person.p1{animation:mk-connect-left 1.2s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-person.p3{animation:mk-connect-right 1.2s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-heart{animation:mk-heart 1.2s ease both}
+#makers-notebook-stories .mk-card.is-playing .mk-connection{animation:mk-trace 1.2s ease both}
+#makers-notebook-stories .mk-preview{display:grid;grid-template-columns:.8fr 1.5fr auto;gap:22px;align-items:center;border-top:1px solid var(--mk-line);padding:24px 4px 2px;min-height:140px}
+#makers-notebook-stories .mk-preview .mk-eyebrow{margin:0;color:var(--mk-accent)}
+#makers-notebook-stories .mk-preview h2{font-size:28px;margin:0 0 10px}
+#makers-notebook-stories .mk-preview p{font-size:14px;margin:0}
+#makers-notebook-stories .mk-link{display:inline-flex;min-height:44px;align-items:center;font-size:14px;font-weight:600;white-space:nowrap}
+#makers-notebook-stories .mk-process{padding:40px 34px;background:var(--mk-page)}
+#makers-notebook-stories .mk-process-head{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-bottom:26px}
+#makers-notebook-stories .mk-process-head p{margin-bottom:0}
+#makers-notebook-stories .mk-steps{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+#makers-notebook-stories .mk-step{font:700 19px "Barlow Condensed",sans-serif;color:var(--mk-ink);border:1px solid var(--mk-line);background:var(--mk-paper);border-radius:6px;min-height:46px;padding:10px 18px;flex:1}
+#makers-notebook-stories .mk-step[aria-pressed="true"]{background:var(--mk-accent);color:#fff;border-color:var(--mk-accent)}
+#makers-notebook-stories .mk-sheet{position:relative;display:grid;grid-template-columns:.65fr 1.35fr;gap:24px;padding:30px 32px 30px 52px;background:var(--mk-paper);border-radius:4px 16px 16px 4px;box-shadow:5px 7px 0 var(--mk-line);background-image:linear-gradient(90deg,transparent 32px,#e82d4133 33px,transparent 34px),repeating-linear-gradient(transparent 0,transparent 31px,color-mix(in srgb,var(--mk-line) 35%,transparent) 32px);min-height:180px}
+#makers-notebook-stories .mk-sheet i,#makers-notebook-stories .mk-sheet svg{width:44px;height:44px;color:var(--mk-accent);margin-bottom:12px}
+#makers-notebook-stories .mk-sheet h3{margin:0}
+#makers-notebook-stories .mk-sheet p{margin:0;align-self:center}
+#makers-notebook-stories .mk-sheet.is-turning{animation:mk-page-turn .45s ease both}
+#makers-notebook-stories .mk-community{padding:40px 34px}
+#makers-notebook-stories .mk-community details{margin-top:24px;border-top:1px solid var(--mk-line);border-bottom:1px solid var(--mk-line)}
+#makers-notebook-stories .mk-community summary{padding:20px 4px;font:700 24px "Barlow Condensed",sans-serif;cursor:var(--cursor-interaction,default)}
+#makers-notebook-stories .mk-field-notes{padding:14px 18px 22px}
+#makers-notebook-stories .mk-community details[open] .mk-field-notes{animation:mk-page-turn .5s ease both}
+#makers-notebook-stories .mk-community .mk-actions{display:flex;gap:20px;flex-wrap:wrap}
+#makers-notebook-stories .mk-support{padding:32px 34px;background:var(--mk-navy);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px}
+#makers-notebook-stories .mk-support p{color:#c9dbf3;max-width:550px;margin:0}
+#makers-notebook-stories .mk-cta{background:var(--mk-blue);color:#fff;text-decoration:none;font-size:14px;font-weight:600;min-height:46px;padding:13px 19px;border-radius:6px;display:inline-flex;align-items:center;white-space:nowrap}
+#makers-notebook-stories .mk-footer{padding:24px 34px;background:var(--mk-paper);font-size:12px;color:var(--mk-muted);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+#makers-notebook-stories .mk-calm *,#makers-notebook-stories .mk-calm *::before{animation:none!important;transition:none!important}
+@keyframes mk-drive{0%,100%{transform:translateX(0)}40%{transform:translateX(calc(14px * var(--mk-strength))) rotate(-6deg)}70%{transform:translateX(calc(-9px * var(--mk-strength)))}}
+@keyframes mk-wheel{from{rotate:0deg}to{rotate:240deg}}
+@keyframes mk-trace{0%{scale:.2 1;opacity:.3}70%,100%{scale:1 1;opacity:1}}
+@keyframes mk-discover{0%{scale:.65;rotate:-30deg;opacity:.5}60%{scale:1.3;opacity:1}100%{scale:1;rotate:30deg;opacity:.8}}
+@keyframes mk-spark{0%,100%{scale:1}50%{scale:1.6;rotate:80deg}}
+@keyframes mk-connect-left{0%,100%{translate:0 0}50%{translate:calc(15px * var(--mk-strength)) -4px}}
+@keyframes mk-connect-right{0%,100%{translate:0 0}50%{translate:calc(-15px * var(--mk-strength)) -4px}}
+@keyframes mk-heart{0%,100%{scale:1}50%{scale:1.3;translate:0 -7px}}
+@keyframes mk-page-turn{from{transform:perspective(900px) rotateY(-7deg);transform-origin:left;opacity:.7}to{transform:perspective(900px) rotateY(0);opacity:1}}
+@media(max-width:650px){#makers-notebook-stories .mk-nav{padding:18px 22px}#makers-notebook-stories .mk-nav-links{display:none}#makers-notebook-stories .mk-hero{padding:28px 22px}#makers-notebook-stories .mk-cards{grid-template-columns:1fr;padding:12px 7px 24px;gap:24px}#makers-notebook-stories .mk-select{display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:center;padding:18px}#makers-notebook-stories .mk-select strong{margin-top:0;font-size:26px}#makers-notebook-stories .mk-select small{min-height:0}#makers-notebook-stories .mk-graphic{height:82px}#makers-notebook-stories .mk-direct{margin:0 18px 8px}#makers-notebook-stories .mk-preview{grid-template-columns:1fr;gap:12px}#makers-notebook-stories .mk-process,#makers-notebook-stories .mk-community{padding:30px 22px}#makers-notebook-stories .mk-process-head{grid-template-columns:1fr;gap:12px}#makers-notebook-stories .mk-sheet{grid-template-columns:1fr;padding:24px 20px 24px 44px;gap:18px}#makers-notebook-stories .mk-sheet-title{display:flex;gap:14px;align-items:center}#makers-notebook-stories .mk-sheet-title i,#makers-notebook-stories .mk-sheet-title svg{margin:0;width:32px;height:32px}#makers-notebook-stories .mk-support{padding:30px 22px;align-items:flex-start;flex-direction:column}#makers-notebook-stories .mk-steps{display:grid;grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){#makers-notebook-stories *,#makers-notebook-stories *::before{animation:none!important;transition:none!important}#makers-notebook-stories .mk-card{transform:rotateZ(var(--mk-rest))!important}}
+
+
+#makers-notebook-stories .mk-hero{background-image:radial-gradient(circle at var(--spot-x,50%) var(--spot-y,35%),color-mix(in srgb,var(--mk-accent) 15%,transparent),transparent 48%),radial-gradient(var(--mk-line) 1px,transparent 1px);background-size:auto,22px 22px}
+#makers-notebook-stories h1{font-size:clamp(48px,8vw,94px);max-width:850px;margin-inline:auto}
+#makers-notebook-stories .mk-intro h1 span{display:inline-block}
+#makers-notebook-stories .mk-cards{gap:26px;padding-top:34px}
+#makers-notebook-stories .mk-card{border-radius:4px;box-shadow:6px 7px 0 var(--mk-paper),7px 8px 0 var(--mk-line),12px 15px 28px #00133324}
+#makers-notebook-stories .mk-card::before{content:'';position:absolute;top:-11px;left:calc(50% - 29px);width:58px;height:23px;background:light-dark(#e2d4adbb,#96896baa);rotate:-6deg;pointer-events:none}
+#makers-notebook-stories .mk-select strong{font-size:32px}
+#makers-notebook-stories .lab{position:relative;margin:32px 0 18px;border:1px solid var(--mk-line);background:var(--mk-paper);border-radius:12px;overflow:hidden;box-shadow:0 20px 50px #00133312}
+#makers-notebook-stories .lab-top{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--mk-line);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+#makers-notebook-stories .lab-body{display:grid;grid-template-columns:1.25fr 1fr;min-height:310px}
+#makers-notebook-stories .lab-scene{position:relative;min-height:310px;overflow:hidden;perspective:800px;background:radial-gradient(ellipse,color-mix(in srgb,var(--mk-accent) 12%,transparent),transparent 70%)}
+#makers-notebook-stories .lab-floor{position:absolute;left:8%;right:8%;height:150px;bottom:0;background-image:linear-gradient(var(--mk-line) 1px,transparent 1px),linear-gradient(90deg,var(--mk-line) 1px,transparent 1px);background-size:24px 24px;transform:rotateX(60deg);border-radius:50%}
+#makers-notebook-stories .lab-machine{position:absolute;top:105px;left:calc(50% - 45px);color:var(--mk-accent);filter:drop-shadow(0 14px 9px #00133322)}
+#makers-notebook-stories .lab-machine svg{width:90px;height:90px;stroke-width:1.4}
+#makers-notebook-stories .lab-part{position:absolute;display:flex;align-items:center;gap:8px;padding:13px;background:var(--mk-paper);border:1px solid var(--mk-line);border-radius:8px;box-shadow:5px 7px 0 color-mix(in srgb,var(--mk-accent) 8%,transparent);font-size:12px}
+#makers-notebook-stories .lab-part svg{width:23px;height:23px;color:var(--mk-accent)}
+#makers-notebook-stories .lp-one{left:8%;top:28px;rotate:-8deg}
+#makers-notebook-stories .lp-two{right:5%;top:40px;rotate:8deg}
+#makers-notebook-stories .lp-three{left:12%;bottom:35px;rotate:-4deg}
+#makers-notebook-stories .lab-orbit{position:absolute;left:calc(50% - 99px);top:56px;width:198px;height:198px;border:1px dashed var(--mk-accent);border-radius:50%;opacity:.35}
+#makers-notebook-stories .lab-orbit::after{content:'';position:absolute;top:24px;left:24px;width:10px;height:10px;border-radius:50%;background:var(--mk-accent)}
+#makers-notebook-stories .lab-info{padding:34px 28px;align-self:center}
+#makers-notebook-stories .lab-info h3{font-size:34px}
+#makers-notebook-stories .lab-controls{display:flex;flex-wrap:wrap;gap:10px}
+#makers-notebook-stories .lab-controls button{border:1px solid var(--mk-line);background:var(--mk-paper);color:var(--mk-ink);min-height:44px;padding:10px 16px;border-radius:5px;font-weight:600}
+#makers-notebook-stories .lab-controls button:first-child{background:var(--mk-accent);color:white;border-color:var(--mk-accent)}
+#makers-notebook-stories .lab-status{font-size:12px;margin:15px 0 0;min-height:21px}
+#makers-notebook-stories .mk-process{position:relative;background-image:repeating-linear-gradient(transparent,transparent 31px,color-mix(in srgb,var(--mk-line) 40%,transparent) 32px)}
+#makers-notebook-stories .mk-sheet{transform-origin:left center;min-height:220px;border-left:6px solid var(--mk-accent);box-shadow:7px 8px 0 var(--mk-paper),8px 9px 0 var(--mk-line),15px 16px 0 var(--mk-paper),16px 17px 0 var(--mk-line)}
+#makers-notebook-stories .mk-community{padding-block:62px}
+#makers-notebook-stories .mk-community h2{font-size:clamp(35px,5.5vw,62px)}
+#makers-notebook-stories .mk-support{padding-block:46px}
+#makers-notebook-stories .mk-cta{transition:box-shadow .3s;box-shadow:5px 5px 0 #ffffff33}
+#makers-notebook-stories .mk-cta:hover{box-shadow:9px 9px 0 #ffffff55}
+@media(max-width:650px){#makers-notebook-stories .lab-body{grid-template-columns:1fr}#makers-notebook-stories .lab-scene{min-height:280px}#makers-notebook-stories .lab-info{padding:20px}#makers-notebook-stories .lab-top{font-size:11px}#makers-notebook-stories .mk-select strong{font-size:27px}}
+
+
+#makers-notebook-stories .nb-section{padding:50px 34px}
+#makers-notebook-stories .nb-section [hidden]{display:none!important}
+#makers-notebook-stories .nb-heading{display:grid;grid-template-columns:1.3fr 1fr;gap:38px;align-items:end;margin-bottom:30px}
+#makers-notebook-stories .nb-heading h2{font-size:clamp(34px,4.8vw,54px)}
+#makers-notebook-stories .nb-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:28px}
+#makers-notebook-stories .nb-cases button{position:relative;min-width:0;padding:21px 17px;text-align:left;color:var(--mk-ink);background:var(--mk-paper);border:1px solid var(--mk-line);border-radius:12px 12px 3px 3px;box-shadow:0 4px 0 var(--mk-line);transition:transform .2s,background .2s}
+#makers-notebook-stories .nb-cases button[aria-pressed=true]{background:var(--mk-navy);border-color:var(--mk-navy);color:light-dark(#fff,#f6f8ff);box-shadow:0 4px 0 var(--mk-red)}
+#makers-notebook-stories .nb-cases button span{display:block;font-size:11px;letter-spacing:.075em;text-transform:uppercase;line-height:1.6;opacity:.8}
+#makers-notebook-stories .nb-cases button strong{display:block;font:700 29px/1.2 'Barlow Condensed',sans-serif;margin:9px 0}
+#makers-notebook-stories .nb-cases button small{display:block;font:400 13px/1.5 'Barlow',sans-serif}
+#makers-notebook-stories .nb-cases button:hover{transform:translateY(-3px)}
+#makers-notebook-stories .nb-case-intro{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:center;margin:25px 0 23px}
+#makers-notebook-stories .nb-case-intro h3{font:700 32px/1.1 'Barlow Condensed',sans-serif;margin:0}
+#makers-notebook-stories .nb-case-intro p{font-size:15px;margin:0;line-height:1.65;max-width:640px}
+#makers-notebook-stories .nb-stages{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:32px}
+#makers-notebook-stories .nb-stages button{display:flex;gap:8px;align-items:baseline;flex:1 1 20%;min-height:47px;padding:10px 11px;text-align:left;background:transparent;border:1px solid var(--mk-line);border-radius:5px;color:var(--mk-ink);font-size:12px;line-height:1.4}
+#makers-notebook-stories .nb-stages button span{font-size:11px;letter-spacing:.08em;color:var(--mk-muted)}
+#makers-notebook-stories .nb-stages button b{font-weight:500}
+#makers-notebook-stories .nb-stages button[aria-pressed=true]{background:var(--mk-navy);color:light-dark(#fff,#f6f8ff);border-color:var(--mk-navy)}
+#makers-notebook-stories .nb-stages button[aria-pressed=true] span{color:light-dark(#c5d9ff,#c5d9ff)}
+#makers-notebook-stories .nb-spread{display:grid;grid-template-columns:1.35fr 1fr;gap:30px;align-items:center;min-width:0}
+#makers-notebook-stories .nb-evidence{position:relative;background:var(--mk-paper);padding:12px;box-shadow:5px 7px 0 var(--mk-line);margin:0;min-width:0;rotate:-1deg}
+#makers-notebook-stories .nb-tape{position:absolute;z-index:2;top:-11px;left:calc(50% - 32px);width:64px;height:23px;background:light-dark(#dfd0a6bb,#b0a073bb);rotate:5deg}
+#makers-notebook-stories .nb-image-window{display:flex;align-items:center;justify-content:center;aspect-ratio:1.24;overflow:hidden;background:light-dark(#fff,#fff)}
+#makers-notebook-stories .nb-image-window img{display:block;width:100%;height:100%;object-fit:contain}
+#makers-notebook-stories .nb-spread.is-expanded{grid-template-columns:1fr}
+#makers-notebook-stories .nb-spread.is-expanded .nb-evidence{rotate:0deg}
+#makers-notebook-stories .nb-spread.is-expanded .nb-image-window{aspect-ratio:auto}
+#makers-notebook-stories .nb-spread.is-expanded .nb-image-window img{height:auto;max-height:1000px;object-fit:contain}
+#makers-notebook-stories .nb-spread.is-expanded .nb-story-copy{max-width:700px}
+#makers-notebook-stories .nb-evidence figcaption{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;padding-top:9px;color:var(--mk-muted);font-size:11px;line-height:1.5}
+#makers-notebook-stories .nb-expand{border:0;background:transparent;color:var(--mk-ink);padding:5px 0;min-height:44px;font-size:12px;text-decoration:underline;text-underline-offset:4px}
+#makers-notebook-stories .nb-date{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mk-muted);margin-bottom:14px}
+#makers-notebook-stories .nb-story-copy h3{font-size:clamp(26px,3vw,34px);line-height:1.08;margin:0 0 17px}
+#makers-notebook-stories .nb-story-copy>p{font-size:15px;line-height:1.7;margin:0}
+#makers-notebook-stories .nb-learning{border-left:3px solid var(--mk-red);padding-left:15px;margin:22px 0 12px}
+#makers-notebook-stories .nb-learning span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--mk-red)}
+#makers-notebook-stories .nb-learning p{margin:6px 0 0;font-size:14px;color:var(--mk-ink);line-height:1.65}
+#makers-notebook-stories .nb-source{font-size:12px;min-height:44px;display:inline-flex;align-items:center;text-underline-offset:4px}
+#makers-notebook-stories .nb-pagination{display:flex;justify-content:space-between;gap:14px;align-items:center;font-size:12px;color:var(--mk-muted);padding:25px 0;margin-top:16px;border-bottom:1px solid var(--mk-line)}
+#makers-notebook-stories .nb-pagination>div{display:flex;gap:20px}
+#makers-notebook-stories .nb-pagination button{border:0;border-bottom:1px solid var(--mk-ink);min-height:44px;background:transparent;color:var(--mk-ink);font-weight:600;font-size:13px}
+#makers-notebook-stories .nb-pagination button:disabled{opacity:.35;border-color:transparent}
+#makers-notebook-stories .nb-extra{border-bottom:1px solid var(--mk-line)}
+#makers-notebook-stories .nb-extra summary{font:700 23px/1.3 'Barlow Condensed',sans-serif;padding:20px 0;list-style:none;display:flex;justify-content:space-between;gap:20px}
+#makers-notebook-stories .nb-extra summary::-webkit-details-marker{display:none}
+#makers-notebook-stories .nb-extra[open] summary span{rotate:45deg}
+#makers-notebook-stories .nb-extra-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:12px 0 25px;align-items:center}
+#makers-notebook-stories .nb-extra-body figure{margin:0}
+#makers-notebook-stories .nb-extra-body img{display:block;width:100%;height:auto}
+#makers-notebook-stories .nb-extra-body figcaption{font-size:11px;margin-top:8px;color:var(--mk-muted)}
+#makers-notebook-stories .nb-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:22px;font-size:12px;color:var(--mk-muted)}
+#makers-notebook-stories .nb-footer a{min-height:44px;display:inline-flex;align-items:center}
+#makers-notebook-stories .nb-power{border-block:1px dashed var(--mk-line);padding:22px 0 8px;margin-top:30px}
+#makers-notebook-stories .nb-power-heading{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:14px}
+#makers-notebook-stories .nb-power-heading strong{font-size:16px}
+#makers-notebook-stories .nb-power-heading span{font-size:11px;color:var(--mk-muted)}
+#makers-notebook-stories .nb-power-controls{display:flex;gap:8px;flex-wrap:wrap}
+#makers-notebook-stories .nb-power-controls button{font-size:13px;padding:9px 16px;min-height:44px;border:1px solid var(--mk-line);border-radius:5px;background:var(--mk-paper);color:var(--mk-ink)}
+#makers-notebook-stories .nb-power-controls button[aria-pressed=true]{background:var(--mk-navy);color:light-dark(#fff,#f6f8ff);border-color:var(--mk-navy)}
+#makers-notebook-stories .nb-power-route{display:flex;gap:20px;align-items:center;margin:20px 0 10px;font-size:15px;flex-wrap:wrap}
+#makers-notebook-stories .nb-power-route strong{color:var(--mk-red)}
+#makers-notebook-stories .nb-power-line{flex:1;border-bottom:1px solid var(--mk-line);text-align:right;color:var(--mk-muted)}
+#makers-notebook-stories .nb-power p{font-size:13px;line-height:1.7;margin:0 0 12px}
+@media(max-width:700px){#makers-notebook-stories .nb-section{padding:36px 22px}#makers-notebook-stories .nb-heading,#makers-notebook-stories .nb-spread,#makers-notebook-stories .nb-extra-body{grid-template-columns:1fr;gap:22px}#makers-notebook-stories .nb-stages button{flex-basis:29%}#makers-notebook-stories .nb-evidence{rotate:0deg}#makers-notebook-stories .nb-cases{gap:7px}#makers-notebook-stories .nb-cases button{padding:14px 10px}#makers-notebook-stories .nb-cases button strong{font-size:24px}#makers-notebook-stories .nb-cases button small{display:none}#makers-notebook-stories .nb-case-intro{grid-template-columns:1fr;gap:10px}#makers-notebook-stories .nb-heading p{margin-bottom:0}}
+@media(max-width:430px){#makers-notebook-stories .nb-cases{grid-template-columns:1fr}#makers-notebook-stories .nb-cases button{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:6px;box-shadow:none}#makers-notebook-stories .nb-cases button span{font-size:11px;max-width:120px}#makers-notebook-stories .nb-cases button strong{font-size:23px;margin:0;white-space:nowrap}#makers-notebook-stories .nb-stages button{flex-basis:40%}#makers-notebook-stories .nb-pagination{align-items:flex-start}#makers-notebook-stories .nb-pagination>div{gap:12px;flex-wrap:wrap;justify-content:flex-end}#makers-notebook-stories .nb-pagination button{font-size:12px}#makers-notebook-stories .nb-power-route{gap:12px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){#makers-notebook-stories .nb-cases button{transition:none}#makers-notebook-stories .nb-cases button:hover{transform:none}}
+#makers-notebook-stories .mk-calm .nb-cases button{transition:none}
+#makers-notebook-stories .mk-calm .nb-cases button:hover{transform:none}
+
+/* Production integration: shared site chrome stays outside this scoped design. */
+.foundation-home-page{padding-top:64px;background:#fffefa}
+#makers-notebook-stories{color-scheme:light;--cursor-interaction:pointer}
+#makers-notebook-stories .mk-site{max-width:1280px;margin-inline:auto}
+#makers-notebook-stories .mk-tools{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;margin:0 0 14px}
+#makers-notebook-stories .mk-tools a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;font-weight:600}
+#makers-notebook-stories .mk-motion-toggle{min-height:44px;border:1px solid var(--mk-line);border-radius:5px;padding:8px 13px;background:var(--mk-paper);color:var(--mk-ink);font-size:12px}
+#makers-notebook-stories .mk-tools a:hover{text-decoration-thickness:2px}
+#makers-notebook-stories .nb-section,#makers-notebook-stories [data-nb-case]{scroll-margin-top:85px}
+#makers-notebook-stories .mk-select{min-height:44px}
+#makers-notebook-stories .mk-link{white-space:normal}
+#makers-notebook-stories .mk-support .mk-cta{color:#fff}
+#makers-notebook-stories .lab-part{line-height:1.3}
+#makers-notebook-stories .nb-image-window img{background:#fff}
+#makers-notebook-stories .mk-calm *,#makers-notebook-stories .mk-calm *::after{animation:none!important;transition:none!important}
+@media(max-width:430px){#makers-notebook-stories .mk-hero{padding-inline:18px}#makers-notebook-stories .mk-select{grid-template-columns:58px 1fr;padding:16px}#makers-notebook-stories .mk-select strong{font-size:26px}#makers-notebook-stories .mk-direct{font-size:12px;margin-inline:16px}#makers-notebook-stories .lab-part{font-size:11px;padding:9px;gap:5px}#makers-notebook-stories .lab-top{gap:10px;padding-inline:12px;font-size:10px}#makers-notebook-stories .lab-info h3{font-size:30px}#makers-notebook-stories .mk-support .mk-cta{white-space:normal}#makers-notebook-stories .nb-section{padding-inline:18px}}
