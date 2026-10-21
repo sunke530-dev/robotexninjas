@@ -62,6 +62,8 @@
 #nsf-impact-map .im-upcoming{display:grid;grid-template-columns:.7fr 1.3fr;gap:32px;padding:26px;background:light-dark(#edf3fc,#1b324e);border-left:3px solid var(--im-blue)}
 #nsf-impact-map .im-upcoming h3{font:700 27px/1.1 'Barlow Condensed',sans-serif;margin:0 0 12px}
 #nsf-impact-map .im-upcoming p{font-size:14px;color:var(--im-muted)}
+#nsf-impact-map .im-upcoming+.im-upcoming{margin-top:18px}
+#nsf-impact-map .im-upcoming,#nsf-impact-map #upcoming-events{scroll-margin-top:84px}
 #nsf-impact-map .im-more{margin-top:28px;border-top:1px solid var(--im-line);border-bottom:1px solid var(--im-line)}
 #nsf-impact-map .im-more summary{padding:18px 0;font-weight:600;font-size:15px}
 #nsf-impact-map .im-more p{font-size:14px;color:var(--im-muted)}
