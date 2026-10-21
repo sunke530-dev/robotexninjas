@@ -6,3 +6,24 @@
 .program-notebook-preview a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 #competitive-robotics{scroll-margin-top:88px}
 @media(max-width:430px){.program-notebook-preview{grid-template-columns:84px minmax(0,1fr);gap:14px}.program-notebook-preview h4{font-size:21px}.program-notebook-preview p{font-size:13px}.program-notebook-preview .program-link{font-size:12px}}
+
+.program-flyer{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);align-items:center;gap:32px;margin-top:28px;padding:28px;background:var(--white);border:1px solid var(--border2);border-radius:8px;scroll-margin-top:88px}
+.program-flyer .sec-eyebrow{margin-bottom:12px}
+.program-flyer h3{font:700 32px/1.1 var(--cond);color:var(--navy);margin:0 0 14px}
+.program-flyer-copy>p{font-size:16px;line-height:1.65;color:var(--muted);margin:0}
+.program-flyer-actions{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:20px 0 14px}
+.program-flyer-actions a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;font:700 16px/1.2 var(--cond);text-decoration:none}
+.program-flyer-view{padding:11px 18px;border-radius:4px;background:var(--red);color:var(--white)}
+.program-flyer-view:hover{background:var(--red2)}
+.program-flyer-download{color:var(--blue);text-underline-offset:4px}
+.program-flyer-download:hover{text-decoration:underline}
+.program-flyer-copy>.program-flyer-print{font-size:13px;line-height:1.6}
+.program-flyer-previews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;min-width:0}
+.program-flyer-previews figure{margin:0;min-width:0}
+.program-flyer-previews a{display:block;border:1px solid var(--border2);border-radius:4px;background:var(--white);box-shadow:0 5px 16px rgba(10,26,51,.08);overflow:hidden}
+.program-flyer-previews a:hover{border-color:var(--blue)}
+.program-flyer-previews img{display:block;width:100%;height:auto;aspect-ratio:1000/773}
+.program-flyer-previews figcaption{margin-top:9px;font-size:12px;line-height:1.5;color:var(--muted)}
+.program-flyer a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+@media(max-width:960px){.program-flyer{grid-template-columns:minmax(0,1fr);gap:24px}.program-flyer-copy{max-width:640px}}
+@media(max-width:430px){.program-flyer{padding:20px}.program-flyer h3{font-size:29px}.program-flyer-previews{grid-template-columns:minmax(0,1fr);gap:20px}.program-flyer-actions{align-items:stretch;gap:12px}.program-flyer-actions a{flex:1 1 auto}}
