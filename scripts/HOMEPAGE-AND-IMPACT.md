@@ -8,7 +8,13 @@ The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These pa
 - `foundation-home.css`: scoped homepage presentation and responsive rules.
 - `foundation-home.js`: pathway cards, reduced-motion support, and redirects for previous homepage notebook anchors. The homepage has no on-page motion toggle.
 - `assets/community/little-elm-robotics-workshop-blurred.webp`: homepage image, using the AI-edited preview approved by the user on October 22, 2026. Three smiley overlays were replaced with soft privacy patches; this is not a recovery of the obscured faces. The approved PNG was encoded as lossless WebP. The AI edit can change fine details beyond the patches.
-- `assets/community/little-elm-robotics-workshop.jpg`: retained source copy of the ninth image from `LITTLEELM_PHOTOS`, with the original smiley overlays. Gallery images remain unchanged.
+- `assets/community/little-elm-robotics-workshop.jpg`: retained source copy of the ninth image from `LITTLEELM_PHOTOS`, with the original smiley overlays.
+
+## Gallery privacy images
+
+On October 22, 2026, the user requested the same AI-edited soft-blur treatment for gallery photos with smiley face overlays. The five affected Little Elm photos are 5, 6, 7, 9, and 10. Four new edits are stored as `assets/gallery/littleelm-{05,06,07,10}-privacy.webp`; photo 9 reuses the approved homepage image. Generated PNGs were encoded as quality-92 WebP for gallery loading. Privacy patches remain featureless; they do not recover the obscured faces, and generative edits may change fine details elsewhere.
+
+`gallery.html` retains its layout, photo order, counts, and carousel behavior. The remaining 23 photos are unchanged byte for byte in their embedded data URLs. Keep the privacy image references and descriptive alt text when maintaining the gallery; do not restore the smiley-covered copies into these five positions.
 
 ## Engineering Notebook
 
