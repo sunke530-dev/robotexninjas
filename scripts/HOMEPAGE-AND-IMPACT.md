@@ -7,7 +7,8 @@ The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These pa
 - `ninjasstemfoundation.html`: animated pathways and a community feature using an existing Little Elm Library gallery photograph.
 - `foundation-home.css`: scoped homepage presentation and responsive rules.
 - `foundation-home.js`: pathway cards, reduced-motion support, and redirects for previous homepage notebook anchors. The homepage has no on-page motion toggle.
-- `assets/community/little-elm-robotics-workshop.jpg`: the ninth image from the existing `LITTLEELM_PHOTOS` gallery array, copied unchanged with existing face coverings retained.
+- `assets/community/little-elm-robotics-workshop-blurred.webp`: homepage image, using the AI-edited preview approved by the user on October 22, 2026. Three smiley overlays were replaced with soft privacy patches; this is not a recovery of the obscured faces. The approved PNG was encoded as lossless WebP. The AI edit can change fine details beyond the patches.
+- `assets/community/little-elm-robotics-workshop.jpg`: retained source copy of the ninth image from `LITTLEELM_PHOTOS`, with the original smiley overlays. Gallery images remain unchanged.
 
 ## Engineering Notebook
 
