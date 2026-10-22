@@ -23,17 +23,34 @@ Motion respects the device’s reduced-motion preference. The visible pause cont
 
 ## Impact
 
-- `foundation-impact.html`: map introduction, event details, upcoming event, and all previous community stories.
+- `foundation-impact.html`: map introduction, scheduled event cards and their past-event templates, and all previous community stories.
+- `foundation-impact-events.js`: automatic calendar-date transitions using `America/Chicago`, independent of the visitor's timezone. No scheduled GitHub job or server is required.
 - `foundation-impact-map.css` and `foundation-impact-map.js`: responsive map, projection data, native pin buttons, selection, pan, and zoom.
 - `assets/impact-map/north-texas.svg`: static map fallback.
 
-The three confirmed locations are Little Elm Public Library (100 W. Eldorado Pkwy), Collin County Chinese Fellowship Church (4500 McDermott Road, Plano), and the April 12, 2026 scrimmage (730 E Park Blvd, Plano). The two church events share a pin. The older unspecified library event, Magikids, and Feed the Hunger remain in the event record without speculative locations. The upcoming Haggard Library event is separate from past-event pins.
+The existing locations are Little Elm Public Library (100 W. Eldorado Pkwy), Collin County Chinese Fellowship Church (4500 McDermott Road, Plano), and the April 12, 2026 scrimmage (730 E Park Blvd, Plano). The two church events share a pin. The older unspecified library event, Magikids, and Feed the Hunger remain in the event record without speculative locations.
+
+Davis Library (7501 Independence Parkway) and Haggard Library (2501 Coit Road) become past-event pins only after their event dates. Addresses come from the library listings (https://plano.libnet.info/event/16729411 and https://plano.libnet.info/event/16823536); coordinates were matched by the U.S. Census `Public_AR_Current` address geocoder on October 22, 2026. These are street address matches, not surveyed building locations.
 
 Preserve `#outreach` and `#community-impact`. Event records also have `#event-littleelm`, `#event-vbs`, `#event-scrimmage`, `#event-church`, and `#event-library` anchors.
 
 Boundary source: NCTCOG City Limits (2020), https://maps.pape-dawson.com/server2/rest/services/PD_GIS_Webmap/PD_GIS_WebMap__DFW_External/MapServer/425. Data from the North Central Texas Council of Governments was used in the preparation of this product. Roads: © OpenStreetMap contributors, https://www.openstreetmap.org/copyright. Venue positions use U.S. Census address geocoding. These are address matches, not surveyed building coordinates.
 
-Update event dates, stories, and venue records together when a new program is confirmed. Keep unknown locations unplaced and future events separate from completed events.
+### Automatic event dates
+
+A scheduled card marked `data-impact-event` moves into `#date-based-past-events` the day after its final event date in Central time. The map gains the same venue and links to its event record. The page checks on load, every minute while open, and when returning from the background. Events occurring today remain upcoming; device timezone does not change this rule. The visitor's device clock supplies the current instant. This enhancement requires JavaScript, as does the interactive map; static HTML remains a readable fallback.
+
+For a new scheduled event, copy one of the existing cards and supply:
+
+- A unique card ID, `data-event-date="YYYY-MM-DD"`, and a readable `data-date-label`. For multi-day events, add `data-event-end-date` with the final date.
+- Verified `data-venue-id`, name, short label, address, and longitude/latitude in `data-coordinates`. Reuse a venue ID for repeated visits. Omit unverified venue details; an archived card can still appear without a speculative map pin.
+- An accurate `data-map-summary` and a `template[data-past-event]` containing the usual `impact-event-card` fields. The script preserves the scheduled card's ID on its archived version.
+
+Passing a date does not verify attendance, completion, or outcomes. Until an event report is supplied, keep the explicit report-pending text in both the template and map summary. Update those two sources together when verified details become available; add photo links only for published photographs. Cancelled events should have `data-event-status="cancelled"` and visibly updated cancellation text (or be removed from the schedule). They are never automatically mapped as past events. Invalid or unknown dates do not transition automatically.
+
+Shared posters use `data-event-poster-for` with space-separated event IDs. They remain above upcoming events until every referenced event has passed, then move to `#past-event-posters`, once, above the archived event cards. The upcoming section shows an empty-state message when no events remain. Add future event IDs to the poster attribute only when the poster actually covers them.
+
+Use local test fixtures to simulate dates; there is intentionally no public URL parameter for overriding the date. Run `node scripts/test-impact-events.cjs` to test Central-midnight boundaries, daylight saving changes, multi-day events, invalid dates, cancellations, and venue grouping. Also verify date transitions in the browser with the real page and map, ensuring no duplicate cards or pins and working event anchors. Remove temporary date fixtures before publishing.
 
 ## Validation
 

@@ -64,10 +64,12 @@
 #nsf-impact-map .im-upcoming p{font-size:14px;color:var(--im-muted)}
 #nsf-impact-map .im-upcoming+.im-upcoming{margin-top:18px}
 #nsf-impact-map .im-upcoming,#nsf-impact-map #upcoming-events{scroll-margin-top:84px}
-#nsf-impact-map .im-event-poster{margin:0 auto 24px;min-width:0;max-width:557px}
-#nsf-impact-map .im-event-poster a{display:block;border-radius:5px}
-#nsf-impact-map .im-event-poster img{display:block;width:100%;height:auto;border-radius:5px}
-#nsf-impact-map .im-event-poster figcaption{margin-top:9px;color:var(--im-muted);font-size:12px;line-height:1.5}
+.foundation-impact-page .im-event-poster{margin:0 auto 24px;min-width:0;max-width:557px}
+.foundation-impact-page .im-event-poster a{display:block;border-radius:5px}
+.foundation-impact-page .im-event-poster img{display:block;width:100%;height:auto;border-radius:5px}
+.foundation-impact-page .im-event-poster figcaption{margin-top:9px;color:var(--im-muted,var(--muted));font-size:12px;line-height:1.5}
+.foundation-impact-page [hidden]{display:none!important}
+.foundation-impact-page .impact-event-status{margin:0 0 16px;font-size:13px;line-height:1.6;color:var(--muted)}
 #nsf-impact-map .im-more{margin-top:28px;border-top:1px solid var(--im-line);border-bottom:1px solid var(--im-line)}
 #nsf-impact-map .im-more summary{padding:18px 0;font-weight:600;font-size:15px}
 #nsf-impact-map .im-more p{font-size:14px;color:var(--im-muted)}
