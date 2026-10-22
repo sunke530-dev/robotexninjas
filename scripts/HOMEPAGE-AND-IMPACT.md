@@ -6,7 +6,7 @@ The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These pa
 
 - `ninjasstemfoundation.html`: animated pathways and a community feature using an existing Little Elm Library gallery photograph.
 - `foundation-home.css`: scoped homepage presentation and responsive rules.
-- `foundation-home.js`: pathway cards, motion controls, and redirects for previous homepage notebook anchors.
+- `foundation-home.js`: pathway cards, reduced-motion support, and redirects for previous homepage notebook anchors. The homepage has no on-page motion toggle.
 - `assets/community/little-elm-robotics-workshop.jpg`: the ninth image from the existing `LITTLEELM_PHOTOS` gallery array, copied unchanged with existing face coverings retained.
 
 ## Engineering Notebook
@@ -19,7 +19,7 @@ Preserve these deep links on the notebook page and the redirects from the old ho
 
 The pin-catcher trial result describes seven serious errors in 150 recorded intake trials, not a guaranteed success rate. The PTO before/after runs include hardware, code, and strategy changes; do not attribute the full improvement solely to the PTO. The six-motor intake experiment is explicitly rejected. The 20 × 20 to 20 × 18-hole chassis detail remains with the revolver story.
 
-Motion respects the device’s reduced-motion preference. The visible pause control also stops decorative motion. Notebook selection is stored only in sessionStorage; no account, external application, or Codex runtime is needed.
+Motion respects the device’s reduced-motion preference. The Engineering Notebook's visible pause control also stops its decorative motion. Notebook selection is stored only in sessionStorage; no account, external application, or Codex runtime is needed.
 
 ## Impact
 

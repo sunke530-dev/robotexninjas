@@ -123,7 +123,6 @@
 #makers-notebook-stories .mk-site{max-width:1280px;margin-inline:auto}
 #makers-notebook-stories .mk-tools{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;margin:0 0 14px}
 #makers-notebook-stories .mk-tools a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;font-weight:600}
-#makers-notebook-stories .mk-motion-toggle{min-height:44px;border:1px solid var(--mk-line);border-radius:5px;padding:8px 13px;background:var(--mk-paper);color:var(--mk-ink);font-size:12px}
 #makers-notebook-stories .mk-tools a:hover{text-decoration-thickness:2px}
 
 #makers-notebook-stories .mk-select{min-height:44px}
