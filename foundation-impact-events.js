@@ -30,7 +30,8 @@
       if (!venue || !Array.isArray(venue.coordinates) || venue.coordinates.length !== 2 ||
           !venue.coordinates.every(Number.isFinite) || Math.abs(venue.coordinates[0]) > 180 || Math.abs(venue.coordinates[1]) > 90) continue;
       if (!venues.has(venue.id)) venues.set(venue.id, { ...venue, events: [], href: `#${event.id}`, linkText: 'Read event record →' });
-      venues.get(venue.id).events.push({ title: event.title, date: event.dateLabel, description: event.summary });
+      venues.get(venue.id).events.push({ title: event.title, date: event.dateLabel, description: event.summary,
+        reportStatus: event.reportStatus === 'recorded' ? 'recorded' : 'pending' });
     }
     return [...venues.values()];
   }
@@ -42,7 +43,11 @@
     }
     return [...venues.values()];
   }
-  const api = { dayInChicago, validDate, stateFor, pastVenues, mergeVenues };
+  function reportStatusFor(venue) {
+    const pending = venue.events.filter(event => event.reportStatus === 'pending').length;
+    return pending === 0 ? 'recorded' : pending === venue.events.length ? 'pending' : 'mixed';
+  }
+  const api = { dayInChicago, validDate, stateFor, pastVenues, mergeVenues, reportStatusFor };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   scope.NSFImpactEvents = api;
   if (!scope.document) return;
@@ -61,7 +66,7 @@
     const coordinates = (card.dataset.coordinates || '').split(',').map(Number);
     return {
       id: card.id, date: card.dataset.eventDate, endDate: card.dataset.eventEndDate,
-      status: card.dataset.eventStatus, title: card.querySelector('h3').textContent,
+      status: card.dataset.eventStatus, reportStatus: card.dataset.reportStatus, title: card.querySelector('h3').textContent,
       dateLabel: card.dataset.dateLabel, summary: card.dataset.mapSummary,
       venue: card.dataset.venueId ? {
         id: card.dataset.venueId, name: card.dataset.venueName, short: card.dataset.venueShort,

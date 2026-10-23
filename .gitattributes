@@ -1,0 +1,6 @@
+# Published documents and images must retain their exact binary bytes.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary

@@ -53,33 +53,36 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;fon
 footer a{color:var(--cyan);}
 @media(max-width:600px){.hero{padding:40px 20px 24px;}.event-title{font-size:22px;}}
 </style>
+<link rel="stylesheet" href="team-accessibility.css?v=20261023">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="topbar">
   <a class="topbar-brand" href="index.html">Robotex Ninjas</a>
-  <div class="topbar-links">
+  <div class="topbar-links" role="navigation" aria-label="Related websites">
     <a href="index.html">&larr; Team Page</a>
-    <a href="https://sunke530-dev.github.io/robotexninjas/ninjasstemfoundation">Foundation Site</a>
+    <a href="ninjasstemfoundation.html">Foundation Site</a>
   </div>
 </div>
 
+<main id="main-content" tabindex="-1">
 <div class="hero">
   <div class="hero-eyebrow">Photo Gallery</div>
-  <div class="hero-title">Event Photos</div>
-  <p class="hero-desc">Photos from our community outreach events &mdash; workshops, demonstrations, and hands-on robotics days. Full event write-ups (who we reached, what we did, and outcomes) are on the <a href="https://sunke530-dev.github.io/robotexninjas/ninjasstemfoundation#community-impact">Ninjas STEM Foundation Community Impact page</a>.</p>
+  <h1 class="hero-title">Event Photos</h1>
+  <p class="hero-desc">Photos from our community outreach events &mdash; workshops, demonstrations, and hands-on robotics days. Full event write-ups (who we reached, what we did, and outcomes) are on the <a href="foundation-impact.html#community-impact">Ninjas STEM Foundation Community Impact page</a>.</p>
 </div>
 
 <div class="wrap">
   <div class="event-block" id="littleelm">
     <div class="event-label">September 12, 2026</div>
-    <div class="event-title">From Curiosity to Creation: Robotics Presentation &amp; Workshop</div>
+    <h2 class="event-title">From Curiosity to Creation: Robotics Presentation &amp; Workshop</h2>
     <div class="event-meta">Little Elm Public Library</div>
     <a class="event-download-link" href="https://sunke530-dev.github.io/robotexninjas/Little_Elm_Library_RoboticWorkshopSlides%20small2.pdf" target="_blank" rel="noopener" download>&#128196; Download Presentation Slides</a>
     <div class="gal" id="gallery-ph-littleelm">
       <div class="gal-track" id="track-ph-littleelm"></div>
-      <button class="gal-btn gal-prev" onclick="galMove('ph-littleelm',-1)">&#8249;</button>
-      <button class="gal-btn gal-next" onclick="galMove('ph-littleelm',1)">&#8250;</button>
+      <button class="gal-btn gal-prev">&#8249;</button>
+      <button class="gal-btn gal-next">&#8250;</button>
       <div class="gal-count" id="count-ph-littleelm">1 / 1</div>
     </div>
     <div class="gal-dots" id="dots-ph-littleelm"></div>
@@ -87,12 +90,12 @@ footer a{color:var(--cyan);}
 
   <div class="event-block" id="vbs">
     <div class="event-label">July 8&ndash;10, 2026</div>
-    <div class="event-title">Vacation Bible School Robotics Days</div>
+    <h2 class="event-title">Vacation Bible School Robotics Days</h2>
     <div class="event-meta">Collin County Chinese Fellowship Church</div>
     <div class="gal" id="gallery-ph-vbs">
       <div class="gal-track" id="track-ph-vbs"></div>
-      <button class="gal-btn gal-prev" onclick="galMove('ph-vbs',-1)">&#8249;</button>
-      <button class="gal-btn gal-next" onclick="galMove('ph-vbs',1)">&#8250;</button>
+      <button class="gal-btn gal-prev">&#8249;</button>
+      <button class="gal-btn gal-next">&#8250;</button>
       <div class="gal-count" id="count-ph-vbs">1 / 1</div>
     </div>
     <div class="gal-dots" id="dots-ph-vbs"></div>
@@ -100,12 +103,12 @@ footer a{color:var(--cyan);}
 
   <div class="event-block" id="scrimmage">
     <div class="event-label">April 12, 2026</div>
-    <div class="event-title">2025&ndash;2026 Mix &amp; Match Scrimmage</div>
+    <h2 class="event-title">2025&ndash;2026 Mix &amp; Match Scrimmage</h2>
     <div class="event-meta">Organized by Team 276C</div>
     <div class="gal" id="gallery-ph-scrimmage">
       <div class="gal-track" id="track-ph-scrimmage"></div>
-      <button class="gal-btn gal-prev" onclick="galMove('ph-scrimmage',-1)">&#8249;</button>
-      <button class="gal-btn gal-next" onclick="galMove('ph-scrimmage',1)">&#8250;</button>
+      <button class="gal-btn gal-prev">&#8249;</button>
+      <button class="gal-btn gal-next">&#8250;</button>
       <div class="gal-count" id="count-ph-scrimmage">1 / 1</div>
     </div>
     <div class="gal-dots" id="dots-ph-scrimmage"></div>
@@ -113,19 +116,20 @@ footer a{color:var(--cyan);}
 
   <div class="event-block" id="church">
     <div class="event-label">Texas</div>
-    <div class="event-title">Robotics for Kids at Local Church</div>
+    <h2 class="event-title">Robotics for Kids at Local Church</h2>
     <div class="event-meta">Date not on record</div>
     <div class="gal" id="gallery-ph-church">
       <div class="gal-track" id="track-ph-church"></div>
-      <button class="gal-btn gal-prev" onclick="galMove('ph-church',-1)">&#8249;</button>
-      <button class="gal-btn gal-next" onclick="galMove('ph-church',1)">&#8250;</button>
+      <button class="gal-btn gal-prev">&#8249;</button>
+      <button class="gal-btn gal-next">&#8250;</button>
       <div class="gal-count" id="count-ph-church">1 / 1</div>
     </div>
     <div class="gal-dots" id="dots-ph-church"></div>
   </div>
 </div>
 
-<footer>Robotex Ninjas &bull; Team 276C &amp; 91276C &nbsp;&mdash;&nbsp; part of the <a href="https://sunke530-dev.github.io/robotexninjas/ninjasstemfoundation">Ninjas STEM Foundation</a></footer>
+</main>
+<footer>Robotex Ninjas &bull; Team 276C &amp; 91276C &nbsp;&mdash;&nbsp; part of the <a href="ninjasstemfoundation.html">Ninjas STEM Foundation</a></footer>
 
 <script>
 var LITTLEELM_PHOTOS=[
@@ -166,54 +170,7 @@ var CHURCH_PHOTOS=[
   ];
 
 var galPhotos={'ph-littleelm':LITTLEELM_PHOTOS,'ph-vbs':VBS_PHOTOS,'ph-scrimmage':SCRIMMAGE_PHOTOS,'ph-church':CHURCH_PHOTOS};
-var galState={};
-var galTimers={};
-
-function buildGal(id){
-  var photos=galPhotos[id];if(!photos)return;
-  var track=document.getElementById('track-'+id);
-  var dotsEl=document.getElementById('dots-'+id);
-  galState[id]={cur:0,total:photos.length};
-  photos.forEach(function(src,i){
-    var slide=document.createElement('div');slide.className='gal-slide';
-    var img=document.createElement('img');img.src=src;img.alt='Photo '+(i+1)+(/privacy|workshop-blurred/.test(src)?' — audience faces blurred for privacy':'');img.loading='lazy';
-    slide.appendChild(img);track.appendChild(slide);
-    var dot=document.createElement('button');dot.className='gdot'+(i===0?' active':'');
-    dot.onclick=(function(idx){return function(){galTo(id,idx);}})(i);
-    dotsEl.appendChild(dot);
-  });
-  updateGal(id);
-  startAutoplay(id);
-}
-function galTo(id,n){var st=galState[id];if(!st)return;st.cur=(n+st.total)%st.total;updateGal(id);stopAutoplay(id);setTimeout(function(){startAutoplay(id);},6000);}
-function galMove(id,dir){var st=galState[id];if(!st)return;galTo(id,st.cur+dir);}
-function updateGal(id){
-  var st=galState[id];
-  var track=document.getElementById('track-'+id);
-  var count=document.getElementById('count-'+id);
-  var dotsEl=document.getElementById('dots-'+id);
-  if(!track)return;
-  track.style.transform='translateX(-'+(st.cur*100)+'%)';
-  if(count)count.textContent=(st.cur+1)+' / '+st.total;
-  if(dotsEl){
-    Array.prototype.forEach.call(dotsEl.children,function(d,i){d.classList.toggle('active',i===st.cur);});
-  }
-}
-function startAutoplay(id){
-  stopAutoplay(id);
-  galTimers[id]=setInterval(function(){
-    var st=galState[id];if(!st)return;
-    galTo(id,(st.cur+1)%st.total);
-  },3000);
-}
-function stopAutoplay(id){
-  if(galTimers[id]){clearInterval(galTimers[id]);delete galTimers[id];}
-}
-
-buildGal('ph-littleelm');
-buildGal('ph-vbs');
-buildGal('ph-scrimmage');
-buildGal('ph-church');
 </script>
+<script src="accessible-gallery.js?v=20261023"></script>
 </body>
 </html>

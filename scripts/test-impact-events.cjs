@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const { dayInChicago, validDate, stateFor, pastVenues, mergeVenues } = require('../foundation-impact-events.js');
+const { dayInChicago, validDate, stateFor, pastVenues, mergeVenues, reportStatusFor } = require('../foundation-impact-events.js');
 const davis = { id: 'davis', date: '2026-10-24', dateLabel: 'October 24, 2026', title: 'STEAM Showcase', summary: 'Report pending.', venue: { id: 'davis-library', coordinates: [-96.750231212154, 33.08036228002] } };
 const haggard = { ...davis, id: 'haggard', date: '2026-11-07', venue: { id: 'haggard-library', coordinates: [-96.770210724608, 33.03190900745] } };
 const state = at => stateFor([davis, haggard], new Date(at));
@@ -29,4 +29,9 @@ assert.equal(groups[0].href, '#davis');
 const recorded = [{ id: 'davis-library', events: [{ title: 'Earlier visit' }] }];
 assert.equal(mergeVenues(recorded, groups)[0].events.length, 3);
 assert.equal(recorded[0].events.length, 1, 'Map refresh must not mutate earlier records');
+assert.equal(reportStatusFor(groups[0]), 'pending', 'A past date alone is not evidence that a program took place');
+assert.equal(reportStatusFor(recorded[0]), 'recorded', 'Existing published recaps keep their recorded status');
+assert.equal(reportStatusFor(mergeVenues(recorded, groups)[0]), 'mixed', 'Repeat visits preserve pending status alongside an earlier recap');
+assert.equal(reportStatusFor(pastVenues([{ ...davis, reportStatus: 'recorded' }])[0]), 'recorded', 'A verified recap can be explicitly marked recorded');
+assert.equal(reportStatusFor(pastVenues([{ ...davis, reportStatus: 'unknown' }])[0]), 'pending', 'An unknown status cannot imply a verified recap');
 console.log('Impact event tests passed: Central midnight, both DST offsets, end dates, invalid/cancelled dates, sorting, grouping and unchanged earlier records.');

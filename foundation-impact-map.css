@@ -95,3 +95,13 @@
 .foundation-impact-page .impact-event-card:target{outline:2px solid var(--blue);outline-offset:4px}
 @media(max-width:1280px){#nsf-impact-map .im-map-wrap{margin-inline:24px}}
 @media(max-width:650px){#nsf-impact-map .im-intro{padding-inline:22px}#nsf-impact-map .im-map-wrap{margin-inline:12px}#nsf-impact-map .im-map-top strong{max-width:100%}#nsf-impact-map .im-selection{gap:20px}#nsf-impact-map .im-pin-label{max-width:128px}}
+
+/* An elapsed date does not establish that a scheduled program took place. */
+#nsf-impact-map .im-legend{display:flex;flex-wrap:wrap;gap:8px 16px}
+#nsf-impact-map .im-pending-key{color:#854d0e}
+#nsf-impact-map .im-report-note{max-width:1152px;margin:16px auto;padding:0 24px;color:#52627c;font-size:14px;line-height:1.6}
+#nsf-impact-map .im-report-status{font-size:12px;font-weight:700;color:#0755b7;margin:6px 0}
+#nsf-impact-map .im-report-status.is-pending{color:#854d0e}
+#nsf-impact-map .im-pin[data-report-status="pending"] .im-pin-mark{background:#854d0e;border:2px dashed #fff}
+#nsf-impact-map .im-pin[data-report-status="mixed"] .im-pin-mark{border:2px dashed #854d0e}
+#nsf-impact-map .im-pin:not([data-report-status="recorded"]) .im-pin-label{border:1px dashed #854d0e}

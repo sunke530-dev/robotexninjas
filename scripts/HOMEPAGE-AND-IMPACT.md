@@ -14,7 +14,15 @@ The site remains buildless HTML/CSS/JavaScript, served by GitHub Pages. These pa
 
 On October 22, 2026, the user requested the same AI-edited soft-blur treatment for gallery photos with smiley face overlays. The five affected Little Elm photos are 5, 6, 7, 9, and 10. Four new edits are stored as `assets/gallery/littleelm-{05,06,07,10}-privacy.webp`; photo 9 reuses the approved homepage image. Generated PNGs were encoded as quality-92 WebP for gallery loading. Privacy patches remain featureless; they do not recover the obscured faces, and generative edits may change fine details elsewhere.
 
-`gallery.html` retains its layout, photo order, counts, and carousel behavior. The remaining 23 photos are unchanged byte for byte in their embedded data URLs. Keep the privacy image references and descriptive alt text when maintaining the gallery; do not restore the smiley-covered copies into these five positions.
+`gallery.html` retains its photo order and counts. The remaining 23 photos are unchanged byte for byte in their embedded data URLs. Keep the privacy image references and descriptive alt text when maintaining the gallery; do not restore the smiley-covered copies into these five positions.
+
+### Accessible galleries and team controls
+
+`accessible-gallery.js` supplies the galleries on both `index.html` and `gallery.html`. They advance only on user input, support named previous/next and photo-selector buttons, arrow/Home/End keys and horizontal touch swipes, and hide inactive slides from assistive technology. The selected photo has `aria-current` and a visible, politely announced caption. A one-photo gallery hides navigation. Keep the descriptions in this shared script aligned with each page's photo-array order; do not add student identities to descriptions without permission.
+
+`team-accessibility.css` provides shared focus indicators, adequate control targets, readable secondary text and reduced-motion support. `team-accessibility.js` manages the mobile navigation, Tech Spotlight, member-card disclosures, Show More controls and deep links into hidden articles. Disclosure state must keep `hidden` and `aria-expanded` synchronized; source links remain separate from disclosure buttons. The homepage motion preference is unchanged.
+
+The flyer linked on Programs was updated on October 23, 2026 to mark Innovation Lab active while leaving STEM Academy in development. `foundation-flyer.html` is a reflowable text alternative arranged in panel reading order, including descriptions of the photograph and QR destinations. Update the PDF, two previews and HTML text together; preserve the print version's QR codes and omit printed web addresses as requested.
 
 ## Engineering Notebook
 
@@ -53,7 +61,7 @@ For a new scheduled event, copy one of the existing cards and supply:
 - Verified `data-venue-id`, name, short label, address, and longitude/latitude in `data-coordinates`. Reuse a venue ID for repeated visits. Omit unverified venue details; an archived card can still appear without a speculative map pin.
 - An accurate `data-map-summary` and a `template[data-past-event]` containing the usual `impact-event-card` fields. The script preserves the scheduled card's ID on its archived version.
 
-Passing a date does not verify attendance, completion, or outcomes. Until an event report is supplied, keep the explicit report-pending text in both the template and map summary. Update those two sources together when verified details become available; add photo links only for published photographs. Cancelled events should have `data-event-status="cancelled"` and visibly updated cancellation text (or be removed from the schedule). They are never automatically mapped as past events. Invalid or unknown dates do not transition automatically.
+Passing a date does not verify attendance, completion, or outcomes. Until an event report is supplied, keep the explicit report-pending text in both the template and map summary. Automatically archived events default to `Recap pending` on their map pins, location buttons and event details. A location with earlier recorded visits and a pending visit retains both records and says `Includes a pending recap`. Only after verified event details are supplied, update the template and map summary and add `data-report-status="recorded"` to the scheduled card. Do not set that attribute merely because a date has passed. Add photo links only for published photographs. Cancelled events should have `data-event-status="cancelled"` and visibly updated cancellation text (or be removed from the schedule). They are never automatically mapped as past events. Invalid or unknown dates do not transition automatically.
 
 Shared posters use `data-event-poster-for` with space-separated event IDs. They remain above upcoming events until every referenced event has passed, then move to `#past-event-posters`, once, above the archived event cards. The upcoming section shows an empty-state message when no events remain. Add future event IDs to the poster attribute only when the poster actually covers them.
 
