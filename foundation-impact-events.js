@@ -13,7 +13,8 @@
   }
   function hasPassed(event, today) {
     const end = event.endDate || event.date;
-    return event.status !== 'cancelled' && validDate(event.date) && validDate(end) && end >= event.date && end < today;
+    return event.status !== 'cancelled' && validDate(event.date) && validDate(end) && end >= event.date &&
+      (end < today || (event.status === 'completed' && end === today));
   }
   function stateFor(events, now = new Date()) {
     const today = dayInChicago(now);
@@ -29,7 +30,9 @@
       const venue = event.venue;
       if (!venue || !Array.isArray(venue.coordinates) || venue.coordinates.length !== 2 ||
           !venue.coordinates.every(Number.isFinite) || Math.abs(venue.coordinates[0]) > 180 || Math.abs(venue.coordinates[1]) > 90) continue;
-      if (!venues.has(venue.id)) venues.set(venue.id, { ...venue, events: [], href: `#${event.id}`, linkText: 'Read event record →' });
+      if (!venues.has(venue.id)) venues.set(venue.id, { ...venue, events: [],
+        href: event.gallery ? `gallery.html#${encodeURIComponent(event.gallery)}` : `#${event.id}`,
+        linkText: event.gallery ? 'See event photos ↗' : 'Read event record →' });
       venues.get(venue.id).events.push({ title: event.title, date: event.dateLabel, description: event.summary,
         reportStatus: event.reportStatus === 'recorded' ? 'recorded' : 'pending' });
     }
@@ -67,7 +70,7 @@
     return {
       id: card.id, date: card.dataset.eventDate, endDate: card.dataset.eventEndDate,
       status: card.dataset.eventStatus, reportStatus: card.dataset.reportStatus, title: card.querySelector('h3').textContent,
-      dateLabel: card.dataset.dateLabel, summary: card.dataset.mapSummary,
+      dateLabel: card.dataset.dateLabel, summary: card.dataset.mapSummary, gallery: card.dataset.galleryAnchor,
       venue: card.dataset.venueId ? {
         id: card.dataset.venueId, name: card.dataset.venueName, short: card.dataset.venueShort,
         address: card.dataset.venueAddress, coordinates
