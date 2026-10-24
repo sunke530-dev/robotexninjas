@@ -3,16 +3,16 @@
   'use strict';
   const descriptions = {
     'ph-davis': [
-      'A visitor tries a handheld controller while students demonstrate a robot handling game pieces; faces are blurred for privacy.',
-      'Students guide a young visitor and family beside a robotics practice field; faces are blurred for privacy.',
-      'Students explain a robot mechanism and a stack of game pieces to a visitor; faces are blurred for privacy.',
-      'Visitors try robot controls while students reset game pieces beside the Foundation display; faces are blurred for privacy.',
-      'Families gather around the robot field and demonstration models at Davis Library; faces are blurred for privacy.',
-      'A student helps a visitor use a controller while two robots sit on the practice field; faces are blurred for privacy.',
-      'Students support several robot-driving activities around the field; faces are blurred for privacy.',
-      'Young visitors explore robot driving with student guidance during the STEAM Showcase; faces are blurred for privacy.',
-      'Library visitors watch robots maneuver and handle game pieces on the field; faces are blurred for privacy.',
-      'A child uses a handheld controller as students assist and families watch; faces are blurred for privacy.'
+      'A visitor tries a handheld controller while students demonstrate a robot handling game pieces; visitor faces are blurred for privacy.',
+      'Students guide a young visitor and family beside a robotics practice field; visitor faces are blurred for privacy.',
+      'Students explain a robot mechanism and a stack of game pieces to a visitor; visitor faces are blurred for privacy.',
+      'Visitors try robot controls while students reset game pieces beside the Foundation display; visitor faces are blurred for privacy.',
+      'Families gather around the robot field and demonstration models at Davis Library; visitor faces are blurred for privacy.',
+      'A student helps a visitor use a controller while two robots sit on the practice field; visitor faces are blurred for privacy.',
+      'Students support several robot-driving activities around the field; visitor faces are blurred for privacy.',
+      'Young visitors explore robot driving with student guidance during the STEAM Showcase; visitor faces are blurred for privacy.',
+      'Library visitors watch robots maneuver and handle game pieces on the field; visitor faces are blurred for privacy.',
+      'A child uses a handheld controller as students assist and families watch; visitor faces are blurred for privacy.'
     ],
     'ph-littleelm': [
       'Student presenters stand behind robots and game pieces at Little Elm Public Library.',
