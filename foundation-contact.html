@@ -65,11 +65,11 @@
         </a>
       </div>
       <div>
-        <p style="font-size:12px;color:var(--muted);background:rgba(10,26,51,.04);border:1px solid var(--border2);border-radius:4px;padding:10px 12px;margin-bottom:14px;">This form sends your message directly to our team &mdash; no email app required.</p>
+        <p style="font-size:12px;color:var(--muted);background:rgba(10,26,51,.04);border:1px solid var(--border2);border-radius:4px;padding:10px 12px;margin-bottom:14px;">This form sends your inquiry directly to our team &mdash; no email app required.</p>
         <p style="font-size:12px;color:var(--muted);background:rgba(10,26,51,.04);border:1px solid var(--border2);border-radius:4px;padding:10px 12px;margin-bottom:14px;">For inquiries about a child, please have a parent or guardian contact us. Provide only the information needed to explain your inquiry. Messages are processed through FormSubmit and reviewed by the volunteers responsible for responding. Please do not submit sensitive personal information or confidential invention details. <a href="foundation-governance.html#doc-privacy">Read our Privacy Statement (under Board review, not yet adopted).</a></p>
         <div class="f2">
-          <div><label class="flabel" for="fn">Name</label><input type="text" placeholder="Your name" id="fn"></div>
-          <div><label class="flabel" for="fe">Email</label><input type="email" placeholder="you@example.com" id="fe"></div>
+          <div><label class="flabel" for="fn">Name</label><input type="text" placeholder="Your name" id="fn" autocomplete="name"></div>
+          <div><label class="flabel" for="fe">Email</label><input type="email" placeholder="you@example.com" id="fe" autocomplete="email"></div>
         </div>
         <div class="frow">
           <label class="flabel" for="f-topic">Topic</label>
@@ -86,8 +86,8 @@
           <label class="flabel" for="f-subtopic">More specifically</label>
           <select id="f-subtopic" style="width:100%;padding:11px 14px;font-size:14px;font-family:var(--body);background:var(--light);border:1.5px solid var(--border2);color:var(--text);outline:none;border-radius:3px;appearance:none;"></select>
         </div>
-        <div class="frow"><label class="flabel" for="fm">Message</label><textarea id="fm" placeholder="Tell us more..."></textarea></div>
-        <p id="f-disclosure-note" style="font-size:12px;color:var(--muted);margin:-6px 0 14px 0;display:none;">For invention-related inquiries, please provide only a general, nonconfidential description. Do not submit unpublished technical details or documents through this initial inquiry form.</p>
+        <div class="frow" id="f-message-row"><label class="flabel" for="fm">Message</label><textarea id="fm" placeholder="Tell us more..."></textarea></div>
+        <p id="f-disclosure-note" role="status" aria-live="polite" style="font-size:14px;color:var(--muted);line-height:1.7;margin:0 0 14px;display:none;"><strong>Basic contact details only.</strong> For patent assistance, provide your name and email so we can follow up about next steps. <strong>Do not include confidential invention details, unpublished technical information, drawings, or documents.</strong> This is an initial contact request, not a confidential invention disclosure.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <button class="fsub" id="f-submit-btn" onclick="sendForm()">Send Message &rarr;</button>
           <button class="fsub" type="button" onclick="copyFormDetails()" style="background:transparent;color:var(--navy);border:1.5px solid var(--navy);">Copy Details</button>
@@ -144,6 +144,6 @@
   </div>
 </footer>
 
-<script src="scripts.js"></script>
+<script src="scripts.js?v=20261024-contact-only"></script>
 </body>
 </html>

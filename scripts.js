@@ -17,6 +17,7 @@ function showInvolveTab(tab){
     btnOpenings.classList.remove('active');
   }
 }
+var PATENT_INQUIRY_TOPIC = 'Patent & IP Assistance';
 var TOPIC_SUBTOPICS = {
   'Mentorship': [
     'Requesting mentorship for our VEX IQ team',
@@ -31,12 +32,7 @@ var TOPIC_SUBTOPICS = {
     'After-school program session',
     'Other event / private request'
   ],
-  'Patent & IP Assistance': [
-    'Patent application filing',
-    'Patent landscape / prior art search',
-    'Invention disclosure guidance',
-    'Early-stage business / entrepreneurship advice'
-  ],
+  'Patent & IP Assistance': [],
   'Join an Existing Robotic Team': [
     'Student interested in joining VEX IQ Team 276C',
     'Student interested in joining V5RC Team 91276C',
@@ -52,12 +48,15 @@ var TOPIC_SUBTOPICS = {
 };
 
 function updateSubtopics(){
+  if(!document.getElementById('f-topic')) return;
   var topic = document.getElementById('f-topic').value;
+  var isPatent = topic === PATENT_INQUIRY_TOPIC;
   var row = document.getElementById('f-subtopic-row');
   var sel = document.getElementById('f-subtopic');
   sel.innerHTML = '';
   var subs = TOPIC_SUBTOPICS[topic];
-  if(topic && subs){
+  sel.disabled = isPatent || !subs || !subs.length;
+  if(topic && subs && subs.length && !isPatent){
     var opt0 = document.createElement('option');
     opt0.value = ''; opt0.textContent = 'Select one...';
     sel.appendChild(opt0);
@@ -70,8 +69,18 @@ function updateSubtopics(){
   } else {
     row.style.display = 'none';
   }
+  var message = document.getElementById('fm');
+  var messageRow = document.getElementById('f-message-row');
+  if(messageRow) messageRow.hidden = isPatent;
+  message.disabled = isPatent;
+  if(isPatent) message.value = '';
   var note = document.getElementById('f-disclosure-note');
-  if(note){ note.style.display = (topic === 'Patent &amp; IP Assistance' || topic === 'Patent & IP Assistance') ? 'block' : 'none'; }
+  if(note){ note.style.display = isPatent ? 'block' : 'none'; }
+  var topicField = document.getElementById('f-topic');
+  if(isPatent) topicField.setAttribute('aria-describedby', 'f-disclosure-note');
+  else topicField.removeAttribute('aria-describedby');
+  var btn = document.getElementById('f-submit-btn');
+  if(!btn.disabled) btn.textContent = isPatent ? 'Request Contact \u2192' : 'Send Message \u2192';
 }
 
 function preselectTopic(){ if(!document.getElementById('f-topic')) return;
@@ -80,61 +89,87 @@ function preselectTopic(){ if(!document.getElementById('f-topic')) return;
   var subtopic = params.get('subtopic');
   if(topic && TOPIC_SUBTOPICS[topic]){
     document.getElementById('f-topic').value = topic;
-    updateSubtopics();
-    if(subtopic){ document.getElementById('f-subtopic').value = subtopic; }
   }
+  updateSubtopics();
+  if(subtopic && topic !== PATENT_INQUIRY_TOPIC){ document.getElementById('f-subtopic').value = subtopic; }
 }
 preselectTopic();
+window.addEventListener('pageshow', function(){
+  // Reapply the contact-only fields when a restored page contains a patent inquiry.
+  var topic = document.getElementById('f-topic');
+  if(topic && topic.value === PATENT_INQUIRY_TOPIC) updateSubtopics();
+});
+
+function inquiryDetails(){
+  var topic = document.getElementById('f-topic').value;
+  var isPatent = topic === PATENT_INQUIRY_TOPIC;
+  return {
+    name: document.getElementById('fn').value.trim(),
+    email: document.getElementById('fe').value.trim(),
+    topic: topic,
+    isPatent: isPatent,
+    subtopic: !isPatent && TOPIC_SUBTOPICS[topic] ? document.getElementById('f-subtopic').value : '',
+    message: isPatent ? '' : document.getElementById('fm').value.trim()
+  };
+}
+
+function inquiryText(details){
+  var lines = ['Name: ' + details.name, 'Email: ' + details.email, 'Topic: ' + (details.topic || '(none selected)')];
+  if(!details.isPatent){
+    if(details.subtopic) lines.push('Subtopic: ' + details.subtopic);
+    lines.push('', details.message);
+  }
+  return lines.join('\n');
+}
 
 function sendForm(){
-  var fn=document.getElementById('fn').value.trim();
-  var fe=document.getElementById('fe').value.trim();
-  var fm=document.getElementById('fm').value.trim();
-  var topic=document.getElementById('f-topic').value;
-  var subs=TOPIC_SUBTOPICS[topic];
-  var subtopic = subs ? document.getElementById('f-subtopic').value : '';
+  var details = inquiryDetails();
+  var subs = TOPIC_SUBTOPICS[details.topic];
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!fn||!fe||!fm||!topic){alert('Please fill in your name, email, message, and select a topic.');return;}
-  if(!emailPattern.test(fe)){alert('Please enter a valid email address.');return;}
-  if(subs && !subtopic){alert('Please select a more specific option.');return;}
+  if(!details.name||!details.email||!details.topic||(!details.isPatent&&!details.message)){
+    alert(details.isPatent ? 'Please fill in your name and email.' : 'Please fill in your name, email, message, and select a topic.');return;
+  }
+  if(!emailPattern.test(details.email)){alert('Please enter a valid email address.');return;}
+  if(!details.isPatent && subs && subs.length && !details.subtopic){alert('Please select a more specific option.');return;}
 
-  var subject = '[NSF Inquiry] ' + topic + (subtopic ? ' \u2014 ' + subtopic : '');
+  var subject = '[NSF Inquiry] ' + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
+  var buttonText = details.isPatent ? 'Request Contact \u2192' : 'Send Message \u2192';
   var btn = document.getElementById('f-submit-btn');
   var ok = document.getElementById('fok');
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
   function fallbackToEmail(noteText){
-    var bodyLines = ['Name: ' + fn, 'Email: ' + fe, 'Topic: ' + topic];
-    if(subtopic) bodyLines.push('Subtopic: ' + subtopic);
-    bodyLines.push('', fm);
-    var mailto = 'mailto:robotexninjas@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+    var mailto = 'mailto:robotexninjas@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(inquiryText(details));
     window.location.href = mailto;
     ok.textContent = noteText;
     ok.style.display = 'block';
     btn.disabled = false;
-    btn.textContent = 'Send Message \u2192';
+    btn.textContent = buttonText;
   }
 
+  var payload = {
+    name: details.name,
+    email: details.email,
+    topic: details.topic,
+    _subject: subject,
+    _template: 'table',
+    _captcha: 'false'
+  };
+  if(!details.isPatent){
+    payload.subtopic = details.subtopic || '(none)';
+    payload.message = details.message;
+  }
   fetch('https://formsubmit.co/ajax/robotexninjas@gmail.com', {
     method: 'POST',
     headers: {'Content-Type':'application/json','Accept':'application/json'},
-    body: JSON.stringify({
-      name: fn,
-      email: fe,
-      topic: topic,
-      subtopic: subtopic || '(none)',
-      message: fm,
-      _subject: subject,
-      _template: 'table',
-      _captcha: 'false'
-    })
+    body: JSON.stringify(payload)
   }).then(function(res){
     if(!res.ok) throw new Error('FormSubmit response not OK');
     return res.json();
   }).then(function(result){
     if(result.success === false || result.success === 'false') throw new Error('Message was not accepted');
-    ok.textContent = '\u2713   Message sent \u2014 thanks! We\u2019ll get back to you soon.';
+    ok.textContent = details.isPatent ? '\u2713   Contact request sent \u2014 thanks! We\u2019ll follow up by email about next steps.' : '\u2713   Message sent \u2014 thanks! We\u2019ll get back to you soon.';
     ok.style.display = 'block';
     ['fn','fe','fm'].forEach(function(id){document.getElementById(id).value='';});
     document.getElementById('f-topic').selectedIndex = 0;
@@ -147,16 +182,7 @@ function sendForm(){
 }
 
 function copyFormDetails(){
-  var fn=document.getElementById('fn').value.trim();
-  var fe=document.getElementById('fe').value.trim();
-  var fm=document.getElementById('fm').value.trim();
-  var topic=document.getElementById('f-topic').value;
-  var subs=TOPIC_SUBTOPICS[topic];
-  var subtopic = subs ? document.getElementById('f-subtopic').value : '';
-  var lines = ['Name: ' + fn, 'Email: ' + fe, 'Topic: ' + (topic||'(none selected)')];
-  if(subtopic) lines.push('Subtopic: ' + subtopic);
-  lines.push('', fm);
-  var text = lines.join('\n');
+  var text = inquiryText(inquiryDetails());
   var done = function(){
     var ok = document.getElementById('fok');
     ok.textContent = '\u2713   Details copied \u2014 paste them into an email to robotexninjas@gmail.com';
