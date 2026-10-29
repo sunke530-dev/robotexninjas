@@ -5,6 +5,13 @@
 .program-notebook-preview .program-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;line-height:1.5}
 .program-notebook-preview a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 #competitive-robotics{scroll-margin-top:88px}
+/* Frame the supplied artwork in the page without altering the source images. */
+.program-card-top--robot{display:grid;grid-template-columns:minmax(0,1fr) 128px;column-gap:18px;align-items:start}
+.program-card-top--robot .program-badge{grid-column:1;grid-row:1;justify-self:start}
+.program-card-top--robot .program-title{grid-column:1;grid-row:2}
+.program-card-top--robot .program-sub{grid-column:1;grid-row:3}
+.program-robot{display:block;grid-column:2;grid-row:1/4;align-self:center;width:128px;height:128px;margin:0;overflow:hidden;mix-blend-mode:multiply}
+@media(max-width:760px){.program-card-top--robot{grid-template-columns:minmax(0,1fr) 96px;column-gap:12px}.program-card-top--robot .program-badge{grid-column:1/-1}.program-card-top--robot .program-title{align-self:center;line-height:1.2}.program-card-top--robot .program-sub{grid-column:1/-1;margin-top:8px}.program-robot{grid-row:2;width:96px;height:88px}}
 @media(max-width:430px){.program-notebook-preview{grid-template-columns:84px minmax(0,1fr);gap:14px}.program-notebook-preview h4{font-size:21px}.program-notebook-preview p{font-size:13px}.program-notebook-preview .program-link{font-size:12px}}
 
 .program-flyer{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);align-items:center;gap:32px;margin-top:28px;padding:28px;background:var(--white);border:1px solid var(--border2);border-radius:8px;scroll-margin-top:88px}
