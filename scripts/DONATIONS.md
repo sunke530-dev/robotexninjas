@@ -2,11 +2,11 @@
 
 `foundation-donate.html` uses the Foundation's shared navigation, typography, logo, and an existing privacy-edited community photograph. `foundation-donate.css` contains only donation-page styles.
 
-The donation page connects to **Support Ninjas STEM Foundation**, campaign `34e77675-f6a7-4508-a338-ca5cfc27c2e0`. The user supplied the public URL and confirmed account setup on October 29, 2026. The exact embed URL was retrieved from that campaign's Share → More ways to share → Embed → Campaign dialog.
+The donation page connects to **Support Ninjas STEM Foundation**, campaign `support-ninjas-stem-foundation`. The user confirmed this campaign on October 29, 2026, replacing the earlier UUID-linked campaign. Its public page showed the Foundation's mission text, a $5,000 goal, one-time and monthly giving, and preset amounts. The exact embed URL was retrieved from this campaign's Share → More ways to share → Embed → Campaign dialog. Check these details when replacing a campaign; its title alone is not enough to distinguish it. Amounts are controlled by Zeffy and are not hard-coded on the Foundation site.
 
-Public campaign: https://www.zeffy.com/en-US/donation-form/34e77675-f6a7-4508-a338-ca5cfc27c2e0
+Public campaign: https://www.zeffy.com/en-US/donation-form/support-ninjas-stem-foundation
 
-Embed: https://www.zeffy.com/embed/donation-form/34e77675-f6a7-4508-a338-ca5cfc27c2e0
+Embed: https://www.zeffy.com/embed/donation-form/support-ninjas-stem-foundation
 
 `foundation-donate.js` loads Zeffy's official responsive embed script, which manages checkout sizing. If that script fails to load, the page uses the verified iframe URL. A direct public campaign link always remains available, including without JavaScript. Donation and payment fields belong to Zeffy; the Foundation site does not collect them.
 

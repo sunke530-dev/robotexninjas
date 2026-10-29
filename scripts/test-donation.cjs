@@ -13,8 +13,8 @@ function run(campaign = '', embed = '') {
   vm.runInNewContext(code,{document,URL});
   return {nodes,document};
 }
-const campaign = 'https://www.zeffy.com/en-US/donation-form/34e77675-f6a7-4508-a338-ca5cfc27c2e0';
-const embed = 'https://www.zeffy.com/embed/donation-form/34e77675-f6a7-4508-a338-ca5cfc27c2e0';
+const campaign = 'https://www.zeffy.com/en-US/donation-form/support-ninjas-stem-foundation';
+const embed = 'https://www.zeffy.com/embed/donation-form/support-ninjas-stem-foundation';
 assert.equal(run().document.body.children.length,0);
 for (const value of ['http://www.zeffy.com/example','https://www.zeffy.com.attacker.test/example','https://user:pass@www.zeffy.com/example','https://www.zeffy.com:8888/example']) {
   assert.equal(run(value,embed).document.body.children.length,0);
