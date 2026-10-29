@@ -17,6 +17,11 @@ function showInvolveTab(tab){
     btnOpenings.classList.remove('active');
   }
 }
+var FOUNDATION_EMAIL = 'contact@ninjasstemfoundation.com';
+var ROBOTICS_TEAM_EMAIL = 'robotexninjas@gmail.com';
+function inquiryRecipient(topic){
+  return topic === 'Join an Existing Robotic Team' || topic === 'Robotex Ninjas Team' ? ROBOTICS_TEAM_EMAIL : FOUNDATION_EMAIL;
+}
 var PATENT_INQUIRY_TOPIC = 'Patent & IP Assistance';
 var TOPIC_SUBTOPICS = {
   'Mentorship': [
@@ -38,6 +43,11 @@ var TOPIC_SUBTOPICS = {
     'Student interested in joining V5RC Team 91276C',
     'Parent inquiry'
   ],
+  'Robotex Ninjas Team': [
+    'Team question',
+    'Competition / collaboration',
+    'Team sponsorship'
+  ],
   'General Inquiry': [
     'Volunteering (non-mentoring)',
     'School / organization partnership',
@@ -51,6 +61,11 @@ function updateSubtopics(){
   if(!document.getElementById('f-topic')) return;
   var topic = document.getElementById('f-topic').value;
   var isPatent = topic === PATENT_INQUIRY_TOPIC;
+  var recipient = inquiryRecipient(topic);
+  var recipientLink = document.getElementById('f-recipient-email');
+  var recipientLabel = document.getElementById('f-recipient-label');
+  if(recipientLink){ recipientLink.textContent = recipient; recipientLink.href = 'mailto:' + recipient; }
+  if(recipientLabel) recipientLabel.textContent = recipient === ROBOTICS_TEAM_EMAIL ? 'Robotics team inquiries go to' : 'Foundation inquiries go to';
   var row = document.getElementById('f-subtopic-row');
   var sel = document.getElementById('f-subtopic');
   sel.innerHTML = '';
@@ -132,7 +147,8 @@ function sendForm(){
   if(!emailPattern.test(details.email)){alert('Please enter a valid email address.');return;}
   if(!details.isPatent && subs && subs.length && !details.subtopic){alert('Please select a more specific option.');return;}
 
-  var subject = '[NSF Inquiry] ' + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
+  var recipient = inquiryRecipient(details.topic);
+  var subject = (recipient === ROBOTICS_TEAM_EMAIL ? '[Robotex Ninjas Inquiry] ' : '[NSF Inquiry] ') + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
   var buttonText = details.isPatent ? 'Request Contact \u2192' : 'Send Message \u2192';
   var btn = document.getElementById('f-submit-btn');
   var ok = document.getElementById('fok');
@@ -140,7 +156,7 @@ function sendForm(){
   btn.textContent = 'Sending...';
 
   function fallbackToEmail(noteText){
-    var mailto = 'mailto:robotexninjas@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(inquiryText(details));
+    var mailto = 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(inquiryText(details));
     window.location.href = mailto;
     ok.textContent = noteText;
     ok.style.display = 'block';
@@ -160,7 +176,7 @@ function sendForm(){
     payload.subtopic = details.subtopic || '(none)';
     payload.message = details.message;
   }
-  fetch('https://formsubmit.co/ajax/robotexninjas@gmail.com', {
+  fetch('https://formsubmit.co/ajax/' + recipient, {
     method: 'POST',
     headers: {'Content-Type':'application/json','Accept':'application/json'},
     body: JSON.stringify(payload)
@@ -168,7 +184,7 @@ function sendForm(){
     if(!res.ok) throw new Error('FormSubmit response not OK');
     return res.json();
   }).then(function(result){
-    if(result.success === false || result.success === 'false') throw new Error('Message was not accepted');
+    if((result.success !== true && result.success !== 'true') || /activat|confirm.*(?:email|form)|verif/i.test(result.message || '')) throw new Error('Message was not accepted for delivery');
     ok.textContent = details.isPatent ? '\u2713   Contact request sent \u2014 thanks! We\u2019ll follow up by email about next steps.' : '\u2713   Message sent \u2014 thanks! We\u2019ll get back to you soon.';
     ok.style.display = 'block';
     ['fn','fe','fm'].forEach(function(id){document.getElementById(id).value='';});
@@ -177,15 +193,17 @@ function sendForm(){
     btn.disabled = false;
     btn.textContent = 'Send Message \u2192';
   }).catch(function(){
-    fallbackToEmail('\u26a0\uFE0F   Could not send directly \u2014 opening your email app instead. If nothing opens, email robotexninjas@gmail.com.');
+    fallbackToEmail('\u26a0\uFE0F   Could not send directly \u2014 opening your email app instead. If nothing opens, email ' + recipient + '.');
   });
 }
 
 function copyFormDetails(){
-  var text = inquiryText(inquiryDetails());
+  var details = inquiryDetails();
+  var recipient = inquiryRecipient(details.topic);
+  var text = inquiryText(details);
   var done = function(){
     var ok = document.getElementById('fok');
-    ok.textContent = '\u2713   Details copied \u2014 paste them into an email to robotexninjas@gmail.com';
+    ok.textContent = '\u2713   Details copied \u2014 paste them into an email to ' + recipient;
     ok.style.display='block';
   };
   if(navigator.clipboard && navigator.clipboard.writeText){

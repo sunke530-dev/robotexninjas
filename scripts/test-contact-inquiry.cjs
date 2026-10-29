@@ -7,10 +7,10 @@ const source = fs.readFileSync(path.join(__dirname, '../scripts.js'), 'utf8');
 const patent = 'Patent & IP Assistance';
 const sentinel = 'PRIVATE CONTENT MUST NOT LEAVE THE MESSAGE FIELD';
 
-function setup({ topic = '', subtopic = '', fail = false, hasForm = true } = {}) {
+function setup({ topic = '', subtopic = '', fail = false, hasForm = true, response = { success: true } } = {}) {
   const elements = {};
   const events = {};
-  const sent = [], copied = [], alerts = [];
+  const sent = [], destinations = [], copied = [], alerts = [];
   function element() {
     return {
       value: '', style: {}, disabled: false, hidden: false, textContent: '', attributes: {},
@@ -23,7 +23,7 @@ function setup({ topic = '', subtopic = '', fail = false, hasForm = true } = {})
   }
   if (hasForm) {
     for (const id of ['fn', 'fe', 'fm', 'f-topic', 'f-subtopic', 'f-subtopic-row',
-      'f-message-row', 'f-disclosure-note', 'f-submit-btn', 'fok']) elements[id] = element();
+      'f-message-row', 'f-disclosure-note', 'f-submit-btn', 'f-recipient-email', 'f-recipient-label', 'fok']) elements[id] = element();
     elements.fn.value = 'Example Visitor';
     elements.fe.value = 'visitor@example.com';
   }
@@ -38,12 +38,13 @@ function setup({ topic = '', subtopic = '', fail = false, hasForm = true } = {})
     alert: text => alerts.push(text),
     fetch: async (url, options) => {
       sent.push(JSON.parse(options.body));
+      destinations.push(url);
       if (fail) throw new Error('Simulated transport failure');
-      return { ok: true, json: async () => ({ success: true }) };
+      return { ok: true, json: async () => response };
     }
   });
   vm.runInContext(source, context);
-  return { elements, events, context, window, sent, copied, alerts };
+  return { elements, events, context, window, sent, destinations, copied, alerts };
 }
 const settle = () => new Promise(resolve => setImmediate(resolve));
 
@@ -63,6 +64,8 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   p.context.sendForm();
   await settle();
   assert.equal(p.sent.length, 1);
+  assert.equal(p.destinations[0], 'https://formsubmit.co/ajax/contact@ninjasstemfoundation.com');
+  assert.equal(p.elements['f-recipient-email'].href, 'mailto:contact@ninjasstemfoundation.com');
   assert.deepEqual(Object.keys(p.sent[0]).sort(), ['_captcha', '_subject', '_template', 'email', 'name', 'topic']);
   assert.equal(p.sent[0].name, 'Example Visitor');
   assert.equal(p.sent[0].email, 'visitor@example.com');
@@ -77,6 +80,7 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   await settle();
   const mail = new URL(fallback.window.location.href);
   assert.equal(mail.protocol, 'mailto:');
+  assert.equal(mail.pathname, 'contact@ninjasstemfoundation.com');
   assert.equal(mail.searchParams.get('body'), p.copied[0]);
 
   const invalid = setup({ topic: patent });
@@ -101,6 +105,36 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   await settle();
   assert.equal(normal.sent[0].message, 'Please contact our team.');
   assert.equal(normal.sent[0].subtopic, 'Other mentorship question');
+  assert.equal(normal.destinations[0], 'https://formsubmit.co/ajax/contact@ninjasstemfoundation.com');
+
+  for (const topic of ['Robotex Ninjas Team', 'Join an Existing Robotic Team']) {
+    const team = setup({ topic });
+    team.elements['f-subtopic'].value = topic === 'Robotex Ninjas Team' ? 'Team question' : 'Parent inquiry';
+    team.elements.fm.value = 'A robotics team inquiry.';
+    assert.equal(team.elements['f-recipient-email'].href, 'mailto:robotexninjas@gmail.com');
+    team.context.sendForm();
+    await settle();
+    assert.equal(team.destinations[0], 'https://formsubmit.co/ajax/robotexninjas@gmail.com');
+    assert.match(team.sent[0]._subject, /^\[Robotex Ninjas Inquiry\]/);
+  }
+
+  const teamFallback = setup({ topic: 'Robotex Ninjas Team', fail: true });
+  teamFallback.elements['f-subtopic'].value = 'Team question';
+  teamFallback.elements.fm.value = 'Please contact our robotics team.';
+  teamFallback.context.copyFormDetails();
+  await settle();
+  assert.match(teamFallback.elements.fok.textContent, /robotexninjas@gmail\.com/);
+  teamFallback.context.sendForm();
+  await settle();
+  assert.equal(new URL(teamFallback.window.location.href).pathname, 'robotexninjas@gmail.com');
+
+  const activation = setup({ topic: patent, response: { success: 'true', message: 'Check your email to activate this form.' } });
+  activation.elements.fm.value = sentinel;
+  activation.context.sendForm();
+  await settle();
+  assert.equal(new URL(activation.window.location.href).pathname, 'contact@ninjasstemfoundation.com');
+  assert.ok(!activation.window.location.href.includes(encodeURIComponent(sentinel)));
+  assert.doesNotMatch(activation.elements.fok.textContent, /Contact request sent/);
 
   const switched = setup({ topic: 'General Inquiry', subtopic: 'Sponsorship' });
   assert.equal(switched.elements['f-subtopic'].value, 'Sponsorship');
@@ -116,6 +150,12 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   assert.equal(switched.elements['f-message-row'].hidden, false);
   assert.equal(switched.elements.fm.disabled, false);
   assert.equal(switched.elements['f-submit-btn'].textContent, 'Send Message →');
+  switched.elements['f-topic'].value = 'Robotex Ninjas Team';
+  switched.context.updateSubtopics();
+  assert.equal(switched.elements['f-recipient-email'].textContent, 'robotexninjas@gmail.com');
+  switched.elements['f-topic'].value = 'General Inquiry';
+  switched.context.updateSubtopics();
+  assert.equal(switched.elements['f-recipient-email'].textContent, 'contact@ninjasstemfoundation.com');
   assert.doesNotThrow(() => setup({ hasForm: false }).events.pageshow());
   console.log('Contact inquiry checks passed; no network requests or messages sent.');
 })().catch(error => { console.error(error); process.exitCode = 1; });
