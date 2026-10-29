@@ -18,7 +18,7 @@ On October 22, 2026, the user requested the same AI-edited soft-blur treatment f
 
 ### Accessible galleries and team controls
 
-`accessible-gallery.js` supplies the galleries on both `index.html` and `gallery.html`. They advance only on user input, support named previous/next and photo-selector buttons, arrow/Home/End keys and horizontal touch swipes, and hide inactive slides from assistive technology. The selected photo has `aria-current` and a visible, politely announced caption. A one-photo gallery hides navigation. Keep the descriptions in this shared script aligned with each page's photo-array order; do not add student identities to descriptions without permission.
+`accessible-gallery.js` supplies the galleries on both `team.html` and `gallery.html`. They advance only on user input, support named previous/next and photo-selector buttons, arrow/Home/End keys and horizontal touch swipes, and hide inactive slides from assistive technology. The selected photo has `aria-current` and a visible, politely announced caption. A one-photo gallery hides navigation. Keep the descriptions in this shared script aligned with each page's photo-array order; do not add student identities to descriptions without permission.
 
 `team-accessibility.css` provides shared focus indicators, adequate control targets, readable secondary text and reduced-motion support. `team-accessibility.js` manages the mobile navigation, Tech Spotlight, member-card disclosures, Show More controls and deep links into hidden articles. Disclosure state must keep `hidden` and `aria-expanded` synchronized; source links remain separate from disclosure buttons. The homepage motion preference is unchanged.
 
