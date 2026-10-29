@@ -137,6 +137,14 @@ function inquiryText(details){
   return lines.join('\n');
 }
 
+function emailFormDetails(){
+  // Build the draft only when requested, using the current topic and fields.
+  var details = inquiryDetails();
+  var recipient = inquiryRecipient(details.topic);
+  var subject = (recipient === ROBOTICS_TEAM_EMAIL ? '[Robotex Ninjas Inquiry] ' : '[NSF Inquiry] ') + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
+  window.location.href = 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(inquiryText(details));
+}
+
 function sendForm(){
   var details = inquiryDetails();
   var subs = TOPIC_SUBTOPICS[details.topic];
@@ -152,13 +160,21 @@ function sendForm(){
   var buttonText = details.isPatent ? 'Request Contact \u2192' : 'Send Message \u2192';
   var btn = document.getElementById('f-submit-btn');
   var ok = document.getElementById('fok');
+  var emailFallback = document.getElementById('f-email-fallback');
   btn.disabled = true;
   btn.textContent = 'Sending...';
+  ok.style.display = 'none';
+  if(emailFallback) emailFallback.hidden = true;
+  var controller = new AbortController();
+  var timeout = setTimeout(function(){ controller.abort(); }, 20000);
 
   function fallbackToEmail(noteText){
-    var mailto = 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(inquiryText(details));
-    window.location.href = mailto;
+    clearTimeout(timeout);
+    if(emailFallback){
+      emailFallback.hidden = false;
+    }
     ok.textContent = noteText;
+    ok.style.color = 'var(--navy)';
     ok.style.display = 'block';
     btn.disabled = false;
     btn.textContent = buttonText;
@@ -170,7 +186,9 @@ function sendForm(){
     topic: details.topic,
     _subject: subject,
     _template: 'table',
-    _captcha: 'false'
+    _captcha: 'false',
+    // Identify the public form without sending URL query parameters.
+    _url: window.location.origin + window.location.pathname
   };
   if(!details.isPatent){
     payload.subtopic = details.subtopic || '(none)';
@@ -178,13 +196,24 @@ function sendForm(){
   }
   fetch('https://formsubmit.co/ajax/' + recipient, {
     method: 'POST',
+    signal: controller.signal,
     headers: {'Content-Type':'application/json','Accept':'application/json'},
     body: JSON.stringify(payload)
   }).then(function(res){
-    if(!res.ok) throw new Error('FormSubmit response not OK');
-    return res.json();
-  }).then(function(result){
-    if((result.success !== true && result.success !== 'true') || /activat|confirm.*(?:email|form)|verif/i.test(result.message || '')) throw new Error('Message was not accepted for delivery');
+    return res.json().then(function(result){
+      var accepted = result.success === true || result.success === 'true';
+      var message = typeof result.message === 'string' ? result.message : '';
+      var activationPending = /(?:please|must|need to|to) activat|(?:check|confirm|verify).*(?:email|form)|activat.*(?:required|pending)/i.test(message) || (!accepted && /activat|verif|confirm/i.test(message));
+      if(!res.ok || !accepted || activationPending){
+        var error = new Error(message || 'The delivery service rejected the request (HTTP ' + res.status + ').');
+        error.deliveryResponse = true;
+        error.activationPending = activationPending;
+        throw error;
+      }
+    });
+  }).then(function(){
+    clearTimeout(timeout);
+    ok.style.color = '';
     ok.textContent = details.isPatent ? '\u2713   Contact request sent \u2014 thanks! We\u2019ll follow up by email about next steps.' : '\u2713   Message sent \u2014 thanks! We\u2019ll get back to you soon.';
     ok.style.display = 'block';
     ['fn','fe','fm'].forEach(function(id){document.getElementById(id).value='';});
@@ -192,8 +221,18 @@ function sendForm(){
     updateSubtopics();
     btn.disabled = false;
     btn.textContent = 'Send Message \u2192';
-  }).catch(function(){
-    fallbackToEmail('\u26a0\uFE0F   Could not send directly \u2014 opening your email app instead. If nothing opens, email ' + recipient + '.');
+  }).catch(function(error){
+    var note;
+    if(error.activationPending){
+      note = 'Direct delivery is awaiting email verification by the website administrator.';
+    } else if(error.deliveryResponse){
+      note = 'The delivery service did not accept this message. ' + error.message.slice(0,400);
+    } else if(error.name === 'AbortError'){
+      note = 'The delivery service took too long to respond. We could not confirm delivery.';
+    } else {
+      note = 'Direct sending is temporarily unavailable. We could not confirm delivery.';
+    }
+    fallbackToEmail(note + ' Your message is still here. Use Open email app or Copy Details to email ' + recipient + '.');
   });
 }
 

@@ -97,7 +97,8 @@
           <button class="fsub" id="f-submit-btn" onclick="sendForm()">Send Message &rarr;</button>
           <button class="fsub" type="button" onclick="copyFormDetails()" style="background:transparent;color:var(--navy);border:1.5px solid var(--navy);">Copy Details</button>
         </div>
-        <div class="fok" id="fok" role="status" aria-live="polite">&#10003; &nbsp; Message sent &mdash; thanks! We&rsquo;ll get back to you soon.</div>
+        <div class="fok" id="fok" role="status" aria-live="polite"></div>
+        <button id="f-email-fallback" class="fsub" type="button" onclick="emailFormDetails()" style="background:transparent;color:var(--navy);border:1.5px solid var(--navy);" hidden>Open email app &rarr;</button>
       </div>
     </div>
   </div>
@@ -150,6 +151,6 @@
   </div>
 </footer>
 
-<script src="scripts.js?v=20261029-contact-routing"></script>
+<script src="scripts.js?v=20261029-contact-delivery"></script>
 </body>
 </html>

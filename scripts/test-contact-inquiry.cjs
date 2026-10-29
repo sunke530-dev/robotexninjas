@@ -7,10 +7,11 @@ const source = fs.readFileSync(path.join(__dirname, '../scripts.js'), 'utf8');
 const patent = 'Patent & IP Assistance';
 const sentinel = 'PRIVATE CONTENT MUST NOT LEAVE THE MESSAGE FIELD';
 
-function setup({ topic = '', subtopic = '', fail = false, hasForm = true, response = { success: true } } = {}) {
+function setup({ topic = '', subtopic = '', fail = false, hang = false, hasForm = true, httpStatus = 200, response = { success: true } } = {}) {
   const elements = {};
   const events = {};
   const sent = [], destinations = [], copied = [], alerts = [];
+  let timeoutCallback;
   function element() {
     return {
       value: '', style: {}, disabled: false, hidden: false, textContent: '', attributes: {},
@@ -23,16 +24,18 @@ function setup({ topic = '', subtopic = '', fail = false, hasForm = true, respon
   }
   if (hasForm) {
     for (const id of ['fn', 'fe', 'fm', 'f-topic', 'f-subtopic', 'f-subtopic-row',
-      'f-message-row', 'f-disclosure-note', 'f-submit-btn', 'f-recipient-email', 'f-recipient-label', 'fok']) elements[id] = element();
+      'f-message-row', 'f-disclosure-note', 'f-submit-btn', 'f-recipient-email', 'f-recipient-label', 'f-email-fallback', 'fok']) elements[id] = element();
     elements.fn.value = 'Example Visitor';
     elements.fe.value = 'visitor@example.com';
   }
   const window = {
-    location: { search: '?' + new URLSearchParams({ topic, subtopic }), href: '' },
+    location: { search: '?' + new URLSearchParams({ topic, subtopic }), href: '', origin: 'https://www.ninjasstemfoundation.com', pathname: '/foundation-contact.html' },
     addEventListener(name, handler) { events[name] = handler; }
   };
   const context = vm.createContext({
-    window, URLSearchParams, setTimeout,
+    window, URLSearchParams, AbortController,
+    setTimeout(callback, ms) { assert.equal(ms, 20000); timeoutCallback = callback; return 1; },
+    clearTimeout() {},
     document: { getElementById: id => elements[id], createElement: element, addEventListener() {} },
     navigator: { clipboard: { writeText: text => { copied.push(text); return Promise.resolve(); } } },
     alert: text => alerts.push(text),
@@ -40,11 +43,14 @@ function setup({ topic = '', subtopic = '', fail = false, hasForm = true, respon
       sent.push(JSON.parse(options.body));
       destinations.push(url);
       if (fail) throw new Error('Simulated transport failure');
-      return { ok: true, json: async () => response };
+      if (hang) return new Promise((resolve,reject) => options.signal.addEventListener('abort', () => {
+        const error = new Error('Timed out'); error.name = 'AbortError'; reject(error);
+      }));
+      return { ok: httpStatus >= 200 && httpStatus < 300, status: httpStatus, json: async () => response };
     }
   });
   vm.runInContext(source, context);
-  return { elements, events, context, window, sent, destinations, copied, alerts };
+  return { elements, events, context, window, sent, destinations, copied, alerts, triggerTimeout: () => timeoutCallback() };
 }
 const settle = () => new Promise(resolve => setImmediate(resolve));
 
@@ -66,7 +72,8 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   assert.equal(p.sent.length, 1);
   assert.equal(p.destinations[0], 'https://formsubmit.co/ajax/contact@ninjasstemfoundation.com');
   assert.equal(p.elements['f-recipient-email'].href, 'mailto:contact@ninjasstemfoundation.com');
-  assert.deepEqual(Object.keys(p.sent[0]).sort(), ['_captcha', '_subject', '_template', 'email', 'name', 'topic']);
+  assert.deepEqual(Object.keys(p.sent[0]).sort(), ['_captcha', '_subject', '_template', '_url', 'email', 'name', 'topic']);
+  assert.equal(p.sent[0]._url, 'https://www.ninjasstemfoundation.com/foundation-contact.html');
   assert.equal(p.sent[0].name, 'Example Visitor');
   assert.equal(p.sent[0].email, 'visitor@example.com');
   assert.equal(p.sent[0].topic, patent);
@@ -78,6 +85,9 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   fallback.elements.fm.value = sentinel;
   fallback.context.sendForm();
   await settle();
+  assert.equal(fallback.window.location.href, ''); // No unexpected email-app launch.
+  assert.equal(fallback.elements['f-email-fallback'].hidden, false);
+  fallback.context.emailFormDetails();
   const mail = new URL(fallback.window.location.href);
   assert.equal(mail.protocol, 'mailto:');
   assert.equal(mail.pathname, 'contact@ninjasstemfoundation.com');
@@ -126,15 +136,45 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   assert.match(teamFallback.elements.fok.textContent, /robotexninjas@gmail\.com/);
   teamFallback.context.sendForm();
   await settle();
+  teamFallback.context.emailFormDetails();
   assert.equal(new URL(teamFallback.window.location.href).pathname, 'robotexninjas@gmail.com');
 
   const activation = setup({ topic: patent, response: { success: 'true', message: 'Check your email to activate this form.' } });
   activation.elements.fm.value = sentinel;
   activation.context.sendForm();
   await settle();
+  activation.context.emailFormDetails();
   assert.equal(new URL(activation.window.location.href).pathname, 'contact@ninjasstemfoundation.com');
   assert.ok(!activation.window.location.href.includes(encodeURIComponent(sentinel)));
   assert.doesNotMatch(activation.elements.fok.textContent, /Contact request sent/);
+  assert.match(activation.elements.fok.textContent, /awaiting email verification/);
+
+  const rejected = setup({ topic: patent, httpStatus: 429, response: { success: false, message: 'Please try again later.' } });
+  rejected.context.sendForm();
+  await settle();
+  assert.match(rejected.elements.fok.textContent, /Please try again later/);
+  assert.equal(rejected.elements.fn.value, 'Example Visitor');
+  assert.equal(rejected.elements['f-submit-btn'].disabled, false);
+
+  const timeout = setup({ topic: patent, hang: true });
+  timeout.context.sendForm();
+  timeout.triggerTimeout();
+  await settle();
+  assert.match(timeout.elements.fok.textContent, /took too long/);
+  assert.equal(timeout.elements['f-submit-btn'].disabled, false);
+
+  const activated = setup({ topic: patent, response: { success: 'true', message: 'This form is activated. The form was submitted successfully.' } });
+  activated.context.sendForm();
+  await settle();
+  assert.match(activated.elements.fok.textContent, /Contact request sent/);
+
+  // Changing topic after a failure cannot use an outdated recipient or patent message.
+  teamFallback.elements['f-topic'].value = patent;
+  teamFallback.context.updateSubtopics();
+  teamFallback.elements.fm.value = sentinel;
+  teamFallback.context.emailFormDetails();
+  assert.equal(new URL(teamFallback.window.location.href).pathname, 'contact@ninjasstemfoundation.com');
+  assert.ok(!decodeURIComponent(teamFallback.window.location.href).includes(sentinel));
 
   const switched = setup({ topic: 'General Inquiry', subtopic: 'Sponsorship' });
   assert.equal(switched.elements['f-subtopic'].value, 'Sponsorship');
