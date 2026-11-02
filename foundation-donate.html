@@ -8,7 +8,7 @@
 <meta name="description" content="Support student engineering, robotics, and community STEM learning with Ninjas STEM Foundation in North Texas.">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="foundation-donate.css?v=20261101-photo">
+<link rel="stylesheet" href="foundation-donate.css?v=20261102-slideshow">
 </head>
 <body class="donate-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -46,8 +46,22 @@
       <p class="donate-intro">A first robot. A new skill. A question worth exploring. Help students turn their curiosity into something they can build and share.</p>
       <div class="donate-trust"><span>501(c)(3) public charity</span><span>EIN 42-2658141</span></div>
       <a class="donate-mobile-jump" href="#give">Giving options <span aria-hidden="true">↓</span></a>
-      <figure class="donate-photo">
-        <img src="assets/community/robot-donation-sign.jpg" width="1280" height="1707" alt="A student holding a robot controller beside a robot carrying a handwritten donation sign." decoding="async">
+      <figure class="donate-photo" id="donation-photos" role="region" aria-roledescription="carousel" aria-label="Robotics fundraising photos">
+        <div class="donate-photo-slides">
+          <div class="donate-photo-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 2">
+            <img src="assets/community/robot-donation-sign.jpg" width="1280" height="1707" alt="A student holding a robot controller beside a robot carrying a handwritten donation sign." decoding="async">
+          </div>
+          <div class="donate-photo-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" aria-hidden="true" hidden>
+            <img src="assets/community/robots-donation-evening.jpg" width="1280" height="1707" alt="Two robots beside a donation box on a front porch at night, with visitors along the sidewalk." decoding="async">
+          </div>
+        </div>
+        <div class="donate-photo-controls" hidden>
+          <div class="donate-photo-choices" role="group" aria-label="Choose a photo">
+            <button type="button" data-photo="0" aria-label="Show photo 1: student with donation robot" aria-pressed="true">1</button>
+            <button type="button" data-photo="1" aria-label="Show photo 2: robots on the porch at night" aria-pressed="false">2</button>
+          </div>
+          <button type="button" class="donate-photo-toggle">Pause slideshow</button>
+        </div>
         <figcaption><span>Creativity in action.</span> Putting robotics to work.</figcaption>
       </figure>
       <div class="donate-focus" aria-label="What your support helps make possible">
@@ -132,5 +146,6 @@
 
 <script src="scripts.js?v=20261029-contact-delivery"></script>
 <script src="foundation-donate.js?v=20261029-zeffy"></script>
+<script src="donation-photos.js?v=20261102"></script>
 </body>
 </html>

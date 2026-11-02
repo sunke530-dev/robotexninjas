@@ -1,6 +1,8 @@
 # Donation page
 
-`foundation-donate.html` uses the Foundation's shared navigation, typography, logo, and the user-supplied robot donation photograph (`assets/community/robot-donation-sign.jpg`, added November 1, 2026). The original JPEG is preserved unchanged and displayed at its natural portrait ratio so the robot and handwritten sign remain visible. `foundation-donate.css` contains only donation-page styles.
+`foundation-donate.html` uses the Foundation's shared navigation, typography, logo, and two user-supplied photographs: `assets/community/robot-donation-sign.jpg` (November 1, 2026) and `assets/community/robots-donation-evening.jpg` (November 2, 2026). Both original JPEGs are preserved unchanged and displayed at their natural portrait ratio. `foundation-donate.css` contains only donation-page styles.
+
+`donation-photos.js` switches photos every seven seconds with a short crossfade. Numbered buttons select a photo and pause rotation; the Play/Pause button controls autoplay. Hover, keyboard focus, and a hidden browser tab suspend rotation. Reduced-motion preferences start the carousel paused and remove the transition. Without JavaScript, the first photo remains visible. This script is separate from Zeffy's checkout integration.
 
 The donation page connects to **Support Ninjas STEM Foundation**, campaign `support-ninjas-stem-foundation`. The user confirmed this campaign on October 29, 2026, replacing the earlier UUID-linked campaign. Its public page showed the Foundation's mission text, a $5,000 goal, one-time and monthly giving, and preset amounts. The exact embed URL was retrieved from this campaign's Share → More ways to share → Embed → Campaign dialog. Check these details when replacing a campaign; its title alone is not enough to distinguish it. Amounts are controlled by Zeffy and are not hard-coded on the Foundation site.
 
