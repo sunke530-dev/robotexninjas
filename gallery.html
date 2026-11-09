@@ -41,7 +41,13 @@ a{color:var(--cyan);}
 .gal-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1);}
 .gal-slide{min-width:100%;aspect-ratio:16/9;overflow:hidden;}
 .gal-slide img{width:100%;height:100%;object-fit:cover;display:block;}
-#gallery-ph-davis .gal-slide img,#gallery-ph-haggard .gal-slide img{object-fit:contain;}
+#gallery-ph-davis .gal-slide img{object-fit:contain;}
+#gallery-ph-haggard .gal-slide{position:relative;isolation:isolate;}
+#gallery-ph-haggard .gal-slide img{object-fit:cover;}
+#gallery-ph-haggard .gal-slide:nth-child(n+4)::before{content:'';position:absolute;inset:-24px;z-index:-1;background-image:var(--portrait-background);background-position:center;background-size:cover;filter:blur(22px) brightness(.45);pointer-events:none;}
+#gallery-ph-haggard .gal-slide:nth-child(4){--portrait-background:url('assets/gallery/haggard-library-2026-11-07-04-privacy.webp');}
+#gallery-ph-haggard .gal-slide:nth-child(5){--portrait-background:url('assets/gallery/haggard-library-2026-11-07-05.webp');}
+#gallery-ph-haggard .gal-slide:nth-child(n+4) img{object-fit:contain;}
 .gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .15s;-webkit-tap-highlight-color:transparent;}
 .gal-btn:hover{background:rgba(0,200,240,.45);}
 .gal-prev{left:10px;}
