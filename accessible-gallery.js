@@ -2,6 +2,13 @@
 (function () {
   'use strict';
   const descriptions = {
+    'ph-haggard': [
+      'Students guide visitors around a VEX robotics practice field at Haggard Library; visitor faces are blurred for privacy.',
+      'A student points out a robot on the field while visitors try the controls and watch; visitor faces are blurred for privacy.',
+      'A student shares engineering work with children and a parent at the demonstration table; visitor faces are blurred for privacy.',
+      'A young visitor uses a handheld controller beside the robot field during the STEAM Showcase; visitor faces are blurred for privacy.',
+      'Three Robotex Ninjas team members stand with their robots, practice-field tiles, and equipment at Haggard Library.'
+    ],
     'ph-davis': [
       'A visitor tries a handheld controller while students demonstrate a robot handling game pieces; visitor faces are blurred for privacy.',
       'Students guide a young visitor and family beside a robotics practice field; visitor faces are blurred for privacy.',
@@ -64,6 +71,7 @@
     ]
   };
   const names = {
+    'ph-haggard': 'Haggard Library STEAM Showcase',
     'ph-davis': 'Davis Library STEAM Showcase',
     'ph-littleelm': 'Little Elm workshop', 'ph-vbs': 'Vacation Bible School robotics',
     'ph-scrimmage': 'Mix & Match scrimmage', 'ph-church': 'Church robotics workshop',
