@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="foundation-programs.css?v=20261029-robots-right">
+<link rel="stylesheet" href="learning-pathways.css?v=20261111">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -44,8 +45,18 @@
     <div class="sec-hd">
       <div class="sec-eyebrow red">What We Do</div>
       <h1 class="sec-title">Our <span>Programs</span></h1>
-      <p class="sec-desc">The foundation supports a growing portfolio of STEM programs &mdash; from competitive robotics to community outreach.</p>
+      <p class="sec-desc">Start with a hands-on discovery, deepen your engineering skills, or bring robotics to your community. Explore the opportunities that match your interests.</p>
     </div>
+    <div class="lp-section"><div class="lp-route-list" aria-label="Find a program for you"><a href="#robotics-discovery"><strong>Discover robotics</strong><small>Hands-on experiences for families and community groups.</small><span>Community programs ↓</span></a><a href="#competitive-robotics"><strong>Build with a team</strong><small>Design, code, test, document, and compete.</small><span>Competitive robotics ↓</span></a><a href="#program-team-mentorship"><strong>Grow your team</strong><small>Mentorship for developing VEX IQ and V5RC teams.</small><span>Team mentorship ↓</span></a><a href="#innovation-lab"><strong>Explore an idea</strong><small>Research, invention, and student-led prototypes.</small><span>Innovation Lab ↓</span></a></div></div>
+<section class="lp-section lp-process" id="lp-how-we-learn" data-learning-process aria-labelledby="lp-learning-title">
+  <div class="lp-intro"><div class="lp-eyebrow">The learning behind the robot</div><h2 id="lp-learning-title">Every build begins with a question.</h2><p>Students make design decisions, test what happens, and explain what they would change. Explore five parts of that process through examples from our team’s own engineering notebooks.</p></div>
+  <div class="lp-steps" role="group" aria-label="Explore our learning process">
+    <button type="button" data-learning-step="0" aria-pressed="true" aria-controls="lp-learning-example"><span>01</span>Investigate</button><button type="button" data-learning-step="1" aria-pressed="false" aria-controls="lp-learning-example"><span>02</span>Design</button><button type="button" data-learning-step="2" aria-pressed="false" aria-controls="lp-learning-example"><span>03</span>Build &amp; code</button><button type="button" data-learning-step="3" aria-pressed="false" aria-controls="lp-learning-example"><span>04</span>Test</button><button type="button" data-learning-step="4" aria-pressed="false" aria-controls="lp-learning-example"><span>05</span>Improve</button>
+  </div>
+  <div class="lp-process-panel" id="lp-learning-example"><figure class="lp-process-image"><img data-learning-image src="assets/notebook/pin-23.webp" width="560" height="315" loading="lazy" alt="Original student diagram comparing upright and tilted pins in a conveyor."><figcaption data-learning-caption>Student notebook · Mix &amp; Match · Intake, page 4</figcaption></figure><div aria-live="polite" aria-atomic="true"><h3 data-learning-title>Find the problem before choosing a fix.</h3><p data-learning-copy>Pins tilted inside the conveyor and missed the revolver opening. The students traced the failure back to bending belts, rather than treating every jam as the same problem.</p><a class="lp-link" data-learning-link href="foundation-notebook.html#notebook-pin-catcher">Follow the pin-catcher story →</a></div></div>
+  <p class="lp-mentor-note"><strong>Students own the work.</strong> Mentors ask questions, teach concepts, and help students reflect. The students make and explain their own engineering decisions.</p>
+</section>
+<div class="lp-section lp-program-index"><h2>Find the right fit.</h2><p>These are different ways to participate, not a required sequence. Availability and arrangements vary by program.</p></div>
     <div class="programs-grid">
 
       <div class="program-card" id="competitive-robotics">
@@ -63,14 +74,14 @@
           <p class="program-desc">Robotex Ninjas began in VEX IQ as Team 276C and has progressed into V5RC as Team 91276C. Our competitive experience also informs the demonstrations, workshops, and mentoring we offer other students. Team achievements and season history are on the Robotex Ninjas team page.</p>
           <div class="program-notebook-preview">
             <img src="assets/notebook/pin-33.webp" width="180" height="140" loading="lazy" decoding="async" alt="Original student sketch of the pin catcher holding a pin at the conveyor entrance.">
-            <div><h4>Inside our engineering notebook</h4><p>See how our students turn testing and setbacks into better designs.</p><a class="program-link" href="foundation-notebook.html">Explore our engineering notebook →</a></div>
+            <div><h4>Small decisions. Real engineering.</h4><p>Follow the pin catcher, revolver, and power-sharing designs from problem to test to revision.</p><a class="program-link" href="foundation-notebook.html">Explore our engineering notebook →</a></div>
           </div>
           <a class="program-link red" href="team.html" target="_blank" rel="noopener">Visit Team Page &rarr;</a>
-          <a class="program-link" style="margin-left:18px;" href="foundation-contact.html?topic=Join%20an%20Existing%20Robotic%20Team#contact">Apply to Join &rarr;</a>
+          <a class="program-link" style="margin-left:18px;" href="foundation-contact.html?topic=Join%20an%20Existing%20Robotic%20Team#contact">Ask About Joining &rarr;</a>
         </div>
       </div>
 
-      <div class="program-card">
+      <div class="program-card" id="program-team-mentorship">
         <div class="program-card-top program-card-top--robot">
           <span class="program-badge active">&#128994; Active</span>
           <svg class="program-robot" viewBox="170 150 720 985" role="img" aria-label="Robotex Ninjas robot illustration with an orange outline" focusable="false">
@@ -108,7 +119,7 @@
         </div>
       </div>
 
-      <div class="program-card">
+      <div class="program-card" id="stem-academy">
         <div class="program-card-top">
           <span class="program-badge planned">In Development</span>
           <div class="program-icon">&#128218;</div>
@@ -221,6 +232,7 @@
 </div>
 
 
+<section class="sec lp-section lp-faq" aria-labelledby="lp-program-faq-title"><div class="lp-faq-grid"><div><div class="lp-eyebrow">Before you start</div><h2 id="lp-program-faq-title">A few useful answers.</h2><p>Tell us what you want to explore. We can help you identify the relevant program and discuss current arrangements.</p><a class="lp-link" href="foundation-contact.html">Ask the foundation →</a></div><div><details><summary>Is a community event the same as joining a team?</summary><p>No. Robotics Discovery offers demonstrations and hands-on activities for community audiences. Competitive Robotics involves ongoing team participation. Attending an event does not enroll a student on a team.</p></details><details><summary>Can an existing robotics team request help?</summary><p>Yes. The mentorship program supports developing VEX IQ and V5RC teams while students retain responsibility for their own competition work. <a href="foundation-governance.html#package-robotics-team-mentorship">Review the mentorship documents</a> or send a <a href="foundation-contact.html?topic=Mentorship#contact">mentorship inquiry</a>.</p></details><details><summary>Are all programs open for enrollment?</summary><p>Check each program’s status and contact us about current opportunities. STEM Academy remains in development. Dates, age groups, availability, and any participation costs are confirmed for the specific opportunity.</p></details></div></div></section>
 </main>
 <footer>
   <div class="footer-top">
@@ -270,5 +282,6 @@
 </footer>
 
 <script src="scripts.js"></script>
+<script src="learning-pathways.js?v=20261111" defer></script>
 </body>
 </html>
