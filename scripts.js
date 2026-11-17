@@ -18,9 +18,10 @@ function showInvolveTab(tab){
   }
 }
 var FOUNDATION_EMAIL = 'contact@ninjasstemfoundation.com';
-var ROBOTICS_TEAM_EMAIL = 'robotexninjas@gmail.com';
+// Public endpoint; all contact-form topics use the verified Foundation mailbox.
+var CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/xaeoolnn';
 function inquiryRecipient(topic){
-  return topic === 'Join an Existing Robotic Team' || topic === 'Robotex Ninjas Team' ? ROBOTICS_TEAM_EMAIL : FOUNDATION_EMAIL;
+  return FOUNDATION_EMAIL;
 }
 var PATENT_INQUIRY_TOPIC = 'Patent & IP Assistance';
 var TOPIC_SUBTOPICS = {
@@ -65,7 +66,7 @@ function updateSubtopics(){
   var recipientLink = document.getElementById('f-recipient-email');
   var recipientLabel = document.getElementById('f-recipient-label');
   if(recipientLink){ recipientLink.textContent = recipient; recipientLink.href = 'mailto:' + recipient; }
-  if(recipientLabel) recipientLabel.textContent = recipient === ROBOTICS_TEAM_EMAIL ? 'Robotics team inquiries go to' : 'Foundation inquiries go to';
+  if(recipientLabel) recipientLabel.textContent = 'All form inquiries go to';
   var row = document.getElementById('f-subtopic-row');
   var sel = document.getElementById('f-subtopic');
   sel.innerHTML = '';
@@ -141,11 +142,13 @@ function emailFormDetails(){
   // Build the draft only when requested, using the current topic and fields.
   var details = inquiryDetails();
   var recipient = inquiryRecipient(details.topic);
-  var subject = (recipient === ROBOTICS_TEAM_EMAIL ? '[Robotex Ninjas Inquiry] ' : '[NSF Inquiry] ') + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
+  var subject = '[NSF Inquiry] ' + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
   window.location.href = 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(inquiryText(details));
 }
 
 function sendForm(){
+  var btn = document.getElementById('f-submit-btn');
+  if(!btn || btn.disabled) return;
   var details = inquiryDetails();
   var subs = TOPIC_SUBTOPICS[details.topic];
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -156,58 +159,56 @@ function sendForm(){
   if(!details.isPatent && subs && subs.length && !details.subtopic){alert('Please select a more specific option.');return;}
 
   var recipient = inquiryRecipient(details.topic);
-  var subject = (recipient === ROBOTICS_TEAM_EMAIL ? '[Robotex Ninjas Inquiry] ' : '[NSF Inquiry] ') + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
-  var buttonText = details.isPatent ? 'Request Contact \u2192' : 'Send Message \u2192';
-  var btn = document.getElementById('f-submit-btn');
+  var subject = '[NSF Inquiry] ' + details.topic + (details.subtopic ? ' \u2014 ' + details.subtopic : '');
   var ok = document.getElementById('fok');
-  var emailFallback = document.getElementById('f-email-fallback');
+  var endpoint = CONTACT_FORM_ENDPOINT;
+  if(!/^https:\/\/formspree\.io\/f\/[a-z0-9]+$/.test(endpoint)){
+    ok.textContent = 'Direct sending is not yet configured for this topic. Use Open email app or Copy Details to email ' + recipient + '.';
+    ok.style.color = 'var(--navy)';
+    ok.style.display = 'block';
+    return;
+  }
   btn.disabled = true;
   btn.textContent = 'Sending...';
   ok.style.display = 'none';
-  if(emailFallback) emailFallback.hidden = true;
   var controller = new AbortController();
   var timeout = setTimeout(function(){ controller.abort(); }, 20000);
 
   function fallbackToEmail(noteText){
     clearTimeout(timeout);
-    if(emailFallback){
-      emailFallback.hidden = false;
-    }
     ok.textContent = noteText;
     ok.style.color = 'var(--navy)';
     ok.style.display = 'block';
     btn.disabled = false;
-    btn.textContent = buttonText;
+    btn.textContent = document.getElementById('f-topic').value === PATENT_INQUIRY_TOPIC ? 'Request Contact \u2192' : 'Send Message \u2192';
   }
 
   var payload = {
     name: details.name,
     email: details.email,
     topic: details.topic,
-    _subject: subject,
-    _template: 'table',
-    _captcha: 'false',
-    // Identify the public form without sending URL query parameters.
-    _url: window.location.origin + window.location.pathname
+    subject: subject
   };
   if(!details.isPatent){
     payload.subtopic = details.subtopic || '(none)';
     payload.message = details.message;
   }
-  fetch('https://formsubmit.co/ajax/' + recipient, {
+  fetch(endpoint, {
     method: 'POST',
     signal: controller.signal,
     headers: {'Content-Type':'application/json','Accept':'application/json'},
     body: JSON.stringify(payload)
   }).then(function(res){
     return res.json().then(function(result){
-      var accepted = result.success === true || result.success === 'true';
-      var message = typeof result.message === 'string' ? result.message : '';
-      var activationPending = /(?:please|must|need to|to) activat|(?:check|confirm|verify).*(?:email|form)|activat.*(?:required|pending)/i.test(message) || (!accepted && /activat|verif|confirm/i.test(message));
-      if(!res.ok || !accepted || activationPending){
-        var error = new Error(message || 'The delivery service rejected the request (HTTP ' + res.status + ').');
+      // Formspree's client recognizes a successful response by its `next` URL.
+      // Never navigate to that URL; keep the visitor and their status on this page.
+      var accepted = result && (result.ok === true || typeof result.next === 'string');
+      var errors = result && Array.isArray(result.errors) ? result.errors : [];
+      if(!res.ok || !accepted || errors.length || result.error){
+        var message = errors.map(function(item){ return item.message || ''; }).filter(Boolean).join(' ');
+        if(res.status === 429) message = 'Please wait a few minutes before trying again, or email us directly.';
+        var error = new Error(message || 'Please email us directly or try again later.');
         error.deliveryResponse = true;
-        error.activationPending = activationPending;
         throw error;
       }
     });
@@ -216,16 +217,17 @@ function sendForm(){
     ok.style.color = '';
     ok.textContent = details.isPatent ? '\u2713   Contact request sent \u2014 thanks! We\u2019ll follow up by email about next steps.' : '\u2713   Message sent \u2014 thanks! We\u2019ll get back to you soon.';
     ok.style.display = 'block';
-    ['fn','fe','fm'].forEach(function(id){document.getElementById(id).value='';});
-    document.getElementById('f-topic').selectedIndex = 0;
-    updateSubtopics();
+    // Do not erase a new inquiry edited while the previous request was in flight.
+    if(JSON.stringify(inquiryDetails()) === JSON.stringify(details)){
+      ['fn','fe','fm'].forEach(function(id){document.getElementById(id).value='';});
+      document.getElementById('f-topic').selectedIndex = 0;
+      updateSubtopics();
+    }
     btn.disabled = false;
-    btn.textContent = 'Send Message \u2192';
+    btn.textContent = document.getElementById('f-topic').value === PATENT_INQUIRY_TOPIC ? 'Request Contact \u2192' : 'Send Message \u2192';
   }).catch(function(error){
     var note;
-    if(error.activationPending){
-      note = 'Direct delivery is awaiting email verification by the website administrator.';
-    } else if(error.deliveryResponse){
+    if(error.deliveryResponse){
       note = 'The delivery service did not accept this message. ' + error.message.slice(0,400);
     } else if(error.name === 'AbortError'){
       note = 'The delivery service took too long to respond. We could not confirm delivery.';
